@@ -1,0 +1,20 @@
+%h1 Welcome Admin, to Big Size Big Tour Big Nice
+%p 
+  you are
+  =  current_user.email
+
+%table
+  %tr
+    %th Angelegte Benutzer
+  %tr    
+    - @users.each do |user|
+      %tr
+        %td  
+          = user.first_name
+        %td
+          = user.last_name
+        %td
+          = user.email  
+
+= link_to "neuer Nutzer", new_admin_user_path
+= link_to "Sign out", destroy_user_session_path, :method => :delete
