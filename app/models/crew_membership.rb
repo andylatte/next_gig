@@ -1,0 +1,2 @@
+class CrewMembership < ApplicationRecord
+end

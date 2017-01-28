@@ -7,6 +7,7 @@ class User < ApplicationRecord
   
   before_create :set_admin
   
+  has_many :crew_members, class_name: "CrewMembership", foreign_key: "tour_manager_id"
   
   def admin?
     self.is_admin?
