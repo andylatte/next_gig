@@ -1,5 +1,5 @@
 class Admin::WelcomeController < AdminController
   def index
-    @users = User.all
+    @crew_members = current_user.crew_members
   end
 end

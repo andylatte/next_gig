@@ -6,10 +6,11 @@ class Admin::UsersController < AdminController
   def create
     @user = User.new(user_params)
     # @user.admin_id = current_user.id => replace with crew association
-    #self.crew_members <<  @user
+    
     #self.crew_members.create ()
     if @user.valid?
       @user.save!
+      current_user.crew_members << @user
       flash[:notice] = "Signed up #{@user.email}."
       redirect_to admin_welcome_index_path
     else
@@ -42,5 +43,5 @@ class Admin::UsersController < AdminController
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
   end
-    
+      
 end
