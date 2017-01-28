@@ -1,0 +1,5 @@
+.admin_page_footer
+  = link_to "Sign out", destroy_user_session_path, :method => :delete
+  = " | "
+  = link_to "regular users view", welcome_index_path
+

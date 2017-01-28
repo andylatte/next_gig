@@ -1,7 +1,7 @@
-%h1 Welcome Admin, to Big Size Big Tour Big Nice
-%p 
-  you are
-  =  current_user.email
+%h1 
+  Welcome Admin 
+  = current_user.email
+
 
 %table
   %tr
@@ -17,4 +17,3 @@
           = user.email  
 
 = link_to "neuer Nutzer", new_admin_user_path
-= link_to "Sign out", destroy_user_session_path, :method => :delete

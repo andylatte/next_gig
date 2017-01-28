@@ -1,0 +1,6 @@
+.page_footer
+  = link_to "Sign out", destroy_user_session_path, :method => :delete
+  - if current_user && current_user.admin?
+    = " | "
+    = link_to "admin view", admin_welcome_index_path
+

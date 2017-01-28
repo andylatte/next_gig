@@ -1,0 +1,15 @@
+!!!
+%html
+  %head
+    %title Admin NextGig
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
+
+  %body
+    = render "layouts/admin/page_header"
+    = render "layouts/application/warnings"
+    .content
+      = yield 
+    = render "layouts/admin/page_footer"
