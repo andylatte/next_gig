@@ -5,9 +5,7 @@ class Admin::UsersController < AdminController
 
   def create
     @user = User.new(user_params)
-    # @user.admin_id = current_user.id => replace with crew association
-    
-    #self.crew_members.create ()
+
     if @user.valid?
       @user.save!
       current_user.crew_members << @user
