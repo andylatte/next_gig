@@ -1,7 +1,7 @@
 class Admin::UsersController < AdminController
   
   def index
-    @crew_members = current_user.crew_members
+    @crew_members_available = current_user.crew_members_available
   end
   
   def new
@@ -30,7 +30,7 @@ class Admin::UsersController < AdminController
     @user = User.find(params[:id])
 
     if @user.update(user_params)
-      redirect_to admin_welcome_index_path
+      redirect_to admin_users_path
     else
       render 'edit'
     end
@@ -40,7 +40,7 @@ class Admin::UsersController < AdminController
     @user = User.find(params[:id])
     @user.destroy
 
-    redirect_to admin_welcome_index_path
+    redirect_to admin_users_path
   end
   
   def user_params

@@ -6,14 +6,15 @@ class User < ApplicationRecord
   
   # Memberships & Crew
   has_many :tour_management_memberships, class_name: "CrewMembership", foreign_key: "tour_manager_id"
-  has_many :crew_members, class_name: "User", through: :tour_management_memberships
+  has_many :crew_members_available, through: :tour_management_memberships, source: "crew_member"
 
-  has_many :crew_memberships, class_name: "CrewMembership", foreign_key: "crew_member_id", dependent: :destroy
+  has_many :crew_memberships, foreign_key: "crew_member_id", dependent: :destroy
 
-  # Tours
-  has_many :managed_tours, class_name: "Tour", foreign_key: "user_id"
+  # Tours & Tour Memberships
   has_many :tour_memberships
-  has_many :tours, through: :tour_memberships
+  
+  has_many :tours_managed, class_name: "Tour", foreign_key: "user_id"
+  has_many :tours_assigned, class_name: "Tour", foreign_key: "user_id", through: :tour_memberships
   
   # plugins/config
   

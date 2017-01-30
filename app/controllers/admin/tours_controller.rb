@@ -7,7 +7,7 @@ class Admin::ToursController < AdminController
   end
 
   def create
-    @tour = current_user.managed_tours.build(tour_params)
+    @tour = current_user.tours_managed.build(tour_params)
     if @tour.valid?
       @tour.save!
       flash[:notice] = "Tour created#{@tour.tour_name}."
@@ -38,7 +38,7 @@ class Admin::ToursController < AdminController
   
   def assign_crew_members
     @crew_members_on_tour = @tour.crew_members
-    @crew_members_available = current_user.crew_members
+    @crew_members_available = current_user.crew_members_available
   end
 
   def update_crew_members
