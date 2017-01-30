@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   namespace :admin do
     get 'welcome/index'
     resources :users
+    resources :tours
   end
 
   get 'welcome/index'

@@ -3,12 +3,15 @@ class User < ApplicationRecord
   # scopes
   
   # associations
+  
+  # Memberships & Crew
   has_many :tour_management_memberships, class_name: "CrewMembership", foreign_key: "tour_manager_id"
   has_many :crew_members, class_name: "User", through: :tour_management_memberships
 
   has_many :crew_memberships, class_name: "CrewMembership", foreign_key: "crew_member_id", dependent: :destroy
 
-
+  # Tours
+  has_many :managed_tours, class_name: "Tour", foreign_key: "user_id"
   
   # plugins/config
   

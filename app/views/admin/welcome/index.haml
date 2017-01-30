@@ -1,23 +1,16 @@
-%h1 
-  Welcome Admin 
-  = current_user.email
-
-
 %table
   %tr
-    %th Angelegte Benutzer
+    %th Touren
   %tr    
-    - @crew_members.each do |user|
+    - @tours.each do |tour|
       %tr
         %td  
-          = user.first_name
+          = tour.tour_name
         %td
-          = user.last_name
+          = tour.band_name
         %td
-          = user.email
+          = link_to "edit tour", edit_admin_tour_path(tour)
         %td
-          = link_to "edit", edit_admin_user_path(user)
-        %td
-          = link_to "delete", admin_user_path(user), method: :delete, data: { confirm: 'Are you sure?' }
+          = link_to "delete tour", admin_tour_path(tour), method: :delete, data: { confirm: 'Are you sure?' }
 
-= link_to "neuer Nutzer", new_admin_user_path
+= link_to "neue Tour anlegen", new_admin_tour_path

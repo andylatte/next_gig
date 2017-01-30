@@ -1,4 +1,9 @@
 class Admin::UsersController < AdminController
+  
+  def index
+    @crew_members = current_user.crew_members
+  end
+  
   def new
     @user = User.new
   end

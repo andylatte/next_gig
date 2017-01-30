@@ -3,3 +3,5 @@
   %p 
     you are
     = current_user.email
+  %br
+  =(link_to "touren", admin_welcome_index_path) + " | " + (link_to "Archiv", admin_welcome_index_path) + " | " + (link_to "Crew", admin_users_path) 
