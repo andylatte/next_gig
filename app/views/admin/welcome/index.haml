@@ -12,5 +12,7 @@
           = link_to "edit tour", edit_admin_tour_path(tour)
         %td
           = link_to "delete tour", admin_tour_path(tour), method: :delete, data: { confirm: 'Are you sure?' }
+        %td
+          = link_to "assign crew", assign_crew_members_admin_tour_path(tour)
 
 = link_to "neue Tour anlegen", new_admin_tour_path

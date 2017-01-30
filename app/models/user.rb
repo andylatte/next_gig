@@ -12,6 +12,8 @@ class User < ApplicationRecord
 
   # Tours
   has_many :managed_tours, class_name: "Tour", foreign_key: "user_id"
+  has_many :tour_memberships
+  has_many :tours, through: :tour_memberships
   
   # plugins/config
   

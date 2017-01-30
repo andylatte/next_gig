@@ -5,7 +5,11 @@ Rails.application.routes.draw do
   namespace :admin do
     get 'welcome/index'
     resources :users
-    resources :tours
+    resources :tours do
+      member do
+        get 'assign_crew_members'
+      end
+    end
   end
 
   get 'welcome/index'

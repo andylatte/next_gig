@@ -15,7 +15,7 @@ class Admin::UsersController < AdminController
       @user.save!
       current_user.crew_members << @user
       flash[:notice] = "Signed up #{@user.email}."
-      redirect_to admin_welcome_index_path
+      redirect_to admin_users_path
     else
       flash[:error] = "something went wrong."
       render :new

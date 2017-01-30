@@ -1,0 +1,10 @@
+%h2 Assign Tour Members
+
+%div
+  = "tour_name: #{@tour.tour_name}"
+  = "band_name: #{@tour.band_name}" 
+%div
+  = form_for [:admin, @tour] do |f|
+    = f.collection_check_boxes(:crew_member_ids, @crew_members_available, :id, :first_name)
+    .action
+      = f.submit "Assign Crew Members"
