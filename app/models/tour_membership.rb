@@ -7,9 +7,6 @@ class TourMembership < ApplicationRecord
   belongs_to :crew_member, class_name: "User", foreign_key: "user_id"
   # validations
   
-  
-  # attr_accessible
-  
   # callbacks
     
   # public instance methods

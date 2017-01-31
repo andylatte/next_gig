@@ -1,0 +1,2 @@
+module TourDaysHelper
+end

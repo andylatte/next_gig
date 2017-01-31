@@ -9,8 +9,6 @@ class CrewMembership < ApplicationRecord
   
   # plugins/config
   
-  # attr_accessible
-  
   # callbacks
     
   # public instance methods

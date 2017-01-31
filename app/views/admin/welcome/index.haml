@@ -5,7 +5,7 @@
     - @tours.each do |tour|
       %tr
         %td  
-          = tour.tour_name
+          = link_to tour.tour_name, admin_tour_path(tour)
         %td
           = tour.band_name
         %td

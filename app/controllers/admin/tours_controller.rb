@@ -1,7 +1,7 @@
 class Admin::ToursController < AdminController
   
-  before_action :find_tour, :only => [:edit, :update, :destroy, :assign_crew_members, :update_crew_members]
-
+  before_action :find_tour, :only => [:edit, :show, :update, :destroy, :assign_crew_members, :update_crew_members]
+  before_action :find_crew_members, :only => [:show] 
   def new
     @tour = Tour.new
   end
@@ -16,6 +16,9 @@ class Admin::ToursController < AdminController
       flash[:error] = "something went wrong."
       render :new
     end
+  end
+  
+  def show
   end
   
   def edit
@@ -37,7 +40,6 @@ class Admin::ToursController < AdminController
   end
   
   def assign_crew_members
-    @crew_members_on_tour = @tour.crew_members
     @crew_members_available = current_user.crew_members_available
   end
 
@@ -50,6 +52,10 @@ class Admin::ToursController < AdminController
   
   def find_tour
     @tour = Tour.find(params[:id])
+  end
+  
+  def find_crew_members
+    @crew_members = @tour.crew_members
   end
   
   def tour_params

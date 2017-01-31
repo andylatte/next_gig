@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170130200046) do
+ActiveRecord::Schema.define(version: 20170131104500) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,20 @@ ActiveRecord::Schema.define(version: 20170130200046) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.index ["tour_manager_id"], name: "index_crew_memberships_on_tour_manager_id", using: :btree
+  end
+
+  create_table "tour_days", force: :cascade do |t|
+    t.date     "date"
+    t.string   "show_name"
+    t.integer  "km_next_day"
+    t.text     "comment_next_day"
+    t.string   "city"
+    t.string   "country"
+    t.string   "time_zone"
+    t.integer  "tour_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["tour_id"], name: "index_tour_days_on_tour_id", using: :btree
   end
 
   create_table "tour_memberships", force: :cascade do |t|

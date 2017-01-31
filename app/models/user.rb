@@ -26,7 +26,6 @@ class User < ApplicationRecord
   # validations
   validates :first_name, :last_name, presence: true
   
-  # attr_accessible
   
   # callbacks
     
@@ -34,6 +33,10 @@ class User < ApplicationRecord
   
   def admin?
     self.is_admin?
+  end
+  
+  def name
+    self.first_name + " " + self.last_name
   end
   
   private

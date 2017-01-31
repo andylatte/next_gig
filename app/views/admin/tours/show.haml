@@ -1,0 +1,25 @@
+%h2 Tour 
+= render :partial => "admin/shared/tour_infos"
+
+%h3 Crew
+%p
+  - if @crew_members.nil?
+    = "no crew yet"
+  - else
+    = @crew_members.map(&:name).join(", ")
+%p= link_to "assign crew", assign_crew_members_admin_tour_path(@tour)
+
+%h3 Tour Days
+%p
+  - if @tour_days.nil? || @tour_days.empty?
+    = "no tour_days yet"
+  - else
+    %table
+      %tr
+        %th Date
+        %th ShowName
+      - @tour_days.each do |td|
+        %tr
+          %td= td.date
+          %td= td.show_name
+%p= link_to "add tour days", new_admin_tour_tour_day_path(@tour)
