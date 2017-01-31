@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :tours do
       member do
         get 'assign_crew_members'
+        post 'update_crew_members'
       end
     end
   end

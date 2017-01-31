@@ -42,6 +42,8 @@ class Admin::ToursController < AdminController
   end
 
   def update_crew_members
+    @tour.crew_member_ids = tour_params[:crew_member_ids]
+    redirect_to admin_welcome_index_path
   end
   
   protected
@@ -51,6 +53,6 @@ class Admin::ToursController < AdminController
   end
   
   def tour_params
-     params.require(:tour).permit(:tour_name, :band_name)
+     params.require(:tour).permit(:tour_name, :band_name, {:crew_member_ids => []})
   end
 end
