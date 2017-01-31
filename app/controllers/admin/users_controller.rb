@@ -13,7 +13,7 @@ class Admin::UsersController < AdminController
 
     if @user.valid?
       @user.save!
-      current_user.crew_members << @user
+      current_user.crew_members_available << @user
       flash[:notice] = "Signed up #{@user.email}."
       redirect_to admin_users_path
     else

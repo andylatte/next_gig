@@ -1,7 +1,12 @@
 class Admin::ToursController < AdminController
   
   before_action :find_tour, :only => [:edit, :show, :update, :destroy, :assign_crew_members, :update_crew_members]
-  before_action :find_crew_members, :only => [:show] 
+  before_action :find_crew_members, :only => [:show]
+  before_action :find_tour_days, :only => [:show]
+
+  def show
+  end
+ 
   def new
     @tour = Tour.new
   end
@@ -18,14 +23,10 @@ class Admin::ToursController < AdminController
     end
   end
   
-  def show
-  end
-  
   def edit
   end
   
   def update
-
     if @tour.update(tour_params)
       redirect_to admin_welcome_index_path
     else
@@ -52,6 +53,10 @@ class Admin::ToursController < AdminController
   
   def find_tour
     @tour = Tour.find(params[:id])
+  end
+  
+  def find_tour_days
+    @tour_days = @tour.tour_days
   end
   
   def find_crew_members

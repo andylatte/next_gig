@@ -1,3 +1,29 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id                     :integer          not null, primary key
+#  first_name             :string
+#  last_name              :string
+#  email                  :string           default(""), not null
+#  encrypted_password     :string           default(""), not null
+#  reset_password_token   :string
+#  reset_password_sent_at :datetime
+#  sign_in_count          :integer          default(0), not null
+#  current_sign_in_at     :datetime
+#  last_sign_in_at        :datetime
+#  current_sign_in_ip     :inet
+#  last_sign_in_ip        :inet
+#  is_admin               :boolean
+#  created_at             :datetime         not null
+#  updated_at             :datetime         not null
+#
+# Indexes
+#
+#  index_users_on_email                 (email) UNIQUE
+#  index_users_on_reset_password_token  (reset_password_token) UNIQUE
+#
+
 class User < ApplicationRecord
   
   # scopes
@@ -11,7 +37,7 @@ class User < ApplicationRecord
   has_many :crew_memberships, foreign_key: "crew_member_id", dependent: :destroy
 
   # Tours & Tour Memberships
-  has_many :tour_memberships
+  has_many :tour_memberships, dependent: :destroy
   
   has_many :tours_managed, class_name: "Tour", foreign_key: "user_id"
   has_many :tours_assigned, class_name: "Tour", foreign_key: "user_id", through: :tour_memberships
