@@ -2,7 +2,8 @@ class CreateVenues < ActiveRecord::Migration[5.0]
   def change
     create_table :venues do |t|
       t.string    :venue_name
-      t.string    :address
+      t.string    :address_1
+      t.string    :address_2
       t.string    :zip_code
       t.string    :city
       t.string    :country
@@ -12,7 +13,7 @@ class CreateVenues < ActiveRecord::Migration[5.0]
       t.string    :sales
       t.string    :capacity
       t.string    :sales
-      t.string    :comment
+      t.text    :comment
 
       t.references :tour_day
       t.timestamps
