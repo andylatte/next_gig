@@ -24,6 +24,7 @@ class TourDay < ApplicationRecord
 
    # associations
    belongs_to :tour
+   has_one :venue, dependent: :destroy
 
    # validations
    validates :date, presence: true

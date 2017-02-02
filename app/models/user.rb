@@ -29,7 +29,6 @@ class User < ApplicationRecord
   # scopes
   
   # associations
-  
   # Memberships & Crew
   has_many :tour_management_memberships, class_name: "CrewMembership", foreign_key: "tour_manager_id"
   has_many :crew_members_available, through: :tour_management_memberships, source: "crew_member"
