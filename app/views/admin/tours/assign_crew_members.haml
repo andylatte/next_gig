@@ -1,5 +1,5 @@
 %h2 Assign Tour Members
-= render :partial => "admin/shared/tour_infos"
+= render :partial => "admin/shared/tour_info"
 %div
   / = form_for [:admin, @tour], action: "update_crew_members" , method: "post" do |f|
   = form_for(@tour, url: { controller: "admin/tours", action: "update_crew_members"}, method: "post") do |f|

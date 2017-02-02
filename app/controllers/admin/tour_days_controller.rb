@@ -1,8 +1,8 @@
 class Admin::TourDaysController < AdminController
 
-  before_action :find_tour, :only => [:show, :new, :create, :edit, :destroy]
   before_action :find_tour_day, :only => [:show, :edit, :update, :destroy]
-
+  before_action :find_tour, :only => [:show, :new, :create, :edit, :destroy]
+  
   def show
   end
 
@@ -37,7 +37,7 @@ class Admin::TourDaysController < AdminController
   protected
 
   def find_tour
-    @tour = Tour.find(params[:tour_id])
+    @tour = @tour_day.nil? ? @tour = Tour.find(params[:tour_id]) : @tour_day.tour
   end
   
   def find_tour_day

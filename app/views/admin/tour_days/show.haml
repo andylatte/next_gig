@@ -1,28 +1,36 @@
 %h2 Tour Day 
-= render :partial => "admin/shared/tour_infos"
+= render :partial => "admin/shared/tour_info"
 
 %h3 Tour Day Infos
-.tour_day_infos
-  %strong
-    = "Date (time_zone): "  
-  = @tour_day.date 
-  = " (#{@tour_day.time_zone})" 
-  %br
-  %strong 
-    = "show_name (city, country): " 
-  = @tour_day.show_name + "(#{@tour_day.city}, #{@tour_day.country})"
-  %br
-  %strong 
-    = "km next day: " 
-  = @tour_day.km_next_day
-  %br
-  %strong 
-    = "comment next_day: " 
-  = @tour_day.comment_next_day
 
-%td= link_to "edit Tour Day", edit_admin_tour_tour_day_path(@tour, @tour_day)
+= render :partial => "admin/shared/tour_day_info"
+
+%td= link_to "edit Tour Day", edit_admin_tour_day_path(@tour_day)
 
 %h3 Venue
 .venue
+  -unless @tour_day.venue.nil?
+    = render :partial => "admin/venues/venue", :locals => {venue: @tour_day.venue}
+    = link_to "edit venue", edit_admin_venue_path(@tour_day.venue)
+  -else
+    = "no venue"
+    = link_to "creat venue", new_admin_tour_day_venue_path(@tour_day)
 
-  
+%h3 Production
+.production
+  -unless @tour_day.production.nil?
+    = render :partial => "admin/productions/production", :locals => {production: @tour_day.production}
+    = link_to "edit production", edit_admin_production_path(@tour_day.production)
+  -else
+    = "no production"
+    = link_to "creat production", new_admin_tour_day_production_path(@tour_day)
+
+%h3 Cargo
+.cargo
+  -unless @tour_day.cargo.nil?
+    = render :partial => "admin/cargos/cargo", :locals => {cargo: @tour_day.cargo}
+    = link_to "edit cargo", edit_admin_cargo_path(@tour_day.cargo)
+  -else
+    = "no cargo"
+    = link_to "creat cargo", new_admin_tour_day_cargo_path(@tour_day)
+

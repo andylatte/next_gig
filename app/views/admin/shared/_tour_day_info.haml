@@ -1,0 +1,17 @@
+.tour_day_infos
+  %strong
+    = "Date (time_zone): "  
+  = @tour_day.date 
+  = " (#{@tour_day.time_zone})" 
+  %br
+  %strong 
+    = "show_name (city, country): " 
+  = @tour_day.show_name + "(#{@tour_day.city}, #{@tour_day.country})"
+  %br
+  %strong 
+    = "km next day: " 
+  = @tour_day.km_next_day
+  %br
+  %strong 
+    = "comment next_day: " 
+  = @tour_day.comment_next_day

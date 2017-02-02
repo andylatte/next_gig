@@ -6,13 +6,19 @@ Rails.application.routes.draw do
     get 'welcome/index'
     resources :users
     resources :tours do
-      resources :tour_days
       member do
         get 'assign_crew_members'
         post 'update_crew_members'
       end
+      
+      resources :tour_days, shallow: true do
+        resources :venues
+        resources :cargos
+        resources :productions
+      end
     end
   end
+
 
   get 'welcome/index'
 

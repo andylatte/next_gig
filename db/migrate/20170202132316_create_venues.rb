@@ -10,7 +10,7 @@ class CreateVenues < ActiveRecord::Migration[5.0]
       t.string    :url
       t.string    :event_type
       t.string    :slot
-      t.string    :sales
+      t.string    :stage
       t.string    :capacity
       t.string    :sales
       t.text    :comment

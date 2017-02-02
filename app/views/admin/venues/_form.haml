@@ -1,0 +1,57 @@
+= form_for resource do |f|
+  = render "shared/error_messages", :target => @venue
+  .field
+    =f.label :venue_name
+    %br
+    =f.text_field :venue_name, autofocus: true
+  .field
+    =f.label :address_1
+    %br
+    =f.text_field :address_1
+  .field
+    =f.label :address_2
+    %br
+    =f.text_field :address_2
+  .field
+    =f.label :zip_code
+    %br
+    =f.text_field :zip_code
+  .field
+    =f.label :city
+    %br
+    =f.text_field :city
+  .field
+    =f.label :country
+    %br
+    =f.text_field :country
+  .field
+    =f.label :url
+    %br
+    =f.text_field :url
+  .field
+    =f.label :event_type
+    %br
+    =f.text_field :event_type
+  .field
+    =f.label :slot
+    %br
+    =f.text_field :slot
+  .field
+    =f.label :stage
+    %br
+    =f.text_field :stage
+  .field
+    =f.label :capacity
+    %br
+    =f.text_field :capacity
+  .field
+    =f.label :sales
+    %br
+    =f.text_field :sales
+  .field
+    =f.label :comment
+    %br
+    =f.text_area :comment
+  .action
+    = f.submit "Save Venue"
+

@@ -1,0 +1,76 @@
+= form_for resource do |f|
+  = render "shared/error_messages", :target => @production
+  .field
+    =f.label :main_contact_name
+    %br
+    =f.text_field :main_contact_name, autofocus: true
+  .field
+    =f.label :main_contact_phone
+    %br
+    =f.text_field :main_contact_phone
+  .field
+    =f.label :main_contact_email
+    %br
+    =f.text_field :main_contact_email
+  .field
+    =f.label :prod_contact_name
+    %br
+    =f.text_field :prod_contact_name
+  .field
+    =f.label :prod_contact_phone
+    %br
+    =f.text_field :prod_contact_phone
+  .field
+    =f.label :prod_contact_email
+    %br
+    =f.text_field :prod_contact_email
+  .field
+    =f.label :hosp_contact_name
+    %br
+    =f.text_field :hosp_contact_name
+  .field
+    =f.label :hosp_contact_phone
+    %br
+    =f.text_field :hosp_contact_phone
+  .field
+    =f.label :hosp_contact_email
+    %br
+    =f.text_field :hosp_contact_email
+  .field
+    =f.label :stage_manager_name
+    %br
+    =f.text_field :stage_manager_name
+  .field
+    =f.label :stage_manager_phone
+    %br
+    =f.text_field :stage_manager_phone
+  .field
+    =f.label :stage_manager_email
+    %br
+    =f.text_field :stage_manager_email
+  .field
+    =f.label :stage_size
+    %br
+    =f.text_field :stage_size
+  .field
+    =f.label :local_backline
+    %br
+    =f.text_field :local_backline
+  .field
+    =f.label :access_notes
+    %br
+    =f.text_area :access_notes
+  .field
+    =f.label :loading_notes
+    %br
+    =f.text_area :loading_notes
+  .field
+    =f.label :credential_notes
+    %br
+    =f.text_area :credential_notes
+  .field
+    =f.label :comment
+    %br
+    =f.text_area :comment
+  .action
+    = f.submit "Save Production"

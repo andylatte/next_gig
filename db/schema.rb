@@ -10,10 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170202132316) do
+ActiveRecord::Schema.define(version: 20170202135441) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cargos", force: :cascade do |t|
+    t.string   "time_drop_off"
+    t.string   "contact_drop_off"
+    t.string   "licence_plate_drop_off"
+    t.string   "amount_drop_off"
+    t.string   "time_pick_up"
+    t.string   "contact_pick_up"
+    t.string   "licence_plate_pick_up"
+    t.string   "amount_pick_up"
+    t.text     "comment"
+    t.integer  "tour_day_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.index ["tour_day_id"], name: "index_cargos_on_tour_day_id", using: :btree
+  end
 
   create_table "crew_memberships", force: :cascade do |t|
     t.integer  "tour_manager_id"
@@ -21,6 +37,31 @@ ActiveRecord::Schema.define(version: 20170202132316) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.index ["tour_manager_id"], name: "index_crew_memberships_on_tour_manager_id", using: :btree
+  end
+
+  create_table "productions", force: :cascade do |t|
+    t.string   "main_contact_name"
+    t.string   "main_contact_phone"
+    t.string   "main_contact_email"
+    t.string   "prod_contact_name"
+    t.string   "prod_contact_phone"
+    t.string   "prod_contact_email"
+    t.string   "hosp_contact_name"
+    t.string   "hosp_contact_phone"
+    t.string   "hosp_contact_email"
+    t.string   "stage_manager_name"
+    t.string   "stage_manager_phone"
+    t.string   "stage_manager_email"
+    t.string   "stage_size"
+    t.string   "local_backline"
+    t.text     "access_notes"
+    t.text     "loading_notes"
+    t.text     "credential_notes"
+    t.text     "comment"
+    t.integer  "tour_day_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.index ["tour_day_id"], name: "index_productions_on_tour_day_id", using: :btree
   end
 
   create_table "tour_days", force: :cascade do |t|
@@ -78,18 +119,20 @@ ActiveRecord::Schema.define(version: 20170202132316) do
   end
 
   create_table "venues", force: :cascade do |t|
-    t.integer  "tour_day_id"
     t.string   "venue_name"
-    t.string   "address"
+    t.string   "address_1"
+    t.string   "address_2"
     t.string   "zip_code"
     t.string   "city"
     t.string   "country"
     t.string   "url"
     t.string   "event_type"
     t.string   "slot"
-    t.string   "sales"
+    t.string   "stage"
     t.string   "capacity"
-    t.string   "comment"
+    t.string   "sales"
+    t.text     "comment"
+    t.integer  "tour_day_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["tour_day_id"], name: "index_venues_on_tour_day_id", using: :btree

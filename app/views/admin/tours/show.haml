@@ -1,5 +1,5 @@
 %h2 Tour 
-= render :partial => "admin/shared/tour_infos"
+= render :partial => "admin/shared/tour_info"
 
 %h3 Crew
 %p
@@ -22,7 +22,7 @@
         %tr
           %td= td.date
           %td= td.show_name + "(#{td.city}, #{td.country})"
-          %td= link_to "show Tour Day", admin_tour_tour_day_path(@tour, td)
-          %td= link_to "edit Tour Day", edit_admin_tour_tour_day_path(@tour, td)
-          %td= link_to "delete Tour Day", admin_tour_tour_day_path(@tour,td), method: :delete, data: { confirm: 'Are you sure?' }
+          %td= link_to "show Tour Day", admin_tour_day_path(td)
+          %td= link_to "edit Tour Day", edit_admin_tour_day_path(td)
+          %td= link_to "delete Tour Day", admin_tour_day_path(td), method: :delete, data: { confirm: 'Are you sure?' }
 %p= link_to "add tour days", new_admin_tour_tour_day_path(@tour)

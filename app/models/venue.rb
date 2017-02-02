@@ -3,18 +3,20 @@
 # Table name: venues
 #
 #  id          :integer          not null, primary key
-#  tour_day_id :integer
 #  venue_name  :string
-#  address     :string
+#  address_1   :string
+#  address_2   :string
 #  zip_code    :string
 #  city        :string
 #  country     :string
 #  url         :string
 #  event_type  :string
 #  slot        :string
-#  sales       :string
+#  stage       :string
 #  capacity    :string
-#  comment     :string
+#  sales       :string
+#  comment     :text
+#  tour_day_id :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
