@@ -1,0 +1,40 @@
+%table
+  %tr
+    %td Hotel Name
+    %td= hotel.hotel_name
+  %tr
+    %td Address 1
+    %td= hotel.address_1
+  %tr
+    %td Address 2
+    %td= hotel.address_2
+  %tr
+    %td ZipCode
+    %td= hotel.zip_code
+  %tr
+    %td City
+    %td= hotel.city
+  %tr
+    %td Country
+    %td= hotel.country
+  %tr
+    %td CheckIn Date
+    %td= hotel.check_in_date.to_s(:le)
+  %tr
+    %td CheckOut Date
+    %td= hotel.check_out_date.to_s(:le)
+  %tr
+    %td Number of Nights
+    %td= hotel.number_of_nights
+  %tr
+    %td Single Room
+    %td= hotel.single_rooms
+  %tr
+    %td Twin Room
+    %td= hotel.twin_rooms
+  %tr
+    %td Breakfast
+    %td= hotel.breakfast
+  %tr
+    %td Comment
+    %td= hotel.comment

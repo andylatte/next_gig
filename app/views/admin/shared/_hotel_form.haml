@@ -1,0 +1,56 @@
+= form_for resource do |f|
+  = render "shared/error_messages", :target => hotel
+  .field
+    =f.label :hotel_name
+    %br
+    =f.text_field :hotel_name, autofocus: true
+  .field
+    =f.label :address_1
+    %br
+    =f.text_field :address_1
+  .field
+    =f.label :address_2
+    %br
+    =f.text_field :address_2
+  .field
+    =f.label :zip_code
+    %br
+    =f.text_field :zip_code
+  .field
+    =f.label :city
+    %br
+    =f.text_field :city
+  .field
+    =f.label :country
+    %br
+    =f.text_field :country
+  .field
+    =f.label :check_in_date
+    %br
+    =f.date_field :check_in_date
+  .field
+    =f.label :check_out_date
+    %br
+    =f.date_field :check_out_date
+  .field
+    =f.label :number_of_nights
+    %br
+    =f.text_field :number_of_nights
+  .field
+    =f.label :single_rooms
+    %br
+    =f.text_field :single_rooms
+  .field
+    =f.label :twin_rooms
+    %br
+    =f.text_field :twin_rooms
+  .field
+    =f.label :breakfast
+    %br
+    =f.text_field :breakfast
+  .field
+    =f.label :comment
+    %br
+    =f.text_area :comment
+  .action
+    = f.submit "Save Hotel"

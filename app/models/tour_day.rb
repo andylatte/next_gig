@@ -24,10 +24,13 @@ class TourDay < ApplicationRecord
 
    # associations
    belongs_to :tour
-   has_one :venue, dependent: :destroy
-   has_one :cargo, dependent: :destroy
-   has_one :production, dependent: :destroy
-
+   has_one :venue,           dependent: :destroy
+   has_one :cargo,           dependent: :destroy
+   has_one :production,      dependent: :destroy
+   has_one :primary_hotel,   dependent: :destroy
+   has_one :secondary_hotel, dependent: :destroy
+   has_one :driver_hotel,    dependent: :destroy
+   
    # validations
    validates :date, presence: true
 

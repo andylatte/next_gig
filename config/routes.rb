@@ -15,6 +15,9 @@ Rails.application.routes.draw do
         resources :venues
         resources :cargos
         resources :productions
+        resources :primary_hotels
+        resources :secondary_hotels
+        resources :driver_hotels
       end
     end
   end

@@ -1,7 +1,7 @@
 .tour_day_infos
   %strong
     = "Date (time_zone): "  
-  = @tour_day.date 
+  = @tour_day.date.to_s(:le) 
   = " (#{@tour_day.time_zone})" 
   %br
   %strong 

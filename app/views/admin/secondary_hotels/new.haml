@@ -1,0 +1,7 @@
+%h3 Tour Day Infos
+
+= render :partial => "admin/shared/tour_day_info"
+
+%h3 Create Secondary Hotel
+= render :partial => "admin/shared/hotel_form", :locals => {hotel: @secondary_hotel, resource: [:admin, @tour_day, @secondary_hotel]}
+

@@ -25,6 +25,38 @@
     = "no production"
     = link_to "creat production", new_admin_tour_day_production_path(@tour_day)
 
+
+
+%h3 Primary Hotel
+.production
+  -unless @tour_day.primary_hotel.nil?
+    = render :partial => "admin/shared/hotel_show", :locals => {hotel: @tour_day.primary_hotel}
+    = link_to "edit primary_hotel", edit_admin_primary_hotel_path(@tour_day.primary_hotel)
+  -else
+    = "no primary_hotel"
+    = link_to "creat primary_hotel", new_admin_tour_day_primary_hotel_path(@tour_day)
+
+
+%h3 Secondary Hotel
+.production
+  -unless @tour_day.secondary_hotel.nil?
+    = render :partial => "admin/shared/hotel_show", :locals => {hotel: @tour_day.secondary_hotel}
+    = link_to "edit secondary_hotel", edit_admin_secondary_hotel_path(@tour_day.secondary_hotel)
+  -else
+    = "no secondary_hotel"
+    = link_to "creat secondary_hotel", new_admin_tour_day_secondary_hotel_path(@tour_day)
+
+
+%h3 Driver Hotel
+.production
+  -unless @tour_day.driver_hotel.nil?
+    = render :partial => "admin/shared/hotel_show", :locals => {hotel: @tour_day.driver_hotel}
+    = link_to "edit driver_hotel", edit_admin_driver_hotel_path(@tour_day.driver_hotel)
+  -else
+    = "no production"
+    = link_to "creat driver_hotel", new_admin_tour_day_driver_hotel_path(@tour_day)
+
+
 %h3 Cargo
 .cargo
   -unless @tour_day.cargo.nil?
