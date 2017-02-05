@@ -1,7 +1,1 @@
-.admin_page_header
-  %h1 big size big tour big nice - Admin
-  %p 
-    you are
-    = current_user.email
-  %br
-  =(link_to "touren", admin_welcome_index_path) + " | " + (link_to "Archiv", admin_welcome_index_path) + " | " + (link_to "Crew", admin_users_path) 
+= render :partial => "layouts/admin/top_nav_bar"

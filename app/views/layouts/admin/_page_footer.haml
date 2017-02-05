@@ -1,5 +1,6 @@
-.admin_page_footer
-  = link_to "Sign out", destroy_user_session_path, :method => :delete
-  = " | "
-  = link_to "regular users view", welcome_index_path
-
+%nav{:class=>"navbar navbar-light bg-faded"}
+  %ul{:class=>"nav justify-content-center"}
+    %li{:class=>"nav-link small"}  
+      = link_to "Sign out", destroy_user_session_path, :method => :delete
+    %li{:class=>"nav-link small"}  
+      = link_to "regular users view", welcome_index_path
