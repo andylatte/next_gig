@@ -26,12 +26,14 @@
 #  index_schedule_items_on_tour_day_id  (tour_day_id)
 #
 
-class ScheduleItem < ApplicationRecord
+class ShowScheduleItem < ScheduleItem
+  
   # scopes
 
-  # associations
-  belongs_to :tour_day
- 
+  # validations
+  validates :start_time, presence: true
+   
   # callbacks
-  
+
+  # public instance methods
 end

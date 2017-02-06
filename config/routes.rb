@@ -18,6 +18,9 @@ Rails.application.routes.draw do
         resources :primary_hotels
         resources :secondary_hotels
         resources :driver_hotels
+        resources :travel_schedule_items
+        resources :show_schedule_items
+        resources :promo_schedule_items
       end
     end
   end

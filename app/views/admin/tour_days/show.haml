@@ -16,6 +16,15 @@
     = "no venue"
     = link_to "creat venue", new_admin_tour_day_venue_path(@tour_day)
 
+%h3 Travelschedule
+.venue
+  -unless @tour_day.travel_schedule_items.nil?
+    = render :partial => "admin/travel_schedule_items/travel_schedule_items", :locals => {venue: @tour_day.travel_schedule_items}
+    = link_to "edit travel schedule", edit_admin_venue_path(@tour_day.travel_schedule_items)
+  -else
+    = "no travel scheduled"
+    = link_to "creat travel schedule", new_admin_tour_day_travel_schedule_item_path(@tour_day)
+
 %h3 Production
 .production
   -unless @tour_day.production.nil?

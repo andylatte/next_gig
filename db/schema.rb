@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170203175810) do
+ActiveRecord::Schema.define(version: 20170205090241) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,6 +83,27 @@ ActiveRecord::Schema.define(version: 20170203175810) do
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.index ["tour_day_id"], name: "index_productions_on_tour_day_id", using: :btree
+  end
+
+  create_table "schedule_items", force: :cascade do |t|
+    t.string   "name"
+    t.string   "for_whom"
+    t.string   "number"
+    t.string   "origin"
+    t.string   "destination"
+    t.time     "start_time"
+    t.time     "end_time"
+    t.datetime "departion_date_time"
+    t.datetime "arrival_date_time"
+    t.string   "duration"
+    t.string   "contact"
+    t.string   "location"
+    t.string   "comment"
+    t.string   "type"
+    t.integer  "tour_day_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.index ["tour_day_id"], name: "index_schedule_items_on_tour_day_id", using: :btree
   end
 
   create_table "tour_days", force: :cascade do |t|

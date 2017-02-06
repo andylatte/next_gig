@@ -1,0 +1,6 @@
+= form_for [:admin, @setup_items.first] do |f|
+  = render "shared/error_messages", :target => @setup_items.first
+  - @setup_items.each do |item|
+    = render :partial => "admin/travel_schedule_items/form_travel_schedule_item", :locals => {item: item}
+  .action
+    = f.submit "Save Travel Schedule"

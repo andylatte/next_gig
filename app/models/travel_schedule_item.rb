@@ -26,12 +26,18 @@
 #  index_schedule_items_on_tour_day_id  (tour_day_id)
 #
 
-class ScheduleItem < ApplicationRecord
+class TravelScheduleItem < ScheduleItem
+  
+  #class attributes
+  
+  SCHEDULE_DEFAULTS = [:flight, :shuttle, :nightliner, :train, :taxi, :other]
+
   # scopes
 
-  # associations
-  belongs_to :tour_day
- 
+  # validations
+  validates :departion_date_time, presence: true
+   
   # callbacks
-  
+
+  # public instance methods
 end
