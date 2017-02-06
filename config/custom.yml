@@ -1,0 +1,7 @@
+development:
+  travel: [ "Flight", "Shuttle", "Nightliner", "Train", "Taxi", "Other"]
+  show: [ "Get In", "Breakfast", "Load In", "Set Up", "Riser Access", "Lunch", "Line Check", "Sound Check", "Support SC", "Doors", "Dinner", "Support ST", "Change Over", "Showtime", "Breaddown", "Load Out", "Backst Curfew", "Bus Call"]
+production:
+  travel: [ "Flight", "Shuttle", "Nightliner", "Train", "Taxi", "Other"]
+  show: [ "Get In", "Breakfast", "Load In", "Set Up", "Riser Access", "Lunch", "Line Check", "Sound Check", "Support SC", "Doors", "Dinner", "Support ST", "Change Over", "Showtime", "Breaddown", "Load Out", "Backst Curfew", "Bus Call"]
+

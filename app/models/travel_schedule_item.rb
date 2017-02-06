@@ -10,7 +10,7 @@
 #  destination         :string
 #  start_time          :time
 #  end_time            :time
-#  departion_date_time :datetime
+#  departure_date_time :datetime
 #  arrival_date_time   :datetime
 #  duration            :string
 #  contact             :string
@@ -29,15 +29,14 @@
 class TravelScheduleItem < ScheduleItem
   
   #class attributes
-  
-  SCHEDULE_DEFAULTS = [:flight, :shuttle, :nightliner, :train, :taxi, :other]
 
   # scopes
 
   # validations
-  validates :departion_date_time, presence: true
+  validates :departure_date_time, presence: true
    
   # callbacks
 
   # public instance methods
+
 end

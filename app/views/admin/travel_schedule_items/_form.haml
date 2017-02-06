@@ -1,6 +1,49 @@
-= form_for [:admin, @setup_items.first] do |f|
-  = render "shared/error_messages", :target => @setup_items.first
-  - @setup_items.each do |item|
-    = render :partial => "admin/travel_schedule_items/form_travel_schedule_item", :locals => {item: item}
+= form_for resource do |f|
+  = render "shared/error_messages", :target => @travel_schedule_item
+  .form-group.row
+    .col-1
+      =f.label :name
+    .col-2
+      =f.label :for_whom
+    .col-1
+      =f.label :number
+    .col-1
+      =f.label :origin
+    .col-1
+      =f.label :destination
+    .col-1
+      =f.label :start_time
+    .col-1
+      =f.label :departure_date_time
+    .col-1
+      =f.label :arrival_date_time
+    .col-1
+      =f.label :duration
+    .col-2
+      =f.label :comment
+  .row
+    .col-1
+      =f.text_field :name, :class => "form-control form-control-sm"
+    .col-2
+      =f.text_field :for_whom, :class => "form-control form-control-sm"
+    .col-1
+      =f.text_field :number, :class => "form-control form-control-sm"
+    .col-1
+      =f.text_field :origin, :class => "form-control form-control-sm"
+    .col-1
+      =f.text_field :destination, :class => "form-control form-control-sm"
+    .col-1
+      =f.time_field :start_time, :class => "form-control form-control-sm"
+    .col-1
+      =f.date_field :departure_date_time, :class => "form-control form-control-sm"
+    .col-1
+      =f.date_field :arrival_date_time, :class => "form-control form-control-sm"
+    .col-1
+      =f.text_field :duration, :class => "form-control form-control-sm"
+    .col-2
+      =f.text_area :comment, :class => "form-control form-control-sm"
   .action
-    = f.submit "Save Travel Schedule"
+    = link_to "Cancel", admin_tour_day_path(@tour_day), :class => "btn btn-secondary"
+    = f.button "Travel Schedule Item", :class=>"btn btn-primary"
+
+/  = render "admin/travel_schedule_items/form_travel_schedule_item", :locals => {f: f}

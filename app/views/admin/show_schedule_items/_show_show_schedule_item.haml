@@ -1,0 +1,14 @@
+.row
+  .col-1
+    = item.name
+  .col-2
+    = item.for_whom
+  .col-1
+    = item.start_time
+  .col-1
+    = item.end_time
+  .col-2
+    = item.comment
+  .col-1
+    =link_to "edit", edit_admin_show_schedule_item_path(item)
+    =link_to "delete", admin_show_schedule_item_path(item), method: :delete, :data => {confirm: "are you sure?"}

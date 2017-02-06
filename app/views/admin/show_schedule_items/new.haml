@@ -1,0 +1,6 @@
+%h3 Tour Day Infos
+
+= render :partial => "admin/shared/tour_day_info"
+
+%h3 New Travel Schedule Item
+= render :partial => "admin/show_schedule_items/form", :locals => {tour_day: @tour_day, resource: [:admin, @tour_day, @show_schedule_item]}

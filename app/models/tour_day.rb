@@ -34,6 +34,8 @@ class TourDay < ApplicationRecord
    has_one :driver_hotel,    dependent: :destroy
    
    has_many :travel_schedule_items, dependent: :destroy
+   accepts_nested_attributes_for :travel_schedule_items
+   
    has_many :show_schedule_items,   dependent: :destroy
    has_many :promo_schedule_items,  dependent: :destroy
    

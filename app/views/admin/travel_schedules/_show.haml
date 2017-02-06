@@ -1,0 +1,24 @@
+.row
+  .col-1
+    Name
+  .col-2
+    for_whom
+  .col-1
+    Number
+  .col-1
+    Origin
+  .col-1
+    Destination
+  .col-1
+    Call Time
+  .col-1
+    Departure
+  .col-1
+    Arrival
+  .col-1
+    Duration
+  .col-1
+    Comment
+  .col-1
+- travel_schedule_items.each do |item|
+  = render :partial => "admin/travel_schedule_items/show_travel_schedule_item", :locals => {item: item}

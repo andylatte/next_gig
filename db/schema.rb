@@ -93,7 +93,7 @@ ActiveRecord::Schema.define(version: 20170205090241) do
     t.string   "destination"
     t.time     "start_time"
     t.time     "end_time"
-    t.datetime "departion_date_time"
+    t.datetime "departure_date_time"
     t.datetime "arrival_date_time"
     t.string   "duration"
     t.string   "contact"

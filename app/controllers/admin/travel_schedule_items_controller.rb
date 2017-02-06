@@ -1,18 +1,15 @@
 class Admin::TravelScheduleItemsController < AdminController
-  before_action :find_travel_schedule_items, :only => [ :edit, :update, :destroy]
+  before_action :find_travel_schedule_item, :only => [ :edit, :update, :destroy]
   before_action :find_tour_day, :only => [ :new, :create, :edit, :update, :destroy]
   
   def new
-    @setup_items = []
-    SCHEDULE_DEFAULTS.each do |d| 
-      @setup_items << TravelScheduleItem.new(:name => d)
-    end
+    @travel_schedule_item = TravelScheduleItem.new
   end
 
   def create
-    @venue = Venue.new(venue_params)
-    @tour_day.venue = @venue
-    if @venue.save
+    @travel_schedule_item = TravelScheduleItem.new(travel_schedule_item_params)
+    @tour_day.travel_schedule_items << @travel_schedule_item
+    if @travel_schedule_item.save
       redirect_to admin_tour_day_path(@tour_day)
     else
       render "new"
@@ -23,28 +20,29 @@ class Admin::TravelScheduleItemsController < AdminController
   end
   
   def update
-    if @venue.update(venue_params)
+    if @travel_schedule_item.update(travel_schedule_item_params)
       redirect_to admin_tour_day_path(@tour_day)
     else
       render 'edit'
     end
   end
   def destroy
-    @venue.destroy
+    @travel_schedule_item.destroy
     redirect_to admin_tour_day_path(@tour_day)
   end
   
   protected
 
-  def find_venue
-    @venue = Venue.find(params[:id])
+  def find_travel_schedule_item
+    @travel_schedule_item = TravelScheduleItem.find(params[:id])
   end  
+  
   def find_tour_day
-    @tour_day = @venue.nil? ? @tour_day = TourDay.find(params[:tour_day_id]) : @venue.tour_day
+    @tour_day = @travel_schedule_item.nil? ? @tour_day = TourDay.find(params[:tour_day_id]) : @travel_schedule_item.tour_day
   end
 
-  def venue_params
-    params.require(:venue).permit(:venue_name, :address_1, :address_2, :zip_code, :city, :country, :url, :event_type, :slot, :stage, :capacity, :sales, :comment)
+  def travel_schedule_item_params
+    params.require(:travel_schedule_item).permit(:name, :for_whom, :number, :origin, :destination, :start_time, :departure_date_time, :arrival_date_time, :duration, :comment)
   end
 end
 

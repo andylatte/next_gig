@@ -2,5 +2,5 @@
 
 = render :partial => "admin/shared/tour_day_info"
 
-%h3 New Travel Schedule
-= render :partial => "admin/travel_schedule_times/form"
+%h3 New Travel Schedule Item
+= render :partial => "admin/travel_schedule_items/form", :locals => {tour_day: @tour_day, resource: [:admin, @tour_day, @travel_schedule_item]}
