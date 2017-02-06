@@ -8,8 +8,8 @@
 
 
   %body
-    = render "layouts/admin/page_header"
+    = render :partial => "layouts/admin/page_header"
     = render "layouts/application/warnings"
-    .content
+    .container
       = yield 
     = render "layouts/admin/page_footer"
