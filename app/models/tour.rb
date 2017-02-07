@@ -38,7 +38,7 @@ class Tour < ApplicationRecord
     
   # public instance methods
   def from_to
-    if tour_days.empty?
+    if tour_days.blank?
       "--"
     else
       tour_days.first.date.to_s(:le) + " - " + tour_days.last.date.to_s(:le)
