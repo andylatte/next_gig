@@ -1,12 +1,14 @@
 = form_for [:admin, tour] do |f|
   = render "shared/error_messages", :target => tour
-  .field
-    =f.label :tour_name
-    %br
-    =f.text_field :tour_name, autofocus: true
-  .field
-    =f.label :band_name
-    %br
-    =f.text_field :band_name
-  .action
-    = f.submit "Save Tour"
+  .form-group.row
+    =f.label :tour_name, :class=>"col-2 col-form-label"
+    .col-8
+      =f.text_field :tour_name, autofocus: true, :class=>"form-control" 
+  .form-group.row
+    =f.label :band_name, :class=>"col-2 col-form-label"
+    .col-8
+      =f.text_field :band_name, :class=>"form-control" 
+  .row
+    .col-3
+      = link_to "cancel", admin_welcome_index_path, :class => "btn btn-secondary"
+      = f.submit "Save Tour", :class=>"btn btn-primary"

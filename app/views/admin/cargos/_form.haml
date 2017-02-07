@@ -1,41 +1,32 @@
 = form_for resource do |f|
   = render "shared/error_messages", :target => @cargo
-  .field
-    =f.label :time_drop_off
-    %br
-    =f.text_field :time_drop_off, autofocus: true
-  .field
-    =f.label :contact_drop_off
-    %br
-    =f.text_field :contact_drop_off
-  .field
-    =f.label :licence_plate_drop_off
-    %br
-    =f.text_field :licence_plate_drop_off
-  .field
-    =f.label :amount_drop_off
-    %br
-    =f.text_field :amount_drop_off
-  .field
-    =f.label :time_pick_up
-    %br
-    =f.text_field :time_pick_up
-  .field
-    =f.label :contact_pick_up
-    %br
-    =f.text_field :contact_pick_up
-  .field
-    =f.label :licence_plate_pick_up
-    %br
-    =f.text_field :licence_plate_pick_up
-  .field
-    =f.label :amount_pick_up
-    %br
-    =f.text_field :amount_pick_up
-  .field
-    =f.label :comment
-    %br
-    =f.text_area :comment
-  .action
-    = f.submit "Save Cargo"
+  
+  .form-group.row
+    =f.label :time_drop_off, :class=>"col-3 col-form-label"
+    =f.label :contact_drop_off, :class=>"col-3 col-form-label"    
+    =f.label :licence_plate_drop_off, :class=>"col-3 col-form-label"
+    =f.label :amount_drop_off, :class=>"col-3 col-form-label"
+  .form-group.row   
+    .col-3=f.text_field :time_drop_off, :class=>"form-control"
+    .col-3=f.text_field :contact_drop_off, :class=>"form-control"
+    .col-3=f.text_field :licence_plate_drop_off, :class=>"form-control"
+    .col-3=f.text_field :amount_drop_off, :class=>"form-control"
+  .form-group.row
+    =f.label :time_pick_up, :class=>"col-3 col-form-label"
+    =f.label :contact_pick_up, :class=>"col-3 col-form-label"    
+    =f.label :licence_plate_pick_up, :class=>"col-3 col-form-label"
+    =f.label :amount_pick_up, :class=>"col-3 col-form-label"
+  .form-group.row 
+    .col-3=f.text_field :time_pick_up, :class=>"form-control"
+    .col-3=f.text_field :contact_pick_up, :class=>"form-control"
+    .col-3=f.text_field :licence_plate_pick_up, :class=>"form-control"
+    .col-3=f.text_field :amount_pick_up, :class=>"form-control"
+  .form-group.row
+    =f.label :comment, :class=>"col-2 col-form-label"
+    .col-8
+      =f.text_area :comment, :class=>"form-control"
+  .row
+    .col-8
+      = link_to "Cancel", admin_tour_day_path(@tour_day, :anchor => "cargo"), :class => "btn btn-secondary"
+      = f.submit "Save Cargo", :class=>"btn btn-primary"
 

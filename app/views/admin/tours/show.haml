@@ -1,28 +1,44 @@
-%h2 Tour 
-= render :partial => "admin/shared/tour_info"
-
-%h3 Crew
-%p
-  - if @crew_members.nil?
-    = "no crew yet"
-  - else
-    = @crew_members.map(&:name).join(", ")
-%p= link_to "assign crew", assign_crew_members_admin_tour_path(@tour)
-
-%h3 Tour Days
-%p
-  - if @tour_days.empty?
-    = "no tour_days yet"
-  - else
-    %table
-      %tr
-        %th Date
-        %th ShowName
-      - @tour_days.each do |td|
-        %tr
-          %td= td.date
-          %td= td.show_name + "(#{td.city}, #{td.country})"
-          %td= link_to "show Tour Day", admin_tour_day_path(td)
-          %td= link_to "edit Tour Day", edit_admin_tour_day_path(td)
-          %td= link_to "delete Tour Day", admin_tour_day_path(td), method: :delete, data: { confirm: 'Are you sure?' }
-%p= link_to "add tour days", new_admin_tour_tour_day_path(@tour)
+.card
+  = render :partial => "admin/shared/tour_info"
+  .card-block
+    - if @crew_members.empty?
+      %h4{:class =>"card-title"}
+        Crew
+      .text-center
+        %p.card-textWith There have been no crew members assigned to the tour yet
+        =link_to "Assign Crew Members", assign_crew_members_admin_tour_path(@tour), :class=>"btn btn-success"
+    - else
+      %h4{:class =>"card-title"}
+        Crew
+        %span=link_to "Add Crew Members", assign_crew_members_admin_tour_path(@tour), :class=>"btn btn-outline-primary btn-sm ml-4"
+      %ul
+        - @crew_members.each do |cm|
+          %li= cm.name
+      
+  .card-block
+    - if @tour_days.empty?
+      %h4{:class =>"card-title"}
+        Tour Days
+      .text-center
+        %p.card-textWith There have been no crew members assigned to the tour yet
+        =link_to "Add Tour Days", new_admin_tour_tour_day_path(@tour), :class=>"btn btn-success"
+    - else
+      %h4{:class =>"card-title"}
+        Tour Days
+        %span=link_to "Add Tour Days", new_admin_tour_tour_day_path(@tour), :class=>"btn btn-outline-primary btn-sm ml-4"
+      %table{:class=>"table table-striped col-12 mb-4"}
+        %thead
+          %tr.row
+            %td.col-2 Show Date
+            %td.col-5 Show Name
+            %td.col-3
+        - @tour_days.each do |td|
+          %tr.row
+            %td.col-2= td.date.to_s(:le)
+            %td.col-5= link_to "#{td.show_name} (#{td.city}, #{td.country})", admin_tour_day_path(td)
+            %td.col-3
+              %div{:class=>"btn-toolbar"}
+                %div{:class=>"btn-group mr-2"}
+                  = link_to "edit Tour Day", edit_admin_tour_day_path(td), :class=>"btn btn-info btn-sm"
+                %div{:class=>"btn-group mr"}
+                  = link_to "delete Tour Day", admin_tour_day_path(td), method: :delete, data: { confirm: 'Are you sure?' }, :class=>"btn btn-danger btn-sm"

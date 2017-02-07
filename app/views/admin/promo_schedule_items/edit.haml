@@ -1,0 +1,5 @@
+.card
+  = render :partial => "admin/shared/tour_day_info"
+  .card-block
+    %h4.card-title Edit Promo Schedule Item
+    = render :partial => "admin/promo_schedule_items/form", :locals => {tour_day: @tour_day, resource: [:admin, @promo_schedule_item]}

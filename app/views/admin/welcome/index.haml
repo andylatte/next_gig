@@ -1,18 +1,4 @@
-%table
-  %tr
-    %th Touren
-  %tr    
-    - @tours.each do |tour|
-      %tr
-        %td  
-          = link_to tour.tour_name, admin_tour_path(tour)
-        %td
-          = tour.band_name
-        %td
-          = link_to "edit tour", edit_admin_tour_path(tour)
-        %td
-          = link_to "delete tour", admin_tour_path(tour), method: :delete, data: { confirm: 'Are you sure?' }
-        %td
-          = link_to "assign crew", assign_crew_members_admin_tour_path(tour)
+= render :partial => "admin/tours/index"
 
-= link_to "neue Tour anlegen", new_admin_tour_path
+
+

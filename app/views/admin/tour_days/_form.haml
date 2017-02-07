@@ -1,32 +1,30 @@
-= form_for [:admin, @tour, @tour_day] do |f|
+= form_for resource do |f|
   = render "shared/error_messages", :target => @tour_day
-  .field
-    =f.label :date
-    %br
-    =f.date_field :date, autofocus: true
-  .field
-    =f.label :show_name
-    %br
-    =f.text_field :show_name
-  .field
-    =f.label :city
-    %br
-    =f.text_field :city
-  .field
-    =f.label :country
-    %br
-    =f.text_field :country
-  .field
-    =f.label :km_next_day
-    %br
-    =f.text_field :km_next_day
-  .field
-    =f.label :comment_next_day
-    %br
-    =f.text_area :comment_next_day
-  .field
-    =f.label :time_zone
-    %br
-    =f.text_field :time_zone
-  .action
-    = f.submit "Save Tour Days"
+  .form-group.row
+    =f.label :date, :class=>"col-2 col-form-label"
+    .col-8
+      =f.text_field :date, autofocus: true, :class=>"form-control"
+  .form-group.row
+    =f.label :show_name, :class=>"col-2 col-form-label"
+    .col-8
+      =f.text_field :show_name, autofocus: true, :class=>"form-control"
+  .form-group.row
+    =f.label :city, :class=>"col-2 col-form-label"
+    .col-8
+      =f.text_field :city, autofocus: true, :class=>"form-control"
+  .form-group.row
+    =f.label :country, :class=>"col-2 col-form-label"
+    .col-8
+      =f.text_field :country, autofocus: true, :class=>"form-control"
+  .form-group.row
+    =f.label :km_next_day, :class=>"col-2 col-form-label"
+    .col-8
+      =f.text_field :km_next_day, autofocus: true, :class=>"form-control"
+  .form-group.row
+    =f.label :comment_next_day, :class=>"col-2 col-form-label"
+    .col-8
+      =f.text_area :comment_next_day, autofocus: true, :class=>"form-control"
+  .row
+    .col-3
+      = link_to "cancel", admin_tour_path(@tour), :class => "btn btn-secondary"
+      = f.submit "Save Tour", :class=>"btn btn-primary"

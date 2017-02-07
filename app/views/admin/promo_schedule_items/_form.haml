@@ -1,0 +1,38 @@
+= form_for resource do |f|
+  = render "shared/error_messages", :target => @promo_schedule_item
+  .form-group.row
+    .col-1
+      =f.label :name
+    .col-2
+      =f.label :for_whom
+    .col-1
+      =f.label :destination
+    .col-1
+      =f.label :start_time
+    .col-1
+      =f.label :end_time
+    .col-2
+      =f.label :contact
+    .col-2
+      =f.label :comment
+  .row
+    .col-1
+      =f.text_field :name, :class => "form-control form-control-sm"
+    .col-2
+      =f.text_field :for_whom, :class => "form-control form-control-sm"
+    .col-1
+      =f.text_field :destination, :class => "form-control form-control-sm"
+    .col-1
+      =f.time_field :start_time, :class => "form-control form-control-sm"
+    .col-1
+      =f.time_field :end_time, :class => "form-control form-control-sm"
+    .col-2
+      =f.text_field :contact, :class => "form-control form-control-sm"
+    .col-2
+      =f.text_area :comment, :class => "form-control form-control-sm"
+  .action
+    = link_to "Cancel", admin_tour_day_path(@tour_day, :promo => "travel_schedule"), :class => "btn btn-secondary"
+    = f.button "Save Promo Schedule Item", :class=>"btn btn-primary"
+
+
+

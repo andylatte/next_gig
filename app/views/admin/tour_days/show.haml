@@ -1,86 +1,12 @@
-%h2 Tour Day 
-= render :partial => "admin/shared/tour_info"
+.card
+  = render :partial => "admin/shared/tour_day_info"
 
-%h3 Tour Day Infos
-
-= render :partial => "admin/shared/tour_day_info"
-
-%td= link_to "edit Tour Day", edit_admin_tour_day_path(@tour_day)
-
-%h3 Venue
-.venue
-  -unless @tour_day.venue.nil?
-    = render :partial => "admin/venues/venue", :locals => {venue: @tour_day.venue}
-    = link_to "edit venue", edit_admin_venue_path(@tour_day.venue)
-  -else
-    = "no venue"
-    = link_to "creat venue", new_admin_tour_day_venue_path(@tour_day)
-
-%h3 Travel Schedule
-.travel_schedule
-  -unless @tour_day.travel_schedule_items.first.nil?
-    = render :partial => "admin/travel_schedules/show", :locals => {travel_schedule_items: @tour_day.travel_schedule_items}
-    = link_to "add travel schedule item", new_admin_tour_day_travel_schedule_item_path(@tour_day)
-  -else
-    = "no travel scheduled"
-    = link_to "creat travel schedule", new_admin_tour_day_travel_schedule_item_path(@tour_day)
-
-%h3 Show Schedule
-.travel_schedule
-  -unless @tour_day.show_schedule_items.first.nil?
-    = render :partial => "admin/show_schedules/show", :locals => {show_schedule_items: @tour_day.show_schedule_items}
-    = link_to "edit show schedule", new_admin_tour_day_show_schedule_item_path(@tour_day)
-  -else
-    = "no show scheduled"
-    = link_to "creat show schedule", new_admin_tour_day_show_schedule_item_path(@tour_day)
-
-%h3 Production
-.production
-  -unless @tour_day.production.nil?
-    = render :partial => "admin/productions/production", :locals => {production: @tour_day.production}
-    = link_to "edit production", edit_admin_production_path(@tour_day.production)
-  -else
-    = "no production"
-    = link_to "creat production", new_admin_tour_day_production_path(@tour_day)
-
-
-
-%h3 Primary Hotel
-.production
-  -unless @tour_day.primary_hotel.nil?
-    = render :partial => "admin/shared/hotel_show", :locals => {hotel: @tour_day.primary_hotel}
-    = link_to "edit primary_hotel", edit_admin_primary_hotel_path(@tour_day.primary_hotel)
-  -else
-    = "no primary_hotel"
-    = link_to "creat primary_hotel", new_admin_tour_day_primary_hotel_path(@tour_day)
-
-
-%h3 Secondary Hotel
-.production
-  -unless @tour_day.secondary_hotel.nil?
-    = render :partial => "admin/shared/hotel_show", :locals => {hotel: @tour_day.secondary_hotel}
-    = link_to "edit secondary_hotel", edit_admin_secondary_hotel_path(@tour_day.secondary_hotel)
-  -else
-    = "no secondary_hotel"
-    = link_to "creat secondary_hotel", new_admin_tour_day_secondary_hotel_path(@tour_day)
-
-
-%h3 Driver Hotel
-.production
-  -unless @tour_day.driver_hotel.nil?
-    = render :partial => "admin/shared/hotel_show", :locals => {hotel: @tour_day.driver_hotel}
-    = link_to "edit driver_hotel", edit_admin_driver_hotel_path(@tour_day.driver_hotel)
-  -else
-    = "no production"
-    = link_to "creat driver_hotel", new_admin_tour_day_driver_hotel_path(@tour_day)
-
-
-%h3 Cargo
-.cargo
-  -unless @tour_day.cargo.nil?
-    = render :partial => "admin/cargos/cargo", :locals => {cargo: @tour_day.cargo}
-    = link_to "edit cargo", edit_admin_cargo_path(@tour_day.cargo)
-  -else
-    = "no cargo"
-    = link_to "creat cargo", new_admin_tour_day_cargo_path(@tour_day)
-
+  = render :partial => "admin/venues/show"
+  = render :partial => "admin/travel_schedules/show"
+  = render :partial => "admin/show_schedules/show"
+  = render :partial => "admin/promo_schedules/show"
+  = render :partial => "admin/productions/show"
+  = render :partial => "admin/primary_hotels/show"
+  = render :partial => "admin/secondary_hotels/show"
+  = render :partial => "admin/driver_hotels/show"
+  = render :partial => "admin/cargos/show"

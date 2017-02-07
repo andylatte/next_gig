@@ -1,6 +1,5 @@
-%h3 Tour Day Infos
-
-= render :partial => "admin/shared/tour_day_info"
-
-%h3 Edit Travel Schedule
-= render :partial => "admin/show_schedule_items/form", :locals => {tour_day: @tour_day, resource: [:admin, @show_schedule_item]}
+.card
+  = render :partial => "admin/shared/tour_day_info"
+  .card-block
+    %h4.card-title Edit Show Schedule Item
+    = render :partial => "admin/show_schedule_items/form", :locals => {tour_day: @tour_day, resource: [:admin, @show_schedule_item]}

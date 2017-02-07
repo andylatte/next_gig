@@ -37,5 +37,12 @@ class Tour < ApplicationRecord
   # callbacks
     
   # public instance methods
+  def from_to
+    if tour_days.empty?
+      "--"
+    else
+      tour_days.first.date.to_s(:le) + " - " + tour_days.last.date.to_s(:le)
+    end
+  end
 
 end

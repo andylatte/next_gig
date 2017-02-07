@@ -1,6 +1,5 @@
-%h3 Tour Day Infos
-
-= render :partial => "admin/shared/tour_day_info"
-
-%h3 Edit Driver Hotel
-= render :partial => "admin/shared/hotel_form", :locals => {hotel: @driver_hotel, resource: [:admin, @driver_hotel]}
+.card
+  = render :partial => "admin/shared/tour_day_info"
+  .card-block
+    %h4.card-title Edit Driver Hotel
+    = render :partial => "admin/shared/hotel_form", :locals => {hotel: @driver_hotel, resource: [:admin, @driver_hotel]}

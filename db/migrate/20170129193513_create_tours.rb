@@ -7,7 +7,7 @@ class CreateTours < ActiveRecord::Migration[5.0]
       t.string    :band_name
       t.date      :first_show_day
       t.date      :last_show_day
-      t.integer   :show_day_count
+      t.integer   :tour_days_count
 
       t.timestamps
     end

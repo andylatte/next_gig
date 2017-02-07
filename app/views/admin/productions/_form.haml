@@ -1,76 +1,61 @@
 = form_for resource do |f|
   = render "shared/error_messages", :target => @production
-  .field
-    =f.label :main_contact_name
-    %br
-    =f.text_field :main_contact_name, autofocus: true
-  .field
-    =f.label :main_contact_phone
-    %br
-    =f.text_field :main_contact_phone
-  .field
-    =f.label :main_contact_email
-    %br
-    =f.text_field :main_contact_email
-  .field
-    =f.label :prod_contact_name
-    %br
-    =f.text_field :prod_contact_name
-  .field
-    =f.label :prod_contact_phone
-    %br
-    =f.text_field :prod_contact_phone
-  .field
-    =f.label :prod_contact_email
-    %br
-    =f.text_field :prod_contact_email
-  .field
-    =f.label :hosp_contact_name
-    %br
-    =f.text_field :hosp_contact_name
-  .field
-    =f.label :hosp_contact_phone
-    %br
-    =f.text_field :hosp_contact_phone
-  .field
-    =f.label :hosp_contact_email
-    %br
-    =f.text_field :hosp_contact_email
-  .field
-    =f.label :stage_manager_name
-    %br
-    =f.text_field :stage_manager_name
-  .field
-    =f.label :stage_manager_phone
-    %br
-    =f.text_field :stage_manager_phone
-  .field
-    =f.label :stage_manager_email
-    %br
-    =f.text_field :stage_manager_email
-  .field
-    =f.label :stage_size
-    %br
-    =f.text_field :stage_size
-  .field
-    =f.label :local_backline
-    %br
-    =f.text_field :local_backline
-  .field
-    =f.label :access_notes
-    %br
-    =f.text_area :access_notes
-  .field
-    =f.label :loading_notes
-    %br
-    =f.text_area :loading_notes
-  .field
-    =f.label :credential_notes
-    %br
-    =f.text_area :credential_notes
-  .field
-    =f.label :comment
-    %br
-    =f.text_area :comment
+  .form-group.row
+    =f.label :main_contact_name, :class=>"col-4 col-form-label"
+    =f.label :main_contact_phone, :class=>"col-4 col-form-label"
+    =f.label :main_contact_email, :class=>"col-4 col-form-label"
+  .form-group.row
+    .col-4=f.text_field :main_contact_name, :class=>"form-control"
+    .col-4=f.text_field :main_contact_phone, :class=>"form-control"
+    .col-4=f.text_field :main_contact_email,  :class=>"form-control"
+  .form-group.row
+    =f.label :prod_contact_name, :class=>"col-4 col-form-label"
+    =f.label :prod_contact_phone, :class=>"col-4 col-form-label"
+    =f.label :prod_contact_email, :class=>"col-4 col-form-label"
+  .form-group.row
+    .col-4=f.text_field :prod_contact_name, :class=>"form-control"
+    .col-4=f.text_field :prod_contact_phone, :class=>"form-control"
+    .col-4=f.text_field :prod_contact_email,  :class=>"form-control"
+  .form-group.row
+    =f.label :hosp_contact_name, :class=>"col-4 col-form-label"
+    =f.label :hosp_contact_phone, :class=>"col-4 col-form-label"
+    =f.label :hosp_contact_email, :class=>"col-4 col-form-label"
+  .form-group.row
+    .col-4=f.text_field :hosp_contact_name, :class=>"form-control"
+    .col-4=f.text_field :hosp_contact_phone, :class=>"form-control"
+    .col-4=f.text_field :hosp_contact_email,  :class=>"form-control"
+  .form-group.row
+    =f.label :stage_manager_name, :class=>"col-4 col-form-label"
+    =f.label :stage_manager_phone, :class=>"col-4 col-form-label"
+    =f.label :stage_manager_email, :class=>"col-4 col-form-label"
+  .form-group.row
+    .col-4=f.text_field :stage_manager_name, :class=>"form-control"
+    .col-4=f.text_field :stage_manager_phone, :class=>"form-control"
+    .col-4=f.text_field :stage_manager_email,  :class=>"form-control"
+  .form-group.row
+    =f.label :stage_size, :class=>"col-2 col-form-label"
+    .col-8
+      =f.text_field :stage_size, :class=>"form-control"
+  .form-group.row
+    =f.label :local_backline, :class=>"col-2 col-form-label"
+    .col-8
+      =f.text_field :local_backline, :class=>"form-control"
+  .form-group.row
+    =f.label :access_notes, :class=>"col-2 col-form-label"
+    .col-8
+      =f.text_area :access_notes, :class=>"form-control"
+  .form-group.row
+    =f.label :loading_notes, :class=>"col-2 col-form-label"
+    .col-8
+      =f.text_area :loading_notes, :class=>"form-control"
+  .form-group.row
+    =f.label :credential_notes, :class=>"col-2 col-form-label"
+    .col-8
+      =f.text_area :credential_notes, :class=>"form-control"
+  .form-group.row
+    =f.label :comment, :class=>"col-2 col-form-label"
+    .col-8
+      =f.text_area :comment, :class=>"form-control"
   .action
-    = f.submit "Save Production"
+    = link_to "Cancel", admin_tour_day_path(@tour_day, :anchor => "production"), :class => "btn btn-secondary"
+    = f.submit "Save Production", :class=>"btn btn-primary"

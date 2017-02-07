@@ -1,40 +1,40 @@
-%table
-  %tr
-    %td Venue Name
-    %td= venue.venue_name
-  %tr
-    %td Address 1
-    %td= venue.address_1
-  %tr
-    %td Address 2
-    %td= venue.address_2
-  %tr
-    %td ZipCode
-    %td= venue.zip_code
-  %tr
-    %td City
-    %td= venue.city
-  %tr
-    %td Country
-    %td= venue.country
-  %tr
-    %td URL
-    %td= venue.url
-  %tr
-    %td Event type
-    %td= venue.event_type
-  %tr
-    %td Slot
-    %td= venue.slot
-  %tr
-    %td Stage
-    %td= venue.stage
-  %tr
-    %td Capacity
-    %td= venue.capacity
-  %tr
-    %td Sales
-    %td= venue.sales
-  %tr
-    %td Comment
-    %td= venue.comment
+%table{:class=>"table table-striped col-8 mb-4"}
+  %tr.row
+    %td.col-2 Venue Name:
+    %td.col-8= venue.venue_name
+  %tr.row
+    %td.col-2 Address 1:
+    %td.col-8= venue.address_1
+  %tr.row
+    %td.col-2 Address 2:
+    %td.col-8= venue.address_2
+  %tr.row
+    %td.col-2 ZipCode:
+    %td.col-8= venue.zip_code
+  %tr.row
+    %td.col-2 City:
+    %td.col-8= venue.city
+  %tr.row
+    %td.col-2 Country:
+    %td.col-8= venue.country
+  %tr.row
+    %td.col-2 URL:
+    %td.col-8= venue.url
+  %tr.row
+    %td.col-2 Event type:
+    %td.col-8= venue.event_type
+  %tr.row
+    %td.col-2 Slot:
+    %td.col-8= venue.slot
+  %tr.row
+    %td.col-2 Stage:
+    %td.col-8= venue.stage
+  %tr.row
+    %td.col-2 Capacity:
+    %td.col-8= venue.capacity
+  %tr.row
+    %td.col-2 Sales:
+    %td.col-8= venue.sales
+  %tr.row
+    %td.col-2 Comment:
+    %td.col-8= venue.comment

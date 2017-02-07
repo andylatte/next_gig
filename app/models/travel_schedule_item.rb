@@ -8,13 +8,12 @@
 #  number              :string
 #  origin              :string
 #  destination         :string
-#  start_time          :time
-#  end_time            :time
+#  start_time          :datetime
+#  end_time            :datetime
 #  departure_date_time :datetime
 #  arrival_date_time   :datetime
 #  duration            :string
 #  contact             :string
-#  location            :string
 #  comment             :string
 #  type                :string
 #  tour_day_id         :integer

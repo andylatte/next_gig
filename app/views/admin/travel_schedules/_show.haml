@@ -1,24 +1,24 @@
-.row
-  .col-1
-    Name
-  .col-2
-    for_whom
-  .col-1
-    Number
-  .col-1
-    Origin
-  .col-1
-    Destination
-  .col-1
-    Call Time
-  .col-1
-    Departure
-  .col-1
-    Arrival
-  .col-1
-    Duration
-  .col-1
-    Comment
-  .col-1
-- travel_schedule_items.each do |item|
-  = render :partial => "admin/travel_schedule_items/show_travel_schedule_item", :locals => {item: item}
+.card-block#travel_schedule
+  -unless @tour_day.travel_schedule_items.empty?
+    %h4.card-title
+      Travel Schedule
+      %span=link_to "Add Travel Schedule Item", new_admin_tour_day_travel_schedule_item_path(@tour_day), :class=>"btn btn-outline-primary btn-sm ml-4"
+    .row
+      .col-1 Name
+      .col-2 for_whom
+      .col-1 Number
+      .col-1 Origin
+      .col-1 Destination
+      .col-1 Call Time
+      .col-1 Departure
+      .col-1 Arrival
+      .col-1 Duration
+      .col-1 Comment
+      .col-1
+    - @tour_day.travel_schedule_items.each do |item|
+      = render :partial => "admin/travel_schedule_items/show_travel_schedule_item", :locals => {item: item}
+  -else
+    %h4.card-title Travel Schedule
+    .text-center
+      %p.card-textWith There have been Travel Schedule created yet
+      = link_to "creat travel schedule", new_admin_tour_day_travel_schedule_item_path(@tour_day), :class=>"btn btn-primary"

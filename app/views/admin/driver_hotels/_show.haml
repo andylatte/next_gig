@@ -1,0 +1,11 @@
+.card-block#driver_hotel
+  -unless @tour_day.driver_hotel.nil?
+    %h4.card-title
+      Driver Hotel
+      %span=link_to "edit driver hotel", edit_admin_driver_hotel_path(@tour_day.driver_hotel), :class=>"btn btn-outline-primary btn-sm ml-4"
+    = render :partial => "admin/shared/hotel_show", :locals => {hotel: @tour_day.driver_hotel}
+  -else
+    %h4.card-title Driver Hotel
+    .text-center
+      %p.card-textWith There has been no Driver Hotel created yet
+      =link_to "Create Driver Hotel", new_admin_tour_day_driver_hotel_path(@tour_day), :class=>"btn btn-primary"

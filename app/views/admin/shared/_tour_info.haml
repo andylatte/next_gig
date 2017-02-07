@@ -1,7 +1,4 @@
-%div
-  %strong 
-    = "tour_name: " 
-  = @tour.tour_name + ", "
-  %strong
-    = "band_name: "  
-  = @tour.band_name
+%h3.card-header 
+  = @tour.tour_name
+  %small.text-muted
+    = @tour.band_name

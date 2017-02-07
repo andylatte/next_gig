@@ -43,7 +43,7 @@
     .col-2
       =f.text_area :comment, :class => "form-control form-control-sm"
   .action
-    = link_to "Cancel", admin_tour_day_path(@tour_day), :class => "btn btn-secondary"
+    = link_to "Cancel", admin_tour_day_path(@tour_day, :anchor => "travel_schedule"), :class => "btn btn-secondary"
     = f.button "Travel Schedule Item", :class=>"btn btn-primary"
 
 /  = render "admin/travel_schedule_items/form_travel_schedule_item", :locals => {f: f}

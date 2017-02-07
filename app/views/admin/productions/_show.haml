@@ -1,0 +1,11 @@
+.card-block#production
+  -unless @tour_day.production.nil?
+    %h4.card-title
+      Production
+      %span=link_to "edit production", edit_admin_production_path(@tour_day.production), :class=>"btn btn-outline-primary btn-sm ml-4"
+    = render :partial => "admin/production/production", :locals => {production: @tour_day.production}
+  -else
+    %h4.card-title Production
+    .text-center
+      %p.card-textWith There has been no Production created yet
+      =link_to "Create Production", new_admin_tour_day_production_path(@tour_day), :class=>"btn btn-primary"

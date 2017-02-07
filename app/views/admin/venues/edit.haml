@@ -1,4 +1,5 @@
-%h3 Tour Day Infos
-
-= render :partial => "admin/shared/tour_day_info"
-= render :partial => "admin/venues/form", :locals => {venue: @venue, resource: [:admin, @venue]}
+.card
+  = render :partial => "admin/shared/tour_day_info"
+  .card-block
+    %h4.card-title Edit Venue
+    = render :partial => "admin/venues/form", :locals => {venue: @venue, resource: [:admin, @venue]}

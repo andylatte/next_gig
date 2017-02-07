@@ -1,6 +1,5 @@
-%h3 Tour Day Infos
-
-= render :partial => "admin/shared/tour_day_info"
-
-%h3 Create Primary Hotel
-= render :partial => "admin/shared/hotel_form", :locals => {hotel: @primary_hotel, resource: [:admin, @tour_day, @primary_hotel]}
+.card
+  = render :partial => "admin/shared/tour_day_info"
+  .card-block
+    %h4.card-title New Primary Hotel
+    = render :partial => "admin/shared/hotel_form", :locals => {hotel: @primary_hotel, resource: [:admin, @tour_day, @primary_hotel]}

@@ -1,7 +1,10 @@
-%h2 Assign Tour Members
-= render :partial => "admin/shared/tour_info"
-%div
-  = form_for(@tour, url: { controller: "admin/tours", action: "update_crew_members"}, method: "post") do |f|
-    = f.collection_check_boxes(:crew_member_ids, @crew_members_available, :id, :name)
-    .action
-      = f.submit "Assign Crew Members"
+.card
+  = render :partial => "admin/shared/tour_info"
+  .card-block
+    %h4.card-title Assign Tour Members
+    = form_for(@tour, url: { controller: "admin/tours", action: "update_crew_members"}, method: "post") do |f|
+      = f.collection_check_boxes(:crew_member_ids, @crew_members_available, :id, :name) do |b|
+        %div.form-check= b.label(:class=> "form-check-label") {b.check_box(:class=>"form-check-input") + b.text}
+      .row
+        = link_to "cancel", admin_tour_path(@tour), :class => "btn btn-secondary mr-2 ml-3"
+        = f.submit "Assign Crew Members", :class=>"btn btn-primary"

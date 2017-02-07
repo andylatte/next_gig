@@ -23,7 +23,7 @@ class TourDay < ApplicationRecord
   # scopes
 
    # associations
-   belongs_to :tour
+   belongs_to :tour, counter_cache: true
    
    has_one :venue,           dependent: :destroy
    has_one :cargo,           dependent: :destroy
@@ -33,9 +33,7 @@ class TourDay < ApplicationRecord
    has_one :secondary_hotel, dependent: :destroy
    has_one :driver_hotel,    dependent: :destroy
    
-   has_many :travel_schedule_items, dependent: :destroy
-   accepts_nested_attributes_for :travel_schedule_items
-   
+   has_many :travel_schedule_items, dependent: :destroy   
    has_many :show_schedule_items,   dependent: :destroy
    has_many :promo_schedule_items,  dependent: :destroy
    

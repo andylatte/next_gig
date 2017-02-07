@@ -1,4 +1,5 @@
-%h3 Tour Day Infos
-
-= render :partial => "admin/shared/tour_day_info"
-= render :partial => "admin/productions/form", :locals => {production: @production, resource: [:admin, @tour_day, @production]}
+.card
+  = render :partial => "admin/shared/tour_day_info"
+  .card-block
+    %h4.card-title New Production
+    = render :partial => "admin/productions/form", :locals => {production: @production, resource: [:admin, @tour_day, @production]}
