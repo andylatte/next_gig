@@ -21,6 +21,8 @@ Rails.application.routes.draw do
         resources :travel_schedule_items
         resources :show_schedule_items
         resources :promo_schedule_items
+        resources :travel_schedules, :only => [:new, :create]
+        resources :show_schedules, :only => [:new, :create]
       end
     end
   end

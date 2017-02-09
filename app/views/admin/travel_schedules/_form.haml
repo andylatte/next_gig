@@ -1,0 +1,50 @@
+= form_for([:admin, @tour_day], url: { controller: "admin/travel_schedules", :action => "create"}, method: "post") do |f|
+  = render "shared/error_messages", :target => @tour_day
+  .form-group.row
+    .col-1
+      =f.label :name
+    .col-2
+      =f.label :for_whom
+    .col-1
+      =f.label :number
+    .col-1
+      =f.label :origin
+    .col-1
+      =f.label :destination
+    .col-1
+      =f.label :call_time
+    .col-1
+      =f.label :departure_datetime
+    .col-1
+      =f.label :arrival_datetime
+    .col-1
+      =f.label :duration
+    .col-2
+      =f.label :comment
+  
+  = f.fields_for :travel_schedule_items do |tsi|
+    .row
+      .col-1
+        =tsi.text_field :name, :class => "form-control form-control-sm"
+      .col-2
+        =tsi.text_field :for_whom, :class => "form-control form-control-sm"
+      .col-1
+        =tsi.text_field :number, :class => "form-control form-control-sm"
+      .col-1
+        =tsi.text_field :origin, :class => "form-control form-control-sm"
+      .col-1
+        =tsi.text_field :destination, :class => "form-control form-control-sm"
+      .col-1
+        =tsi.time_field :start_time, :class => "form-control form-control-sm"
+      .col-1
+        =tsi.date_field :departure_datetime, :class => "form-control form-control-sm"
+      .col-1
+        =tsi.date_field :arrival_datetime, :class => "form-control form-control-sm"
+      .col-1
+        =tsi.text_field :duration, :class => "form-control form-control-sm"
+      .col-2
+        =tsi.text_area :comment, :class => "form-control form-control-sm"    
+  .row
+    .col-4
+      = link_to "cancel", admin_tour_day_path(@tour_day, :anchor => "travel_schedule"), :class => "btn btn-secondary"
+      = f.submit "Save Travel Schedule", :class=>"btn btn-primary"

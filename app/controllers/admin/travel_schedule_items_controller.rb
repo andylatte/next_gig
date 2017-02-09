@@ -10,7 +10,7 @@ class Admin::TravelScheduleItemsController < AdminController
     @travel_schedule_item = TravelScheduleItem.new(travel_schedule_item_params)
     @tour_day.travel_schedule_items << @travel_schedule_item
     if @travel_schedule_item.save
-      redirect_to admin_tour_day_path(@tour_day)
+      redirect_to admin_tour_day_path(@tour_day, :anchor => "travel_schedule")
     else
       render "new"
     end
@@ -21,14 +21,14 @@ class Admin::TravelScheduleItemsController < AdminController
   
   def update
     if @travel_schedule_item.update(travel_schedule_item_params)
-      redirect_to admin_tour_day_path(@tour_day)
+      redirect_to admin_tour_day_path(@tour_day, :anchor => "travel_schedule")
     else
       render 'edit'
     end
   end
   def destroy
     @travel_schedule_item.destroy
-    redirect_to admin_tour_day_path(@tour_day)
+    redirect_to admin_tour_day_path(@tour_day, :anchor => "travel_schedule")
   end
   
   protected
@@ -42,7 +42,7 @@ class Admin::TravelScheduleItemsController < AdminController
   end
 
   def travel_schedule_item_params
-    params.require(:travel_schedule_item).permit(:name, :for_whom, :number, :origin, :destination, :start_time, :departure_date_time, :arrival_date_time, :duration, :comment)
+    params.require(:travel_schedule_item).permit(:name, :for_whom, :number, :origin, :destination, :start_time, :departure_datetime, :arrival_datetime, :duration, :comment)
   end
 end
 

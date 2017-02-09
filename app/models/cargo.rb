@@ -11,7 +11,8 @@
 #  contact_pick_up        :string
 #  licence_plate_pick_up  :string
 #  amount_pick_up         :string
-#  comment                :text
+#  comment_pick_up        :text
+#  comment_drop_off       :text
 #  tour_day_id            :integer
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null

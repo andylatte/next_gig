@@ -6,9 +6,9 @@
   .col-1
     = item.destination
   .col-1
-    = item.start_time
+    = l(item.start_time, :format => :time) if item.start_time
   .col-1
-    = item.end_time
+    = l(item.end_time, :format => :time) if item.end_time
   .col-2
     = item.contact
   .col-2

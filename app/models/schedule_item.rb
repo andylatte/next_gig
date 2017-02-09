@@ -10,8 +10,8 @@
 #  destination         :string
 #  start_time          :datetime
 #  end_time            :datetime
-#  departure_date_time :datetime
-#  arrival_date_time   :datetime
+#  departure_datetime  :datetime
+#  arrival_datetime    :datetime
 #  duration            :string
 #  contact             :string
 #  comment             :string

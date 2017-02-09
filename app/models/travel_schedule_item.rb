@@ -10,8 +10,8 @@
 #  destination         :string
 #  start_time          :datetime
 #  end_time            :datetime
-#  departure_date_time :datetime
-#  arrival_date_time   :datetime
+#  departure_datetime :datetime
+#  arrival_datetime   :datetime
 #  duration            :string
 #  contact             :string
 #  comment             :string
@@ -32,10 +32,10 @@ class TravelScheduleItem < ScheduleItem
   # scopes
 
   # validations
-  validates :departure_date_time, presence: true
-  validates_datetime :start_time
-  validates_datetime :departure_date_time
-  validates_datetime :arrival_date_time   
+
+  validates_datetime :start_time, :allow_blank => true
+  validates_datetime :departure_datetime
+  validates_datetime :arrival_datetime, :allow_blank => true
   # callbacks
 
   # public instance methods

@@ -1,4 +1,5 @@
 %h3.card-header 
-  = @tour_day.show_name + "(#{@tour_day.city}, #{@tour_day.country})"
+  = link_to "#{@tour_day.show_name} (#{@tour_day.city}, #{@tour_day.country})", admin_tour_day_path(@tour_day)
   %small.text-muted
-    = @tour_day.date.to_s(:le) 
+    = @tour_day.date.to_s(:le)
+    = link_to @tour_day.tour.tour_name, admin_tour_path(@tour_day.tour)
