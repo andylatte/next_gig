@@ -41,6 +41,6 @@ class Admin::CargosController < AdminController
     end
 
     def cargo_params
-      params.require(:cargo).permit(:time_drop_off,:contact_drop_off, :licence_plate_drop_off,:amount_drop_off, :time_pick_up, :contact_pick_up, :licence_plate_pick_up, :amount_pick_up, :comment)
+      params.require(:cargo).permit(:time_drop_off,:contact_drop_off, :licence_plate_drop_off,:amount_drop_off,:comment_drop_off, :time_pick_up, :contact_pick_up, :licence_plate_pick_up, :amount_pick_up, :comment_pick_up)
     end
   end  

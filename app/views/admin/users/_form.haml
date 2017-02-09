@@ -1,0 +1,30 @@
+= form_for [:admin, @user], :method => method do |f|
+  = render "shared/error_messages", :target => @user
+  .form-group.row
+    =f.label :first_name, :class=>"col-2 col-form-label"
+    .col-8
+      =f.text_field :first_name, autofocus: true, :class=>"form-control"
+  .form-group.row
+    =f.label :last_name, :class=>"col-2 col-form-label"
+    .col-8
+      =f.text_field :last_name, :class=>"form-control"
+  .form-group.row
+    =f.label :email, :class=>"col-2 col-form-label"
+    .col-8
+      =f.text_field :email, :class=>"form-control"
+  .form-group.row
+    =f.label :password, :class=>"col-2 col-form-label"
+    - if @minimum_password_length 
+      %em 
+        = "(#{@minimum_password_length} characters minimum)"
+    .col-8
+      =f.password_field :password, autocomplete: :off, :class=>"form-control"
+  .form-group.row
+    =f.label :password_confirmation, :class=>"col-2 col-form-label"
+    .col-8
+      =f.password_field :password_confirmation, autocomplete: :off, :class=>"form-control"
+  .row
+    .col-3
+      = link_to "cancel", admin_users_path(), :class => "btn btn-secondary"
+      = f.submit "Save User", :class=>"btn btn-primary"
+ 

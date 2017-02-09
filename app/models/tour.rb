@@ -25,7 +25,7 @@ class Tour < ApplicationRecord
   has_many :tour_memberships, dependent: :destroy
   accepts_nested_attributes_for :tour_memberships
   
-  has_many :crew_members, through: :tour_memberships, class_name: "User", foreign_key: "user_id"
+  has_many :crew_members, -> { order 'first_name asc' }, through: :tour_memberships, class_name: "User", foreign_key: "user_id"
   
   has_many :tour_days, -> { order 'date asc' }, dependent: :destroy
   

@@ -32,11 +32,13 @@ en:
       on_or_before: "must be on or before %{restriction}"
       after: "must be after %{restriction}"
       on_or_after: "must be on or after %{restriction}"
-en:
   time:
     formats:
       long: "%d.%m.%Y %H:%M"
       short: "%d.%m, %H:%M"
       date: "%d.%m.%Y"
       time: "%H:%M"
-      
+  date:
+    formats:
+      date: "%d.%m.%Y"    
+      time: "%H:%M"

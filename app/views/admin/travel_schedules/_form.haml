@@ -1,4 +1,4 @@
-= form_for([:admin, @tour_day], url: { controller: "admin/travel_schedules"}, method: "post") do |f|
+= form_for([:admin, @tour_day], url: { controller: "admin/travel_schedules", :action => "create"}, method: "post") do |f|
   = render "shared/error_messages", :target => @tour_day
   .form-group.row
     .col-1
@@ -12,7 +12,7 @@
     .col-1
       =f.label :destination
     .col-1
-      =f.label :start_time
+      =f.label :call_time
     .col-1
       =f.label :departure_datetime
     .col-1

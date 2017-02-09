@@ -1,4 +1,4 @@
 %h3.card-header 
-  = @tour.tour_name
+  = link_to @tour.tour_name, admin_tour_path(@tour)
   %small.text-muted
     = @tour.band_name

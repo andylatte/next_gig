@@ -10,7 +10,7 @@
     - else
       %h4{:class =>"card-title"}
         Crew
-        %span=link_to "Add Crew Members", assign_crew_members_admin_tour_path(@tour), :class=>"btn btn-outline-primary btn-sm ml-4"
+        %span=link_to "Edit Crew", assign_crew_members_admin_tour_path(@tour), :class=>"btn btn-outline-primary btn-sm ml-4"
       %ul
         - @crew_members.each do |cm|
           %li= cm.name

@@ -1,36 +1,39 @@
-%table
-  %tr 
+%table{:class=>"table table-striped col-8 mb-4"}
+  %tr.row
     %td 
-      %strong Drop Off
+      %h6 Drop Off
     %td
-  %tr
-    %td Time
-    %td= cargo.time_drop_off
-  %tr
-    %td Contact 
-    %td= cargo.contact_drop_off
-  %tr
-    %td Licence Plate 
-    %td= cargo.licence_plate_drop_off
-  %tr
-    %td Amount
-    %td= cargo.amount_drop_off
-  %tr 
+  %tr.row
+    %td.col-2 Time
+    %td.col-6= cargo.time_drop_off
+  %tr.row
+    %td.col-2 Contact 
+    %td.col-6= cargo.contact_drop_off
+  %tr.row
+    %td.col-2 Licence Plate 
+    %td.col-6= cargo.licence_plate_drop_off
+  %tr.row
+    %td.col-2 Amount
+    %td.col-6= cargo.amount_drop_off
+  %tr.row
+    %td.col-2 Comment
+    %td.col-6= cargo.comment_drop_off
+  %tr.row
     %td 
-      %strong Pickup
+      %h6 Pickup
     %td
-  %tr
-    %td Time
-    %td= cargo.time_pick_up
-  %tr
-    %td Contact 
-    %td= cargo.contact_pick_up
-  %tr
-    %td Licence Plate 
-    %td= cargo.licence_plate_pick_up
-  %tr
-    %td Amount
-    %td= cargo.amount_pick_up
-  %tr
-    %td Comment
-    %td= cargo.comment
+  %tr.row
+    %td.col-2 Time
+    %td.col-6= cargo.time_pick_up
+  %tr.row
+    %td.col-2 Contact 
+    %td.col-6= cargo.contact_pick_up
+  %tr.row
+    %td.col-2 Licence Plate 
+    %td.col-6= cargo.licence_plate_pick_up
+  %tr.row
+    %td.col-2 Amount
+    %td.col-6= cargo.amount_pick_up
+  %tr.row
+    %td.col-2 Comment
+    %td.col-6= cargo.comment_pick_up
