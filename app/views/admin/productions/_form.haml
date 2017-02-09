@@ -56,6 +56,7 @@
     =f.label :comment, :class=>"col-2 col-form-label"
     .col-8
       =f.text_area :comment, :class=>"form-control"
-  .action
-    = link_to "Cancel", admin_tour_day_path(@tour_day, :anchor => "production"), :class => "btn btn-secondary"
-    = f.submit "Save Production", :class=>"btn btn-primary"
+  .row
+    .col-4
+      = link_to "Cancel", admin_tour_day_path(@tour_day, :anchor => "production"), :class => "btn btn-secondary"
+      = f.submit "Save Production", :class=>"btn btn-primary"

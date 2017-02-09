@@ -1,75 +1,64 @@
-%table
-  %tr 
-    %td 
-      %strong Main Contact
+%table{:class=>"table table-striped col-8 mb-4"}
+  %tr.row
+    %td.col-10 
+      %h6 Main Contact
     %td
-  %tr
-    %td Name
-    %td= production.main_contact_name
-  %tr
-    %td Phone 
-    %td= production.main_contact_phone
-  %tr
-    %td Email
-    %td= production.main_contact_email
-  %tr 
-    %td 
-      %strong Production Contact
-    %td
-  %tr
-    %td Name
+  %tr.row
+    %td.col-3 Name
+    %td.col-3 Phone    
+    %td.col-3 Email
+  %tr.row
+    %td.col-3= production.main_contact_name
+    %td.col-3= production.main_contact_phone
+    %td.col-3= production.main_contact_email
+  %tr.row
+    %td.col-10 
+      %h6 Production Contact
+  %tr.row
+    %td.col-3 Name
+    %td.col-3 Phone    
+    %td.col-3 Email  
+  %tr.row
     %td= production.prod_contact_name
-  %tr
-    %td Phone 
     %td= production.prod_contact_phone
-  %tr
-    %td Email
     %td= production.prod_contact_email
-  %tr 
-    %td 
-      %strong Hospitality Contact
-    %td
-  %tr
-    %td Name
-    %td= production.hosp_contact_name
-  %tr
-    %td Phone 
-    %td= production.hosp_contact_phone
-  %tr
-    %td Email
-    %td= production.hosp_contact_email
-  %tr 
-    %td 
-      %strong Stage Manager
-    %td
-  %tr
-    %td Name
-    %td= production.stage_manager_name
-  %tr
-    %td Phone 
-    %td= production.stage_manager_phone
-  %tr
-    %td Email
-    %td= production.stage_manager_email
-  %tr 
-    %td 
-      %strong more info
-    %td
-  %tr
-    %td Stage Size
-    %td= production.stage_size
-  %tr
-    %td Local Backline 
-    %td= production.local_backline
-  %tr
-    %td Access Notes
-    %td= production.access_notes
-  %tr
-    %td Loading Notes
-    %td= production.loading_notes
-  %tr
-    %td Credential Notes
-    %td= production.credential_notes
-  %tr
-    %td Comment
-    %td= production.comment
+  %tr.row
+    %td.col-10 
+      %h6 Hospitality Contact
+  %tr.row
+    %td.col-3 Name
+    %td.col-3 Phone    
+    %td.col-3 Email   
+  %tr.row
+    %td.col-3= production.hosp_contact_name
+    %td.col-3= production.hosp_contact_phone
+    %td.col-3= production.hosp_contact_email
+  %tr.row
+    %td.col-10 
+      %h6 Stage Manager
+  %tr.row
+    %td.col-3 Name
+    %td.col-3 Phone    
+    %td.col-3 Email   
+  %tr.row 
+    %td.col-3= production.stage_manager_name
+    %td.col-3= production.stage_manager_phone
+    %td.col-3= production.stage_manager_email
+  %tr.row
+    %td.col-2 Stage Size
+    %td.col-6= production.stage_size
+  %tr.row
+    %td.col-2 Local Backline 
+    %td.col-6= production.local_backline
+  %tr.row
+    %td.col-2 Access Notes
+    %td.col-6= production.access_notes
+  %tr.row
+    %td.col-2 Loading Notes
+    %td.col-6= production.loading_notes
+  %tr.row
+    %td.col-2 Credential Notes
+    %td.col-6= production.credential_notes
+  %tr.row
+    %td.col-2 Comment
+    %td.col-6= production.comment

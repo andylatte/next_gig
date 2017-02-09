@@ -30,9 +30,10 @@
       =f.text_field :contact, :class => "form-control form-control-sm"
     .col-2
       =f.text_area :comment, :class => "form-control form-control-sm"
-  .action
-    = link_to "Cancel", admin_tour_day_path(@tour_day, :promo => "travel_schedule"), :class => "btn btn-secondary"
-    = f.button "Save Promo Schedule Item", :class=>"btn btn-primary"
+  .row
+    .col-5
+      = link_to "Cancel", admin_tour_day_path(@tour_day, :promo => "travel_schedule"), :class => "btn btn-secondary"
+      = f.button "Save Promo Schedule Item", :class=>"btn btn-primary"
 
 
 

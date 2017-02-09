@@ -53,6 +53,6 @@
     .col-8
       =f.text_area :comment, autofocus: true, :class=>"form-control"
   .row
-    .col-3
+    .col-4
       = link_to "cancel", admin_tour_day_path(@tour_day, :anchor => "venue"), :class => "btn btn-secondary"
       = f.submit "Save Venue", :class=>"btn btn-primary"
