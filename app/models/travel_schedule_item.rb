@@ -33,7 +33,9 @@ class TravelScheduleItem < ScheduleItem
 
   # validations
   validates :departure_date_time, presence: true
-   
+  validates_datetime :start_time
+  validates_datetime :departure_date_time
+  validates_datetime :arrival_date_time   
   # callbacks
 
   # public instance methods

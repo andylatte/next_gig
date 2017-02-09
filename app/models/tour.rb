@@ -6,9 +6,7 @@
 #  user_id        :integer
 #  tour_name      :string
 #  band_name      :string
-#  first_show_day :date
-#  last_show_day  :date
-#  show_day_count :integer
+#  tour_days_count :integer
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #
@@ -33,7 +31,7 @@ class Tour < ApplicationRecord
   
   # validations
   validates :tour_name, :band_name, presence: true
-  
+
   # callbacks
     
   # public instance methods

@@ -5,7 +5,7 @@
 #  id               :integer          not null, primary key
 #  date             :date
 #  show_name        :string
-#  km_next_day      :integer
+#  km_next_day      :string
 #  comment_next_day :text
 #  city             :string
 #  country          :string
@@ -39,7 +39,7 @@ class TourDay < ApplicationRecord
    
    # validations
    validates :date, presence: true
-
+   validates_date :date 
    # callbacks
 
    # public instance methods

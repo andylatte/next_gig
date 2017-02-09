@@ -20,7 +20,7 @@ class Admin::SecondaryHotelsController < AdminController
   end
   
   def update
-    if @secondary_hotel.update(primary_hotel_params)
+    if @secondary_hotel.update(secondary_hotel_params)
       redirect_to admin_tour_day_path(@tour_day)
     else
       render 'edit'

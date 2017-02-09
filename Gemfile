@@ -32,7 +32,11 @@ gem 'jbuilder',                   '~> 2.5'                                      
 gem 'bcrypt',                     '~> 3.1.11'                                                             #password encryption
 gem 'devise',                     '~> 4.2'                                                                # User Authentication
 
+#gem 'momentjs-rails',             '>= 2.9.0'                                                              #date_time_picker
+#gem 'bootstrap3-datetimepicker-rails', '~> 4.17.43'
+#gem 'font-awesome-rails',         '~> 4.7.0.1'                                                            #svg icons
 
+gem 'validates_timeliness', '~> 4.0'                                                                      #date_time validations
 
 
 # Use Capistrano for deployment

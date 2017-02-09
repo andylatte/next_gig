@@ -31,6 +31,8 @@ class PromoScheduleItem < ScheduleItem
 
   # validations
   validates :start_time, presence: true
+  validates_datetime :start_time
+  validates_datetime :end_time
    
   # callbacks
 
