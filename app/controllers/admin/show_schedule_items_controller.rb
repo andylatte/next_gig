@@ -11,7 +11,7 @@ class Admin::ShowScheduleItemsController < AdminController
     @show_schedule_item = ShowScheduleItem.new(show_schedule_item_params)
     @tour_day.show_schedule_items << @show_schedule_item
     if @show_schedule_item.save
-      redirect_to admin_tour_day_path(@tour_day)
+      redirect_to admin_tour_day_path(@tour_day, :anchor => "show_schedule")
     else
       render "new"
     end
@@ -22,14 +22,14 @@ class Admin::ShowScheduleItemsController < AdminController
   
   def update
     if @show_schedule_item.update(show_schedule_item_params)
-      redirect_to admin_tour_day_path(@tour_day)
+      redirect_to admin_tour_day_path(@tour_day, :anchor => "show_schedule")
     else
       render 'edit'
     end
   end
   def destroy
     @show_schedule_item.destroy
-    redirect_to admin_tour_day_path(@tour_day)
+    redirect_to admin_tour_day_path(@tour_day, :anchor => "show_schedule")
   end
   
   protected

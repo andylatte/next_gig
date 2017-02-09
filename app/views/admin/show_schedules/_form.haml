@@ -1,0 +1,30 @@
+= form_for([:admin, @tour_day], url: { controller: "admin/show_schedules"}, method: "post") do |f|
+  = render "shared/error_messages", :target => @tour_day
+  .form-group.row
+    .col-2
+      =f.label :name
+    .col-2
+      =f.label :for_whom
+    .col-1
+      =f.label :start_time
+    .col-1
+      =f.label :end_time
+    .col-2
+      =f.label :comment
+  
+  = f.fields_for :show_schedule_items do |ssi|
+    .row
+      .col-2
+        =ssi.text_field :name, :class => "form-control form-control-sm"
+      .col-2
+        =ssi.text_field :for_whom, :class => "form-control form-control-sm"
+      .col-1
+        =ssi.time_field :start_time, :class => "form-control form-control-sm"
+      .col-1
+        =ssi.time_field :end_time, :class => "form-control form-control-sm"
+      .col-2
+        =ssi.text_area :comment, :class => "form-control form-control-sm"    
+  .row
+    .col-4
+      = link_to "cancel", admin_tour_day_path(@tour_day, :anchor => "show_schedule"), :class => "btn btn-secondary"
+      = f.submit "Save Show Schedule", :class=>"btn btn-primary"

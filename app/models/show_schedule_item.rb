@@ -10,8 +10,8 @@
 #  destination         :string
 #  start_time          :datetime
 #  end_time            :datetime
-#  departure_date_time :datetime
-#  arrival_date_time   :datetime
+#  departure_datetime :datetime
+#  arrival_datetime   :datetime
 #  duration            :string
 #  contact             :string
 #  comment             :string
@@ -30,9 +30,9 @@ class ShowScheduleItem < ScheduleItem
   # scopes
 
   # validations
-  validates :start_time, presence: true
+
   validates_datetime :start_time
-  validates_datetime :end_time
+  validates_datetime :end_time, :allow_blank => true
    
   # callbacks
 

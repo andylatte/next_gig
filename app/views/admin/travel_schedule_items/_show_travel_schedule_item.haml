@@ -1,24 +1,24 @@
-.row
-  .col-1
+%tr.row
+  %td.col-1
     = item.name
-  .col-2
+  %td.col-2
     = item.for_whom
-  .col-1
+  %td.col-1
     = item.number
-  .col-1
+  %td.col-1
     = item.origin
-  .col-1
+  %td.col-1
     = item.destination
-  .col-1
-    = item.start_time
-  .col-1
-    = item.departure_date_time
-  .col-1
-    = item.arrival_date_time
-  .col-1
+  %td.col-1
+    = l(item.start_time, :format => :time) if item.start_time 
+  %td.col-1
+    = l(item.departure_datetime, :format => :long) if item.departure_datetime
+  %td.col-1
+    = l(item.arrival_datetime, :format => :long) if item.arrival_datetime
+  %td.col-1
     = item.duration
-  .col-1
+  %td.col-1
     = item.comment
-  .col-1
+  %td.col-1
     =link_to "edit", edit_admin_travel_schedule_item_path(item)
     =link_to "delete", admin_travel_schedule_item_path(item), method: :delete, :data => {confirm: "are you sure?"}
