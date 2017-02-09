@@ -10,7 +10,7 @@ class Admin::CargosController < AdminController
       @cargo = Cargo.new(cargo_params)
       @tour_day.cargo = @cargo
       if @cargo.save
-        redirect_to admin_tour_day_path(@tour_day)
+        redirect_to admin_tour_day_path(@tour_day, :anchor => "cargo")
       else
         render "new"
       end
@@ -21,14 +21,14 @@ class Admin::CargosController < AdminController
 
     def update
       if @cargo.update(cargo_params)
-        redirect_to admin_tour_day_path(@tour_day)
+        redirect_to admin_tour_day_path(@tour_day, :anchor => "cargo")
       else
         render 'edit'
       end
     end
     def destroy
       @cargo.destroy
-      redirect_to admin_tour_day_path(@tour_day)
+      redirect_to admin_tour_day_path(@tour_day, :anchor => "cargo")
     end
 
     protected

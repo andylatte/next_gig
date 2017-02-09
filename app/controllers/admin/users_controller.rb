@@ -1,5 +1,5 @@
 class Admin::UsersController < AdminController
-  
+  skip_before_filter :verify_authenticity_token, :only => :create
   def index
     @crew_members_available = current_user.crew_members_available
   end

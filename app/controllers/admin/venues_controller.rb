@@ -11,7 +11,7 @@ class Admin::VenuesController < AdminController
     @venue = Venue.new(venue_params)
     @tour_day.venue = @venue
     if @venue.save
-      redirect_to admin_tour_day_path(@tour_day)
+      redirect_to admin_tour_day_path(@tour_day, :anchor => "venue")
     else
       render "new"
     end
@@ -22,14 +22,14 @@ class Admin::VenuesController < AdminController
   
   def update
     if @venue.update(venue_params)
-      redirect_to admin_tour_day_path(@tour_day)
+      redirect_to admin_tour_day_path(@tour_day, :anchor => "venue")
     else
       render 'edit'
     end
   end
   def destroy
     @venue.destroy
-    redirect_to admin_tour_day_path(@tour_day)
+    redirect_to admin_tour_day_path(@tour_day, :anchor => "venue")
   end
   
   protected

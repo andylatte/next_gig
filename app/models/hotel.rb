@@ -35,8 +35,8 @@ class Hotel < ApplicationRecord
 
    # validations
    validates :hotel_name, presence: true
-   validates_date :check_in_date
-   validates_date :check_out_date
+   validates_date :check_in_date, :allow_blank => true
+   validates_date :check_out_date, :allow_blank => true
    
    # callbacks
 

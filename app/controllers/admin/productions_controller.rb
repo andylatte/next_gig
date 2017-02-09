@@ -10,7 +10,7 @@ class Admin::ProductionsController < AdminController
       @production = Production.new(production_params)
       @tour_day.production = @production
       if @production.save
-        redirect_to admin_tour_day_path(@tour_day)
+        redirect_to admin_tour_day_path(@tour_day, :anchor => "production")
       else
         render "new"
       end
@@ -21,14 +21,14 @@ class Admin::ProductionsController < AdminController
 
     def update
       if @production.update(production_params)
-        redirect_to admin_tour_day_path(@tour_day)
+        redirect_to admin_tour_day_path(@tour_day, :anchor => "production")
       else
         render 'edit'
       end
     end
     def destroy
       @production.destroy
-      redirect_to admin_tour_day_path(@tour_day)
+      redirect_to admin_tour_day_path(@tour_day, :anchor => "production")
     end
 
     protected

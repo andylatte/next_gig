@@ -7,10 +7,9 @@ class Admin::DriverHotelsController < AdminController
   end
 
   def create
-    @driver_hotel = DriverHotel.new(driver_hotel_params)
-    @tour_day.driver_hotel = @driver_hotel
+    @driver_hotel = @tour_day.build_driver_hotel(driver_hotel_params)
     if @driver_hotel.save
-      redirect_to admin_tour_day_path(@tour_day)
+      redirect_to admin_tour_day_path(@tour_day, :anchor => "driver_hotel")
     else
       render "new"
     end
@@ -21,7 +20,7 @@ class Admin::DriverHotelsController < AdminController
   
   def update
     if @driver_hotel.update(driver_hotel_params)
-      redirect_to admin_tour_day_path(@tour_day)
+      redirect_to admin_tour_day_path(@tour_day, :anchor => "driver_hotel")
     else
       render 'edit'
     end

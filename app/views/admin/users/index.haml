@@ -1,13 +1,13 @@
 .card
   .card-block
     - if @crew_members_available.blank?
-      %h4{:class =>"card-title"} Crew Members
+      %h4{:class =>"card-title"} Available Crew Members
       .text-center
         %p.card-textWith There have been no crew members created yet
         =link_to "Create First Crew Member", new_admin_user_path, :class=>"btn btn-primary"
     - else
       %h4{:class =>"card-title"}
-        Crew Members
+        Available Crew Members
         %span=link_to "Add Crew Member", new_admin_user_path, :class=>"btn btn-outline-primary btn-sm ml-4"
       %table{:class=>"table table-striped col-12 mb-4"}
         %thead

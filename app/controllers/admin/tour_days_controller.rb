@@ -13,7 +13,7 @@ class Admin::TourDaysController < AdminController
   def create
     @tour_day = @tour.tour_days.build(tour_day_params)
     if @tour_day.save
-      redirect_to admin_tour_path(@tour)
+      redirect_to admin_tour_path(@tour, :anchor => "tour_days")
     else
       render "new"
     end
@@ -24,14 +24,14 @@ class Admin::TourDaysController < AdminController
   
   def update
     if @tour_day.update(tour_day_params)
-      redirect_to admin_tour_tour_day_path(@tour_day)
+      redirect_to admin_tour_tour_day_path(@tour_day, :anchor => "tour_days")
     else
       render 'edit'
     end
   end
   def destroy
     @tour_day.destroy
-    redirect_to admin_tour_path(@tour)
+    redirect_to admin_tour_path(@tour, :anchor => "tour_days")
   end
   
   protected

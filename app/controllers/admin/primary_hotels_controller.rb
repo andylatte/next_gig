@@ -7,10 +7,9 @@ class Admin::PrimaryHotelsController < AdminController
   end
 
   def create
-    @primary_hotel = PrimaryHotel.new(primary_hotel_params)
-    @tour_day.primary_hotel = @primary_hotel
+    @primary_hotel = @tour_day.build_primary_hotel(primary_hotel_params)
     if @primary_hotel.save
-      redirect_to admin_tour_day_path(@tour_day)
+      redirect_to admin_tour_day_path(@tour_day, :anchor => "primary_hotel")
     else
       render "new"
     end
@@ -21,14 +20,14 @@ class Admin::PrimaryHotelsController < AdminController
   
   def update
     if @primary_hotel.update(primary_hotel_params)
-      redirect_to admin_tour_day_path(@tour_day)
+      redirect_to admin_tour_day_path(@tour_day, :anchor => "primary_hotel")
     else
       render 'edit'
     end
   end
   def destroy
     @primary_hotel.destroy
-    redirect_to admin_tour_day_path(@tour_day)
+    redirect_to admin_tour_day_path(@tour_day, :anchor => "primary_hotel")
   end
   
   protected

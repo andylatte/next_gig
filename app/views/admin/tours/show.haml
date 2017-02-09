@@ -15,7 +15,7 @@
         - @crew_members.each do |cm|
           %li= cm.name
       
-  .card-block
+  .card-block#tour_days
     - if @tour_days.blank?
       %h4{:class =>"card-title"}
         Tour Days

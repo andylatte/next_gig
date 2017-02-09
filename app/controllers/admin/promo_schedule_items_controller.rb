@@ -11,7 +11,7 @@ class Admin::PromoScheduleItemsController < AdminController
     @promo_schedule_item = PromoScheduleItem.new(promo_schedule_item_params)
     @tour_day.promo_schedule_items << @promo_schedule_item
     if @promo_schedule_item.save
-      redirect_to admin_tour_day_path(@tour_day)
+      redirect_to admin_tour_day_path(@tour_day, :anchor => "promo_schedule")
     else
       render "new"
     end
@@ -22,14 +22,14 @@ class Admin::PromoScheduleItemsController < AdminController
   
   def update
     if @promo_schedule_item.update(promo_schedule_item_params)
-      redirect_to admin_tour_day_path(@tour_day)
+      redirect_to admin_tour_day_path(@tour_day, :anchor => "promo_schedule")
     else
       render 'edit'
     end
   end
   def destroy
     @promo_schedule_item.destroy
-    redirect_to admin_tour_day_path(@tour_day)
+    redirect_to admin_tour_day_path(@tour_day, :anchor => "promo_schedule")
   end
   
   protected

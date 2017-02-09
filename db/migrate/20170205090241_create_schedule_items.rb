@@ -9,8 +9,8 @@ class CreateScheduleItems < ActiveRecord::Migration[5.0]
       t.datetime :start_time
       t.datetime :end_time
       
-      t.datetime :departure_date_time
-      t.datetime :arrival_date_time
+      t.datetime :departure_datetime
+      t.datetime :arrival_datetime
       
       t.string :duration
       t.string :contact

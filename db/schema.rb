@@ -20,11 +20,12 @@ ActiveRecord::Schema.define(version: 20170205090241) do
     t.string   "contact_drop_off"
     t.string   "licence_plate_drop_off"
     t.string   "amount_drop_off"
+    t.text     "comment_drop_off"
     t.string   "time_pick_up"
     t.string   "contact_pick_up"
     t.string   "licence_plate_pick_up"
     t.string   "amount_pick_up"
-    t.text     "comment"
+    t.text     "comment_pick_up"
     t.integer  "tour_day_id"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
@@ -93,22 +94,22 @@ ActiveRecord::Schema.define(version: 20170205090241) do
     t.string   "destination"
     t.datetime "start_time"
     t.datetime "end_time"
-    t.datetime "departure_date_time"
-    t.datetime "arrival_date_time"
+    t.datetime "departure_datetime"
+    t.datetime "arrival_datetime"
     t.string   "duration"
     t.string   "contact"
     t.string   "comment"
     t.string   "type"
     t.integer  "tour_day_id"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.index ["tour_day_id"], name: "index_schedule_items_on_tour_day_id", using: :btree
   end
 
   create_table "tour_days", force: :cascade do |t|
     t.date     "date"
     t.string   "show_name"
-    t.integer  "km_next_day"
+    t.string   "km_next_day"
     t.text     "comment_next_day"
     t.string   "city"
     t.string   "country"
@@ -132,11 +133,9 @@ ActiveRecord::Schema.define(version: 20170205090241) do
     t.integer  "user_id"
     t.string   "tour_name"
     t.string   "band_name"
-    t.date     "first_show_day"
-    t.date     "last_show_day"
-    t.integer  "show_day_count"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.integer  "tour_days_count"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.index ["user_id"], name: "index_tours_on_user_id", using: :btree
   end
 

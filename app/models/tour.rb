@@ -2,13 +2,13 @@
 #
 # Table name: tours
 #
-#  id             :integer          not null, primary key
-#  user_id        :integer
-#  tour_name      :string
-#  band_name      :string
+#  id              :integer          not null, primary key
+#  user_id         :integer
+#  tour_name       :string
+#  band_name       :string
 #  tour_days_count :integer
-#  created_at     :datetime         not null
-#  updated_at     :datetime         not null
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
 #
 # Indexes
 #
