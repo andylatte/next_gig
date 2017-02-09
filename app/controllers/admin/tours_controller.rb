@@ -46,7 +46,7 @@ class Admin::ToursController < AdminController
 
   def update_crew_members
     @tour.crew_member_ids = tour_params[:crew_member_ids]
-    redirect_to admin_welcome_index_path
+    redirect_to admin_tour_path(@tour)
   end
   
   protected
