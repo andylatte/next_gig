@@ -1,0 +1,2 @@
+module PromoScheduleHelper
+end

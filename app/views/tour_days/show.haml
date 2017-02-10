@@ -1,0 +1,19 @@
+%nav.navbar.bg-info
+  .row
+    .col-1
+      = link_to tour_path(@tour_day.tour) do
+        = fa_icon "chevron-left 3x", :class=>"ml-2 mt-2"
+    .col.navbar-brand.text-center
+      = l(@tour_day.date,:format => :weekday) 
+      %br 
+      = @tour_day.city
+
+
+
+= render :partial => "tour_d/show" unless @tour_day.venue.blank?
+= render :partial => "travel_schedule/show" unless @tour_day.travel_schedule_items.blank?
+= render :partial => "show_schedule/show" unless @tour_day.show_schedule_items.blank?
+= render :partial => "promo_schedule/show" unless @tour_day.promo_schedule_items.blank?
+= render :partial => "production/show" unless @tour_day.production.blank?
+= render :partial => "list_associated_item", :locals => {path: tour_day_hotels_path(@tour_day), title: "hotels", icon_style: "hotel 2x"} unless @tour_day.hotels.blank?
+= render :partial => "cargo/show" unless @tour_day.cargo.blank?

@@ -1,0 +1,4 @@
+= render :partial => "tour_days/tour_day_info"
+= render :partial => "hotels/list_item", :locals => {hotel: @primary_hotel, title: "Primary Hotel"} unless @primary_hotel.blank?
+= render :partial => "hotels/list_item", :locals => {hotel: @secondary_hotel, title: "Secondary Hotel"} unless @secondary_hotel.blank?
+= render :partial => "hotels/list_item", :locals => {hotel: @driver_hotel, title: "Driver Hotel"} unless @driver_hotel.blank?

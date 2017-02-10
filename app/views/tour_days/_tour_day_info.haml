@@ -1,0 +1,9 @@
+%nav.navbar.bg-info
+  .row
+    .col-1
+      = link_to tour_day_path(@tour_day) do
+        = fa_icon "chevron-left 3x", :class=>"ml-2 mt-2"
+    .col.navbar-brand.text-center
+      = l(@tour_day.date,:format => :weekday) 
+      %br 
+      = @tour_day.city

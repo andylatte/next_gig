@@ -36,10 +36,13 @@ en:
       short: "%d.%m, %H:%M"
       date: "%d.%m.%Y"
       time: "%H:%M"
+      weekday: "%a %d.%m. %Y"
   date:
     formats:
       date: "%d.%m.%Y"    
       time: "%H:%M"
+      weekday: "%a %d.%m. %Y"
   crew:
     tours:
       no_tours_assigned_msg: "Sorry - There have been no tours assigned to you yet."
+      no_tour_days_msg: "There are no shows comming up on this tour"

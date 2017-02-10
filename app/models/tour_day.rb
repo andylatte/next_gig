@@ -21,28 +21,31 @@
 
 class TourDay < ApplicationRecord
   # scopes
+  scope :upcoming, -> { where("date >= ?", Date.today) }
 
-   # associations
-   belongs_to :tour, counter_cache: true
+  # associations
+  belongs_to :tour, counter_cache: true
+  
+  has_one :venue,           dependent: :destroy
+  has_one :cargo,           dependent: :destroy
+  has_one :production,      dependent: :destroy
    
-   has_one :venue,           dependent: :destroy
-   has_one :cargo,           dependent: :destroy
-   has_one :production,      dependent: :destroy
+  has_one :primary_hotel,   dependent: :destroy
+  has_one :secondary_hotel, dependent: :destroy
+  has_one :driver_hotel,    dependent: :destroy
+  
+  has_many :hotels
+  
+  has_many :travel_schedule_items, -> { order 'created_at asc' }, dependent: :destroy   
+  has_many :show_schedule_items, -> { order 'created_at asc' }, dependent: :destroy
+  has_many :promo_schedule_items, -> { order 'created_at asc' }, dependent: :destroy
    
-   has_one :primary_hotel,   dependent: :destroy
-   has_one :secondary_hotel, dependent: :destroy
-   has_one :driver_hotel,    dependent: :destroy
+  accepts_nested_attributes_for :travel_schedule_items, reject_if: proc { |attributes| attributes['departure_datetime'].blank? }
+  accepts_nested_attributes_for :show_schedule_items, reject_if: proc { |attributes| attributes['start_time'].blank? }
    
-   has_many :travel_schedule_items, -> { order 'created_at asc' }, dependent: :destroy   
-   has_many :show_schedule_items, -> { order 'created_at asc' }, dependent: :destroy
-   has_many :promo_schedule_items, -> { order 'created_at asc' }, dependent: :destroy
-   
-   accepts_nested_attributes_for :travel_schedule_items, reject_if: proc { |attributes| attributes['departure_datetime'].blank? }
-   accepts_nested_attributes_for :show_schedule_items, reject_if: proc { |attributes| attributes['start_time'].blank? }
-   
-   # validations
-   validates_date :date 
-   # callbacks
+  # validations
+  validates_date :date 
+  # callbacks
 
-   # public instance methods
+  # public instance methods
 end

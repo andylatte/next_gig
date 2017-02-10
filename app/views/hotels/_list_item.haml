@@ -1,0 +1,30 @@
+.card
+  .card-block
+    %h4.card-title=title
+  .card-block
+    .row
+      .col-2 Hotel Name
+      .col-10= hotel.hotel_name
+    .row
+      .col-2 Address 1
+      .col-10
+        = hotel.address_1
+        = hotel.address_2
+        = "#{hotel.zip_code} #{hotel.city}"
+        = hotel.country
+    .row
+      .col-2 In / Out
+      .col-10= "#{l(hotel.check_in_date, :format => :date) if hotel.check_in_date} to #{l(hotel.check_out_date, :format => :date) if hotel.check_out_date}"
+    .row
+      .col-2 Nights
+      .col-4= hotel.number_of_nights
+      .col-2 Breakfast
+      .col-4= hotel.breakfast
+    .row
+      .col-2 Singles
+      .col-4= hotel.single_rooms
+      .col-2 Twins
+      .col-4= hotel.twin_rooms
+    .row
+      .col-2 Comment
+      .col-10= hotel.comment

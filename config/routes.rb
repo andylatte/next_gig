@@ -1,8 +1,18 @@
 Rails.application.routes.draw do
-  
+
+
   root to: 'welcome#index'
   
   resources :tours, :only => [:index, :show]
+  resources :tour_days, :only => [:show] do
+    resources :venues, :only => [:show]
+    resources :travel_schedules_items, :only => [:index]
+    resources :show_schedules_items, :only => [:index]
+    resources :promo_schedules_items, :only => [:index]
+    resources :productions, :only => [:show]
+    resources :hotels, :only => [:index]
+    resources :cargo, :only => [:show]
+  end
   
   namespace :admin do
     get 'welcome/index'

@@ -1,0 +1,8 @@
+.row.bg-info.mx-0
+  = link_to path, :class=>"list-group-item w-100" do 
+    .col-1.pl-0
+      =fa_icon(icon_style)
+    .col
+      %h4.card-title=title
+    .col-1.text-right
+      =fa_icon "chevron-right 2x", :class=>"ml-2"
