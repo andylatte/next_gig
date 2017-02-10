@@ -36,9 +36,9 @@ class TourDay < ApplicationRecord
   
   has_many :hotels
   
-  has_many :travel_schedule_items, -> { order 'created_at asc' }, dependent: :destroy   
-  has_many :show_schedule_items, -> { order 'created_at asc' }, dependent: :destroy
-  has_many :promo_schedule_items, -> { order 'created_at asc' }, dependent: :destroy
+  has_many :travel_schedule_items, -> { order 'start_time asc' }, dependent: :destroy   
+  has_many :show_schedule_items, -> { order 'start_time asc' }, dependent: :destroy
+  has_many :promo_schedule_items, -> { order 'start_time asc' }, dependent: :destroy
    
   accepts_nested_attributes_for :travel_schedule_items, reject_if: proc { |attributes| attributes['departure_datetime'].blank? }
   accepts_nested_attributes_for :show_schedule_items, reject_if: proc { |attributes| attributes['start_time'].blank? }

@@ -1,9 +1,10 @@
 %nav.navbar.bg-info
   .row
-    .col-1
+    .col-2
       = link_to tours_path do
         = fa_icon "chevron-left 3x", :class=>"ml-2 mt-2"
     .col.navbar-brand.text-center= @tour.tour_name
+    .col-2
 
 - if @tour_days_upcoming.blank?
   = render :partial => "shared/no_infos_yet", :locals => {msg: t("crew.tours.no_tour_days_msg")}
