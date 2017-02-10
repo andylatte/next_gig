@@ -34,7 +34,8 @@ gem 'devise',                     '~> 4.2'                                      
 
 #gem 'momentjs-rails',             '>= 2.9.0'                                                              #date_time_picker
 #gem 'bootstrap3-datetimepicker-rails', '~> 4.17.43'
-#gem 'font-awesome-rails',         '~> 4.7.0.1'                                                            #svg icons
+
+gem 'font-awesome-rails',         '~> 4.7.0.1'                                                            #svg icons
 
 gem 'validates_timeliness', '~> 4.0'                                                                      #date_time validations
 
