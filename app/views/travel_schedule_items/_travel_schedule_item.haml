@@ -1,0 +1,19 @@
+.row.bg-primary
+  .col= item.name
+.card
+  .card-block
+    .row
+      .col=item.for_whom
+    .row
+      .col-3="#:#{item.number}" 
+      .col-3 call time
+      .col-3= item.start_time
+      .col-3= item.duration
+    .row
+      .col-6=item.origin 
+      .col-6="to: #{item.destination}"
+    .row 
+      .col-6=l(item.departure_datetime, format: :long) unless item.departure_datetime.blank? 
+      .col-6="to: #{l(item.arrival_datetime, format: :long) unless item.arrival_datetime.blank?}"
+    .row
+      .col-12=item.comment 

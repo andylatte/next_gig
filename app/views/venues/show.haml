@@ -1,0 +1,44 @@
+= render :partial => "tour_days/tour_day_info"
+.row.bg-primary
+  .col 
+    %h3 Venue / Event
+.card.card-outline-info
+  .card-header Location
+  .card-block
+    .row
+      .col-2 Venue:
+      .col-10= @venue.venue_name
+    .row
+      .col-2 Address:
+      .col-10
+        = @venue.address_1
+        = @venue.address_2
+        %br= "#{@venue.zip_code} #{@venue.city}"
+        = @venue.country
+    .row
+      .col-2 URL:
+      .col-8= link_to @venue.url, @venue.url
+    .row
+      .col-2 Kind:
+      .col-8=@venue.event_type
+
+.card.card-outline-info
+  .card-header Event
+  .card-block
+    .row
+      .col-2 Slot:
+      .col-8=@venue.slot
+    .row
+      .col-2 Stage:
+      .col-8=@venue.stage
+    .row
+      .col-2 Capacity:
+      .col-8=@venue.capacity
+    .row
+      .col-2 Sales:
+      .col-8=@venue.sales
+    .row
+      .col-2 Comment:
+      .col-8= @venue.comment
+
+  

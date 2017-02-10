@@ -1,0 +1,41 @@
+= render :partial => "tour_days/tour_day_info"
+.row.bg-primary
+  .col 
+    %h3 Cargo
+.card.card-outline-info
+  .card-header Drop Off
+  .card-block
+    .row
+      .col-3 Time:
+      .col-9= @cargo.time_drop_off
+    .row
+      .col-3 Contact:
+      .col-9= @cargo.contact_drop_off
+    .row
+      .col-3 Licence Plate:
+      .col-9= @cargo.licence_plate_drop_off
+    .row
+      .col-3 No. of Pieces:
+      .col-9= @cargo.amount_drop_off
+    .row
+      .col-2 Comment:
+      .col-10= @cargo.comment_drop_off
+
+.card.card-outline-info
+  .card-header Pick Up
+  .card-block
+    .row
+      .col-3 Time:
+      .col-9= @cargo.time_pick_up
+    .row
+      .col-3 Contact:
+      .col-9= @cargo.contact_pick_up
+    .row
+      .col-3 Licence Plate:
+      .col-9= @cargo.licence_plate_pick_up
+    .row
+      .col-3 No. of Pieces:
+      .col-9= @cargo.amount_pick_up
+    .row
+      .col-2 Comment:
+      .col-10= @cargo.comment_pick_up

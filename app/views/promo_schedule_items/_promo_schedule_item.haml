@@ -1,0 +1,19 @@
+.row.bg-primary
+  .col= item.name
+.card
+  .card-block
+    .row
+      .col-1=fa_icon "user"
+      .col=item.for_whom
+    .row
+      .col-1=fa_icon "bus"
+      .col=item.destination
+    .row
+      .col-1=fa_icon "clock-o"
+      .col-3=l(item.start_time, format: :time) unless item.start_time.blank?
+      .col-3="to: #{l(item.end_time, format: :time) unless item.end_time.blank?}"
+    .row 
+      .col-1=fa_icon "phone"
+      .col-6=item.contact
+    .row
+      .col-12=item.comment

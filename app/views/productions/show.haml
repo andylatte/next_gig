@@ -1,0 +1,53 @@
+= render :partial => "tour_days/tour_day_info"
+.row.bg-primary
+  .col 
+    %h3 Production
+.card.card-outline-info
+  .card-header Contacts
+  .card-block
+    .row
+      .col-2 Main:
+      .col-8
+        .row= @production.main_contact_name
+        .row= @production.main_contact_phone
+        .row= @production.main_contact_email
+    .row
+      .col-2 Production:
+      .col-8
+        .row= @production.prod_contact_name
+        .row= @production.prod_contact_phone
+        .row= @production.prod_contact_email
+    .row
+      .col-2 Hospidality:
+      .col-8
+        .row= @production.hosp_contact_name
+        .row= @production.hosp_contact_phone
+        .row= @production.hosp_contact_email
+    .row
+      .col-2 Stage Manager:
+      .col-8
+        .row= @production.stage_manager_name
+        .row= @production.stage_manager_phone
+        .row= @production.stage_manager_email
+
+.card.card-outline-info
+  .card-header Production Info
+  .card-block
+    .row
+      .col-3 Stage Size:
+      .col-9= @production.stage_size
+    .row
+      .col-3 Local Backline: 
+      .col-9= @production.local_backline
+    .row
+      .col-3 Access Notes:
+      .col-9= @production.access_notes
+    .row
+      .col-3 Loading Notes:
+      .col-9= @production.loading_notes
+    .row
+      .col-3 Credential Notes:
+      .col-9= @production.credential_notes
+    .row
+      .col-3 Comment:
+      .col-9= @production.comment

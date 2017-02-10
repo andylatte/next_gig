@@ -1,0 +1,6 @@
+= render :partial => "tour_days/tour_day_info"
+.row.bg-primary
+  .col 
+    %h3 Show Schedule
+- @show_schedule_items.each do |item|
+  = render :partial => "show_schedule_items/show_schedule_item", :locals => {item: item}
