@@ -39,7 +39,7 @@ class User < ApplicationRecord
   has_many :tour_memberships, dependent: :destroy
   
   has_many :tours_managed, class_name: "Tour", foreign_key: "user_id"
-  has_many :tours_assigned, class_name: "Tour", foreign_key: "user_id", through: :tour_memberships
+  has_many :tours_assigned, through: :tour_memberships, class_name: "Tour", foreign_key: "user_id", source: :crew_member
   
   # plugins/config
   

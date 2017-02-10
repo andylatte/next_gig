@@ -1,0 +1,6 @@
+.row.bg-info.mx-0
+  = link_to tour_path(tour), :class=>"list-group-item w-100" do 
+    .col
+      %h3.card-title=tour.tour_name
+    .col-1=pluralize(tour.tour_days_count, 'shows') 
+    .col-1 >

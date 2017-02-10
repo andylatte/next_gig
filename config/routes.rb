@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   
   root to: 'welcome#index'
   
+  resources :tours, :only => [:index, :show]
+  
   namespace :admin do
     get 'welcome/index'
     resources :users

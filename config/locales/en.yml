@@ -20,8 +20,6 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
-en:
   errors:
     messages:
       invalid_date: "is not a valid date"
@@ -42,3 +40,6 @@ en:
     formats:
       date: "%d.%m.%Y"    
       time: "%H:%M"
+  crew:
+    tours:
+      no_tours_assigned_msg: "Sorry - There have been no tours assigned to you yet."

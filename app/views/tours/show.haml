@@ -1,0 +1,8 @@
+%nav.navbar.bg-info
+  .navbar-brand.text-center= @tour.tour_name
+- if @tour.blank?
+  = render :partial => "shared/no_infos_yet"
+- else
+  .list-group
+    - @tour.each do |tour|
+      = render :partial => "tours/tour", :locals => {tour: tour}

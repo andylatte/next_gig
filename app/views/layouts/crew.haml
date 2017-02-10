@@ -1,16 +1,12 @@
 !!!
 %html
   %head
-    %title Big Size BIG TOUR Big Nice - Admin
+    %title big size BIG TOUR big nice
     = csrf_meta_tags
     = render :partial => "layouts/meta_tags"
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     = render :partial => "layouts/favicon"
-
   %body
-    = render :partial => "layouts/admin/page_header"
-    = render "layouts/application/warnings"
-    .container
-      = yield 
-    = render "layouts/admin/page_footer"
+    .container.px-0.w-100= yield 
+    = render "layouts/crew/page_footer"
