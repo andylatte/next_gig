@@ -3,7 +3,7 @@
   .form-group.row
     .col-1
       =f.label :name
-    .col-2
+    .col-1
       =f.label :for_whom
     .col-1
       =f.label :number
@@ -13,18 +13,18 @@
       =f.label :destination
     .col-1
       =f.label :call_time
-    .col-1
+    .col-2
       =f.label :departure_datetime
-    .col-1
+    .col-2
       =f.label :arrival_datetime
     .col-1
       =f.label :duration
-    .col-2
+    .col-1
       =f.label :comment
   .row
     .col-1
       =f.text_field :name, :class => "form-control form-control-sm"
-    .col-2
+    .col-1
       =f.text_field :for_whom, :class => "form-control form-control-sm"
     .col-1
       =f.text_field :number, :class => "form-control form-control-sm"
@@ -33,14 +33,14 @@
     .col-1
       =f.text_field :destination, :class => "form-control form-control-sm"
     .col-1
-      =f.time_field :start_time, :class => "form-control form-control-sm"
-    .col-1
-      =f.date_field :departure_datetime, :class => "form-control form-control-sm"
-    .col-1
-      =f.date_field :arrival_datetime, :class => "form-control form-control-sm"
+      =f.time_field :start_time, :value => (l(f.object.start_time, format: :time) unless f.object.start_time.blank?), :class => "form-control form-control-sm"
+    .col-2
+      =f.date_field :departure_datetime,:value => (l(f.object.departure_datetime, format: :long) unless f.object.departure_datetime.blank?), :class => "form-control form-control-sm"
+    .col-2
+      =f.date_field :arrival_datetime, :value => (l(f.object.arrival_datetime, format: :long) unless f.object.arrival_datetime.blank?), :class => "form-control form-control-sm"
     .col-1
       =f.text_field :duration, :class => "form-control form-control-sm"
-    .col-2
+    .col-1
       =f.text_area :comment, :class => "form-control form-control-sm"
   .row
     .col-4

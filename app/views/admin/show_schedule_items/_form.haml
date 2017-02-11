@@ -5,9 +5,9 @@
       =f.label :name
     .col-2
       =f.label :for_whom
-    .col-1
+    .col-2
       =f.label :start_time
-    .col-1
+    .col-2
       =f.label :end_time
     .col-2
       =f.label :comment
@@ -16,10 +16,10 @@
       =f.text_field :name, :class => "form-control form-control-sm"
     .col-2
       =f.text_field :for_whom, :class => "form-control form-control-sm"
-    .col-1
-      =f.time_field :start_time, :class => "form-control form-control-sm"
-    .col-1
-      =f.time_field :end_time, :class => "form-control form-control-sm"
+    .col-2
+      =f.time_field :start_time, :value => (l(f.object.start_time, format: :time) unless f.object.start_time.blank?), :class => "form-control form-control-sm"
+    .col-2
+      =f.time_field :end_time, :value => (l(f.object.end_time, format: :time) unless f.object.end_time.blank?), :class => "form-control form-control-sm"
     .col-2
       =f.text_area :comment, :class => "form-control form-control-sm"
   .row

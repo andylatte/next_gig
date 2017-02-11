@@ -3,17 +3,19 @@
     %h4.card-title
       Promo Schedule
       %span=link_to "Add Show Promo Item", new_admin_tour_day_promo_schedule_item_path(@tour_day), :class=>"btn btn-outline-primary btn-sm ml-4"
-    .row
-      .col-1 Name
-      .col-2 for_whom
-      .col-1 destination
-      .col-1 start time
-      .col-1 end time
-      .col-2 contact
-      .col-2 Comment
-      .col-1
-    - @tour_day.promo_schedule_items.each do |item|
-      = render :partial => "admin/promo_schedule_items/show_promo_schedule_item", :locals => {item: item}
+    %table{:class=>"table table-striped col-10 mb-4"}
+      %thead    
+        %tr.row
+          %th.col-1 Name
+          %th.col-2 for_whom
+          %th.col-1 destination
+          %th.col-1 start time
+          %th.col-1 end time
+          %th.col-1 contact
+          %th.col-2 Comment
+          %th.col-1
+      - @tour_day.promo_schedule_items.each do |item|
+        = render :partial => "admin/promo_schedule_items/show_promo_schedule_item", :locals => {item: item}
   -else
     %h4.card-title Promo Schedule
     .text-center
