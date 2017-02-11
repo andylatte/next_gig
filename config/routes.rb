@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
 
-  root to: 'welcome#index'
+  root to: 'tours#index'
   
   resources :tours, :only => [:index, :show]
   resources :tour_days, :only => [:show] do

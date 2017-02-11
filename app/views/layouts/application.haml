@@ -8,9 +8,7 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     = render :partial => "layouts/favicon"
 
-  %body
-    = render "layouts/application/page_header"
-    = render "layouts/application/warnings"
+  %body#public
     .content.container
       = yield 
     = render "layouts/application/page_footer"

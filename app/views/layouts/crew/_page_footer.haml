@@ -1,6 +1,10 @@
 %nav{:class=>"navbar navbar-light bg-info fixed-bottom mt-4"}
-  .nav.mx-auto
-    .nav-item
-      = link_to "Sign out", destroy_user_session_path, :method => :delete, :class => "nav-link"
-    - if current_user && current_user.admin?
-      .nav-item= link_to "admin view", admin_welcome_index_path, :class => "nav-link"
+  .nav.mx-auto.w-100
+    .nav-item.row.w-100
+      .col.text-muted.m-1
+        ="Hi, #{current_user.first_name}!"
+
+      - if current_user && current_user.admin?
+        .nav-item= link_to "admin", admin_welcome_index_path, :class => "nav-link"
+      .col.text-right
+        = link_to "Sign out", destroy_user_session_path, :method => :delete, :class => "nav-link"

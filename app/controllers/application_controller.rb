@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
     if resource.admin?
       admin_welcome_index_path
     else
-      welcome_index_path
+      tours_path
     end
   end
   
