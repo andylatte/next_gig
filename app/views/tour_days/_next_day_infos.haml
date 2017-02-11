@@ -1,0 +1,16 @@
+.card.rounded-0
+  .row.bg-primary
+    .col.text-white.mx-4.mt-2
+      %h5 Preview Next Tour Day
+  .card-block
+    %h5.card-title=@tour_day.show_name
+    %h6.card-subtitle="#{l(@tour_day.date, :format => :weekday)}, #{@tour_day.city}"
+    %p.card-text
+      .row
+        .col-3 km:
+        .col=@tour_day.km_next_day
+      .row
+        .col-3 Comment:
+        .col=@tour_day.comment_next_day
+      .row
+        .col=link_to "Next Tourday", tour_day_path(@tour_day.next_tour_day), :class=>"btn btn-success"

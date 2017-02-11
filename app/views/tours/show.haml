@@ -1,14 +1,14 @@
-%nav.navbar.bg-info
+%nav.navbar.bg-faded
   .row
     .col-2
       = link_to tours_path do
-        = fa_icon "chevron-left 3x", :class=>"ml-2 mt-2"
-    .col.navbar-brand.text-center= @tour.tour_name
+        = fa_icon "chevron-left 3x", :class=>"ml-2 mt-2 text-info"
+    .col.navbar-brand.text-center.text-muted.mt-2= @tour.tour_name
     .col-2
-
-- if @tour_days_upcoming.blank?
-  = render :partial => "shared/no_infos_yet", :locals => {msg: t("crew.tours.no_tour_days_msg")}
-- else
-  .list-group
-    - @tour_days_upcoming.each do |tour_day|
-      = render :partial => "tour_days/list_item", :locals => {tour_day: tour_day}
+#tour
+  - if @tour_days_upcoming.blank?
+    = render :partial => "shared/no_infos_yet", :locals => {msg: t("crew.tours.no_tour_days_msg")}
+  - else
+    .list-group
+      - @tour_days_upcoming.each do |tour_day|
+        = render :partial => "tour_days/list_item", :locals => {tour_day: tour_day}

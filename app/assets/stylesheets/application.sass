@@ -5,6 +5,30 @@
 @import "font-awesome"
 @import "font-awesome-sprockets.css"
 
+
+// mixins
+
+=reset_list_item_border_radius
+  .list-group-item
+    &:first-child
+      border-radius: 0
+    &:last-child
+      border-radius: 0
+
+// styles
+
 body
   line-height: 1
   font-size: 0.8rem
+
+#crew
+  font-size: 1rem
+
+#tour_day
+  +reset_list_item_border_radius
+#tour
+  +reset_list_item_border_radius
+#tours
+  +reset_list_item_border_radius
+
+

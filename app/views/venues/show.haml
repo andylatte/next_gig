@@ -1,44 +1,50 @@
 = render :partial => "tour_days/tour_day_info"
-.row.bg-primary
-  .col 
-    %h3 Venue / Event
-.card.card-outline-info
-  .card-header Location
+.row.mx-0.text-center.text-muted
+  .col
+    %h3.card-title.pt-2.mb-2
+      =fa_icon("glass")
+      Venue / Event
+.card.card-outline-info.rounded-0.border-0
+  .row.bg-primary
+    .col.text-white.mx-4.mt-2
+      %h5 Location
   .card-block
     .row
-      .col-2 Venue:
-      .col-10= @venue.venue_name
+      .col-3 Venue:
+      .col-9= @venue.venue_name
     .row
-      .col-2 Address:
-      .col-10
+      .col-3 Address:
+      .col-9
         = @venue.address_1
         = @venue.address_2
         %br= "#{@venue.zip_code} #{@venue.city}"
         = @venue.country
     .row
-      .col-2 URL:
-      .col-8= link_to @venue.url, @venue.url
+      .col-3 URL:
+      .col-9= link_to @venue.url, @venue.url
     .row
-      .col-2 Kind:
-      .col-8=@venue.event_type
+      .col-3 Kind:
+      .col-9=@venue.event_type
 
-.card.card-outline-info
-  .card-header Event
+.card.card-outline-info.rounded-0.border-0
+  .row.bg-primary
+    .col.text-white.mx-4.mt-2
+      %h5 Event
   .card-block
     .row
-      .col-2 Slot:
-      .col-8=@venue.slot
+      .col-3 Slot:
+      .col-9=@venue.slot
     .row
-      .col-2 Stage:
-      .col-8=@venue.stage
+      .col-3 Stage:
+      .col-9=@venue.stage
     .row
-      .col-2 Capacity:
-      .col-8=@venue.capacity
+      .col-3 Capacity:
+      .col-9=@venue.capacity
     .row
-      .col-2 Sales:
-      .col-8=@venue.sales
+      .col-3 Sales:
+      .col-9=@venue.sales
     .row
-      .col-2 Comment:
-      .col-8= @venue.comment
+      .col-3 Comment:
+      .col-9= @venue.comment
 
   

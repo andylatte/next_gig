@@ -1,9 +1,14 @@
 = render :partial => "tour_days/tour_day_info"
-.row.bg-primary
-  .col 
-    %h3 Cargo
-.card.card-outline-info.rounded-0
-  .card-header Drop Off
+.row.mx-0.text-center.text-muted
+  .col
+    %h3.card-title.pt-2.mb-2
+      =fa_icon("truck")
+      Cargo
+
+.card.rounded-0.border-0
+  .row.bg-info
+    .col.mx-4.mt-2
+      %h5 Drop Off
   .card-block
     .row
       .col-3 Time:
@@ -21,8 +26,10 @@
       .col-2 Comment:
       .col-10= @cargo.comment_drop_off
 
-.card.card-outline-info.rounded-0.mb-5
-  .card-header Pick Up
+.card.rounded-0.border-0
+  .row.bg-info
+    .col.mx-4.mt-2
+      %h5 Pick Up
   .card-block
     .row
       .col-3 Time:
