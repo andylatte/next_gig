@@ -1,7 +1,14 @@
-.row.bg-info.mx-0.rou
+.row.bg-info.mx-0
   = link_to tour_path(tour), :class=>"list-group-item w-100" do 
     .col
-      %h4.card-title=tour.tour_name
-    .col-1.text-right
-      =pluralize(tour.tour_days_count, 'show') 
-      =fa_icon "chevron-right 2x", :class=>"ml-2"
+      %h5.card-title.mb-1=tour.tour_name
+      %h7.card_subtitle.text-muted=tour.from_to
+    .col.text-right.m-0.p-0
+      .row
+        .col.m-0.p-0
+          .row.m-0.p-0
+            .col.m-0.p-0.fs-2= tour.tour_days_count
+          .row.m-0.p-0
+            .col.m-0.p-0= "Show".pluralize(tour.tour_days_count) 
+        .col-1.mr-4.mt-2.pl-0    
+          =fa_icon "chevron-right 2x", :class=>"ml-2"
