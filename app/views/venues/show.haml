@@ -22,7 +22,7 @@
           = @venue.country
       .row
         .col-3 URL:
-        .col-9= link_to @venue.url, @venue.url
+        .col-9= link_to @venue.url, @venue.url, target: "_blank" 
       .row
         .col-3 Kind:
         .col-9=@venue.venue_type
