@@ -26,7 +26,7 @@ class TourDay < ApplicationRecord
   
   
   # scopes
-  scope :upcoming, -> { where("date >= ?", Date.today) }
+  scope :upcoming, -> { where("date >= ?", Date.yesterday.midday) }
 
   # associations
   belongs_to :tour, counter_cache: true
@@ -55,7 +55,7 @@ class TourDay < ApplicationRecord
   # public instance methods
   
   def next_tour_day
-    TourDay.where('date > ? ', date).order(date: :asc).first 
+    TourDay.where('date > ?', date).order(date: :asc).first 
   end
   
 end

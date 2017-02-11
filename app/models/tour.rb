@@ -42,5 +42,8 @@ class Tour < ApplicationRecord
       tour_days.first.date.to_s(:le) + " - " + tour_days.last.date.to_s(:le)
     end
   end
-
+  
+  def upcoming_tour_days_count
+    tour_days.upcoming.count
+  end 
 end

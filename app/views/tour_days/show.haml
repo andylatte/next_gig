@@ -18,4 +18,5 @@
   = render :partial => "tour_days/list_associated_item", :locals => {path: tour_day_hotels_path(@tour_day), title: "Hotels", icon_style: "hotel 2x"} unless @tour_day.hotels.blank?
   = render :partial => "tour_days/list_associated_item",:locals => {path: tour_day_cargo_path(@tour_day, @tour_day.cargo), title: "Cargo", icon_style: "truck 2x"} unless @tour_day.cargo.blank?
 
+  = render :partial => "shared/no_infos_yet", :locals => {msg: t("crew.tours.no_tour_day_info_msg")} if @tour_day.venue.blank? && @tour_day.travel_schedule_items.blank? && @tour_day.show_schedule_items.blank? && @tour_day.promo_schedule_items.blank? && @tour_day.production.blank? && @tour_day.hotels.blank? && @tour_day.cargo.blank?
   = render :partial => "tour_days/next_day_infos" unless @tour_day.next_tour_day.blank?
