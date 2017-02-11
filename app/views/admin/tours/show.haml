@@ -31,14 +31,18 @@
           %tr.row
             %td.col-2 Show Date
             %td.col-5 Show Name
+            %td.col-2 Type
             %td.col-3
         - @tour_days.each do |td|
           %tr.row
             %td.col-2= td.date.to_s(:le)
             %td.col-5= link_to "#{td.show_name} (#{td.city}, #{td.country})", admin_tour_day_path(td)
+            %td.col-2
+              %h5
+                %span.badge.badge-default=td.type_of_day
             %td.col-3
               %div{:class=>"btn-toolbar"}
                 %div{:class=>"btn-group mr-2"}
-                  = link_to "edit Tour Day", edit_admin_tour_day_path(td), :class=>"btn btn-info btn-sm"
+                  = link_to "edit", edit_admin_tour_day_path(td), :class=>"btn btn-info btn-sm"
                 %div{:class=>"btn-group mr"}
-                  = button_to "delete Tour Day", admin_tour_day_path(td), method: :delete, data: { confirm: 'Are you sure?' }, :class=>"btn btn-danger btn-sm"
+                  = button_to "delete", admin_tour_day_path(td), method: :delete, data: { confirm: 'Are you sure to delete the tour day?' }, :class=>"btn btn-danger btn-sm"

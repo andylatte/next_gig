@@ -1,7 +1,7 @@
 class Admin::TourDaysController < AdminController
 
   before_action :find_tour_day, :only => [:show, :edit, :update, :destroy]
-  before_action :find_tour, :only => [:show, :new, :create, :edit, :destroy]
+  before_action :find_tour, :only => [:show, :new, :create, :edit, :update, :destroy]
   
   def show
   end
@@ -24,7 +24,7 @@ class Admin::TourDaysController < AdminController
   
   def update
     if @tour_day.update(tour_day_params)
-      redirect_to admin_tour_tour_day_path(@tour_day, :anchor => "tour_days")
+      redirect_to admin_tour_path(@tour, :anchor => "tour_days")
     else
       render 'edit'
     end
@@ -45,6 +45,6 @@ class Admin::TourDaysController < AdminController
   end
 
   def tour_day_params
-    params.require(:tour_day).permit(:date, :show_name, :km_next_day, :comment_next_day, :city, :country, :time_zone)
+    params.require(:tour_day).permit(:date, :show_name, :km_next_day, :comment_next_day, :type_of_day, :city, :country, :time_zone)
   end
 end

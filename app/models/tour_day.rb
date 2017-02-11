@@ -13,6 +13,7 @@
 #  tour_id          :integer
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
+#  type_of_day      :string
 #
 # Indexes
 #
@@ -20,6 +21,10 @@
 #
 
 class TourDay < ApplicationRecord
+  
+  TYPE_OF_DAY_OPTIONS = [["show","show"],["travel","travel"],["off","off"],["tv","tv"],["promo","promo"],["radio","radio"],["closed event", "closed event"],["",""]]
+  
+  
   # scopes
   scope :upcoming, -> { where("date >= ?", Date.today) }
 

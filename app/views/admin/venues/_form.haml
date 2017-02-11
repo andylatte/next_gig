@@ -31,7 +31,7 @@
   .form-group.row
     =f.label :venue_type, :class=>"col-2 col-form-label"
     .col-8
-      =f.select :venue_type, Venue::VENUE_TYPE_OPTIONS, :class=>"form-control"
+      =f.select(:venue_type, Venue::VENUE_TYPE_OPTIONS,{}, {:class=>"form-control"})
   .form-group.row
     =f.label :slot, :class=>"col-2 col-form-label"
     .col-8

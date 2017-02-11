@@ -17,6 +17,10 @@
     .col-8
       =f.text_field :country, :class=>"form-control"
   .form-group.row
+    =f.label :type_of_day, :class=>"col-2 col-form-label"
+    .col-8
+      =f.select(:type_of_day, TourDay::TYPE_OF_DAY_OPTIONS, {}, {:class=>"form-control"})
+  .form-group.row
     =f.label :km_next_day, :class=>"col-2 col-form-label"
     .col-8
       =f.text_field :km_next_day, :class=>"form-control"
@@ -25,6 +29,6 @@
     .col-8
       =f.text_area :comment_next_day, :class=>"form-control"
   .row
-    .col-4
+    .col-5
       = link_to "cancel", admin_tour_path(@tour), :class => "btn btn-secondary"
       = f.submit "Save TourDay", :class=>"btn btn-primary"

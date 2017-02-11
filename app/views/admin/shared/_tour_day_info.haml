@@ -1,5 +1,11 @@
 %h3.card-header 
-  = link_to "#{@tour_day.show_name} (#{@tour_day.city}, #{@tour_day.country})", admin_tour_day_path(@tour_day)
-  %small.text-muted
-    = @tour_day.date.to_s(:le)
-    = link_to @tour_day.tour.tour_name, admin_tour_path(@tour_day.tour)
+  .row
+    .col
+      = link_to "#{@tour_day.show_name} (#{@tour_day.city}, #{@tour_day.country})", admin_tour_day_path(@tour_day)
+      %small.text-muted
+        = @tour_day.date.to_s(:le)    
+    .col.text-right 
+      %span.badge.badge-default= @tour_day.type_of_day
+  .row
+    .col
+      %small= link_to @tour_day.tour.tour_name, admin_tour_path(@tour_day.tour)
