@@ -17,6 +17,7 @@
 #  is_admin               :boolean
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  remember_created_at    :datetime
 #
 # Indexes
 #
@@ -45,7 +46,7 @@ class User < ApplicationRecord
   
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable, :registerable, :rememberable,
          :recoverable, :trackable, :validatable
   
   # validations
