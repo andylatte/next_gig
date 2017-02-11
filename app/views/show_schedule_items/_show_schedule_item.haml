@@ -4,11 +4,14 @@
 .card.rounded-0
   .card-block
     .row
-      .col-1=fa_icon "user"
+      .col-2=fa_icon "user"
       .col=item.for_whom
     .row
-      .col-1=fa_icon "clock-o"
-      .col-3=l(item.start_time, format: :time) unless item.start_time.blank?
-      .col-3="to: #{l(item.end_time, format: :time) unless item.end_time.blank?}"
-    .row
-      .col-12=item.comment
+      .col-2=fa_icon "clock-o"
+      .col=l(item.start_time, format: :time) unless item.start_time.blank?
+      .col="to: #{l(item.end_time, format: :time) unless item.end_time.blank?}"
+    - unless item.comment.blank?
+      .row.mt-2
+        .col comment:
+      .row  
+        .col=item.comment

@@ -7,6 +7,6 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     = render :partial => "layouts/favicon"
-  %body
-    .container.px-0.w-100#crew= yield 
+  %body#crew
+    .container.px-0.w-100= yield 
     = render "layouts/crew/page_footer"

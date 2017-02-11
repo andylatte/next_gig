@@ -4,17 +4,27 @@
 .card.rounded-0
   .card-block
     .row
+      .col-3 who:
       .col=item.for_whom
     .row
-      .col-3="#:#{item.number}" 
-      .col-3 call time
-      .col-3= item.start_time
-      .col-3= item.duration
+      .col-3 number:
+      .col="#{item.number}" 
     .row
-      .col-6=item.origin 
-      .col-6="to: #{item.destination}"
+      .col-3 call time:
+      .col= l(item.start_time, format: :time) unless item.start_time.blank?
+    .row
+      .col-3 duration:  
+      .col= item.duration
+    .row
+      .col-3 time:
+      .col-4=item.origin 
+      .col-5="to: #{item.destination}"
     .row 
-      .col-6=l(item.departure_datetime, format: :long) unless item.departure_datetime.blank? 
-      .col-6="to: #{l(item.arrival_datetime, format: :long) unless item.arrival_datetime.blank?}"
-    .row
-      .col-12=item.comment 
+      .col-3 place:
+      .col-4=l(item.departure_datetime, format: :long) unless item.departure_datetime.blank? 
+      .col-5="to: #{l(item.arrival_datetime, format: :long) unless item.arrival_datetime.blank?}"
+    - unless item.comment.blank?
+      .row.mt-2
+        .col comment:
+      .row  
+        .col=item.comment

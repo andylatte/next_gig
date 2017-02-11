@@ -1,9 +1,10 @@
-= render :partial => "tour_days/tour_day_info"
-.row.mx-0.text-center.text-muted
-  .col
-    %h3.card-title.pt-2.mb-2
-      =fa_icon("hotel")
-      Hotels
-= render :partial => "hotels/list_item", :locals => {hotel: @primary_hotel, title: "Primary Hotel"} unless @primary_hotel.blank?
-= render :partial => "hotels/list_item", :locals => {hotel: @secondary_hotel, title: "Secondary Hotel"} unless @secondary_hotel.blank?
-= render :partial => "hotels/list_item", :locals => {hotel: @driver_hotel, title: "Driver Hotel"} unless @driver_hotel.blank?
+#tour_day
+  = render :partial => "tour_days/tour_day_info"
+  .row.mx-0.text-center.text-muted
+    .col
+      %h3.card-title.pt-2.mb-2
+        =fa_icon("hotel")
+        Hotels
+  = render :partial => "hotels/list_item", :locals => {hotel: @primary_hotel, title: "Primary Hotel"} unless @primary_hotel.blank?
+  = render :partial => "hotels/list_item", :locals => {hotel: @secondary_hotel, title: "Secondary Hotel"} unless @secondary_hotel.blank?
+  = render :partial => "hotels/list_item", :locals => {hotel: @driver_hotel, title: "Driver Hotel"} unless @driver_hotel.blank?

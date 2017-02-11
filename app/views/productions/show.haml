@@ -1,58 +1,60 @@
-= render :partial => "tour_days/tour_day_info"
-.row.mx-0.text-center.text-muted
-  .col
-    %h3.card-title.pt-2.mb-2
-      =fa_icon("paperclip")
-      Production
-.row.bg-primary
-  .col 
-    %h3 Production
-.card.card-outline-info.rounded-0
-  .card-header Contacts
-  .card-block
-    .row
-      .col-2 Main:
-      .col-8
-        .row= @production.main_contact_name
-        .row= @production.main_contact_phone
-        .row= @production.main_contact_email
-    .row
-      .col-2 Production:
-      .col-8
-        .row= @production.prod_contact_name
-        .row= @production.prod_contact_phone
-        .row= @production.prod_contact_email
-    .row
-      .col-2 Hospidality:
-      .col-8
-        .row= @production.hosp_contact_name
-        .row= @production.hosp_contact_phone
-        .row= @production.hosp_contact_email
-    .row
-      .col-2 Stage Manager:
-      .col-8
-        .row= @production.stage_manager_name
-        .row= @production.stage_manager_phone
-        .row= @production.stage_manager_email
+#tour_day
+  = render :partial => "tour_days/tour_day_info"
+  .row.mx-0.text-center.text-muted
+    .col
+      %h3.card-title.pt-2.mb-2
+        =fa_icon("paperclip")
+        Production
+  .card.rounded-0.border-0
+    .row.bg-primary
+      .col.text-white.mx-4.mt-2
+        %h5 Contacts
+    .card-block
+      .row
+        .col-4 Main:
+        .col-8
+          .span= @production.main_contact_name
+          .span= @production.main_contact_phone
+          .span= @production.main_contact_email
+      .row.mt-2
+        .col-4 Production:
+        .col-8
+          .span= @production.prod_contact_name
+          .span= @production.prod_contact_phone
+          .span= @production.prod_contact_email
+      .row.mt-2
+        .col-4 Hospidality:
+        .col-8
+          .span= @production.hosp_contact_name
+          .span= @production.hosp_contact_phone
+          .span= @production.hosp_contact_email
+      .row.mt-2
+        .col-4 Stage Manager:
+        .col-8
+          .span= @production.stage_manager_name
+          .span= @production.stage_manager_phone
+          .span= @production.stage_manager_email
 
-.card.card-outline-info.rounded-0.mb-5
-  .card-header Production Info
-  .card-block
-    .row
-      .col-3 Stage Size:
-      .col-9= @production.stage_size
-    .row
-      .col-3 Local Backline: 
-      .col-9= @production.local_backline
-    .row
-      .col-3 Access Notes:
-      .col-9= @production.access_notes
-    .row
-      .col-3 Loading Notes:
-      .col-9= @production.loading_notes
-    .row
-      .col-3 Credential Notes:
-      .col-9= @production.credential_notes
-    .row
-      .col-3 Comment:
-      .col-9= @production.comment
+  .card.rounded-0.border-0
+    .row.bg-primary
+      .col.text-white.mx-4.mt-2
+        %h5 Production Info
+    .card-block
+      .row
+        .col-4 Stage Size:
+        .col-8= @production.stage_size
+      .row
+        .col-4 Local Backline: 
+        .col-8= @production.local_backline
+      .row
+        .col-4 Access Notes:
+        .col-8= @production.access_notes
+      .row
+        .col-4 Loading Notes:
+        .col-8= @production.loading_notes
+      .row
+        .col-4 Credential Notes:
+        .col-8= @production.credential_notes
+      .row
+        .col-4 Comment:
+        .col-8= @production.comment

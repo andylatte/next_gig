@@ -1,30 +1,33 @@
-.card.rounded-0
-  .card-block
-    %h4.card-title=title
+.card.rounded-0.border-0
+  .row.bg-primary
+    .col.text-white.mx-4.mt-2
+      %h5=title
   .card-block
     .row
-      .col-2 Hotel Name
-      .col-10= hotel.hotel_name
+      .col-3 Hotel Name
+      .col-9= hotel.hotel_name
     .row
-      .col-2 Address 1
-      .col-10
+      .col-3 Address
+      .col-9
         = hotel.address_1
         = hotel.address_2
         = "#{hotel.zip_code} #{hotel.city}"
         = hotel.country
     .row
-      .col-2 In / Out
-      .col-10= "#{l(hotel.check_in_date, :format => :date) if hotel.check_in_date} to #{l(hotel.check_out_date, :format => :date) if hotel.check_out_date}"
+      .col-3 In / Out
+      .col-9= "#{l(hotel.check_in_date, :format => :date) if hotel.check_in_date} to #{l(hotel.check_out_date, :format => :date) if hotel.check_out_date}"
     .row
-      .col-2 Nights
-      .col-4= hotel.number_of_nights
-      .col-2 Breakfast
-      .col-4= hotel.breakfast
+      .col-3 Nights
+      .col-3= hotel.number_of_nights
+      .col-3 Breakfast
+      .col-3= hotel.breakfast
     .row
-      .col-2 Singles
-      .col-4= hotel.single_rooms
-      .col-2 Twins
-      .col-4= hotel.twin_rooms
-    .row
-      .col-2 Comment
-      .col-10= hotel.comment
+      .col-3 Singles
+      .col-3= hotel.single_rooms
+      .col-3 Twins
+      .col-3= hotel.twin_rooms
+    - unless hotel.comment.blank?
+      .row.mt-2
+        .col comment:
+      .row  
+        .col=hotel.comment

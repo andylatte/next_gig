@@ -16,5 +16,8 @@
     .row 
       .col-1=fa_icon "phone"
       .col-6=item.contact
-    .row
-      .col-12=item.comment
+    - unless item.comment.blank?
+      .row.mt-2
+        .col comment:
+      .row  
+        .col=item.comment

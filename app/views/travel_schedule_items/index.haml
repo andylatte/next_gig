@@ -1,9 +1,10 @@
-= render :partial => "tour_days/tour_day_info"
+#tour_day
+  = render :partial => "tour_days/tour_day_info"
 
-.row.mx-0.text-center.text-muted
-  .col
-    %h3.card-title.pt-2.mb-2
-      =fa_icon("plane")
-      Travel Schedule
-- @travel_schedule_items.each do |item|
-  = render :partial => "travel_schedule_items/travel_schedule_item", :locals => {item: item}
+  .row.mx-0.text-center.text-muted
+    .col
+      %h3.card-title.pt-2.mb-2
+        =fa_icon("plane")
+        Travel Schedule
+  - @travel_schedule_items.each do |item|
+    = render :partial => "travel_schedule_items/travel_schedule_item", :locals => {item: item}
