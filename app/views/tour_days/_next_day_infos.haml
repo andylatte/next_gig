@@ -4,7 +4,7 @@
       %h5 Next Tour Day
   .card-block
     %h5.card-title=@tour_day.next_tour_day.show_name
-    %h6.card-subtitle="#{l(@tour_day.next_tour_day.date, :format => :weekday)}, #{@tour_day.city}"
+    %h6.card-subtitle="#{l(@tour_day.next_tour_day.date, :format => :weekday)}, #{@tour_day.next_tour_day.city}"
     %p.card-text
       .row
         .col-4 km:
