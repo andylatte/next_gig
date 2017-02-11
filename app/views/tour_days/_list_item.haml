@@ -3,7 +3,14 @@
     .col-1.pl-0
       %span=l(tour_day.date, :format => :weekday)    
     .col
-      %h4.card-title=tour_day.show_name
-    .col-1.text-right
-      type
-      =fa_icon "chevron-right 2x", :class=>"ml-2"
+      %h5.card-title.mb-1=tour_day.city
+      %h7.card-subtitle.text-muted=tour_day.show_name
+    .col.text-right.m-0.p-0
+      .row
+        .col.m-0.p-0
+          .row.m-0.p-0
+            .col.m-0.p-0=tour_day.country
+          .row.m-0.p-0
+            .col.m-0.p-0=tour_day.type_of_day
+        .col-1.mr-4.pl-0    
+          =fa_icon "chevron-right 2x", :class=>"ml-2"
