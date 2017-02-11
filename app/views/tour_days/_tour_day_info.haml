@@ -1,10 +1,12 @@
 %nav.navbar.bg-faded
   .row
-    .col-2
+    .col-2.mt-2
       = link_to tour_day_path(@tour_day) do
         = fa_icon "chevron-left 3x", :class=>"ml-2 mt-2 text-info"
     .col.navbar-brand.text-center.text-muted.mt-1
       = l(@tour_day.date,:format => :weekday) 
       %br 
-      = @tour_day.city
+      %small= @tour_day.city
+      %br
+      %small=@tour_day.show_name
     .col-2
