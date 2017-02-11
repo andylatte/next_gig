@@ -42,7 +42,7 @@ class Admin::VenuesController < AdminController
   end
 
   def venue_params
-    params.require(:venue).permit(:venue_name, :address_1, :address_2, :zip_code, :city, :country, :url, :event_type, :slot, :stage, :capacity, :sales, :comment)
+    params.require(:venue).permit(:venue_name, :address_1, :address_2, :zip_code, :city, :country, :url, :venue_type, :slot, :stage, :capacity, :sales, :comment)
   end
 end
 

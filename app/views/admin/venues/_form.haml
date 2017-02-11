@@ -31,7 +31,7 @@
   .form-group.row
     =f.label :venue_type, :class=>"col-2 col-form-label"
     .col-8
-      =f.text_field :event_type, :class=>"form-control"
+      =f.select :venue_type, Venue::VENUE_TYPE_OPTIONS, :class=>"form-control"
   .form-group.row
     =f.label :slot, :class=>"col-2 col-form-label"
     .col-8
@@ -53,6 +53,6 @@
     .col-8
       =f.text_area :comment, autofocus: true, :class=>"form-control"
   .row
-    .col-4
+    .col-5
       = link_to "cancel", admin_tour_day_path(@tour_day, :anchor => "venue"), :class => "btn btn-secondary"
       = f.submit "Save Venue", :class=>"btn btn-primary"

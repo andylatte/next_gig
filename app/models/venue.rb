@@ -10,7 +10,7 @@
 #  city        :string
 #  country     :string
 #  url         :string
-#  event_type  :string
+#  venue_type  :string
 #  slot        :string
 #  stage       :string
 #  capacity    :string
@@ -26,6 +26,9 @@
 #
 
 class Venue < ApplicationRecord
+  
+  VENUE_TYPE_OPTIONS = [["indoor","indoor"],["tent","tent"],["open air","open air"], ["other","other"]]
+  
   # scopes
 
    # associations
