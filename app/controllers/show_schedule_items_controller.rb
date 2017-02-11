@@ -5,7 +5,7 @@ class ShowScheduleItemsController < ApplicationController
   before_action :find_tour_day, :only => [:index]
     
   def index
-    @show_schedule_items = @tour_day.show_schedule_items
+    @sorted_show_schedule_items = @tour_day.sorted_show_schedule_items
   end
   
   def find_tour_day

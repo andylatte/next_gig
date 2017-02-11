@@ -1,5 +1,5 @@
 .card-block#show_schedule
-  -unless @tour_day.show_schedule_items.empty?
+  -unless @tour_day.sorted_show_schedule_items.empty?
     %h4.card-title
       Show Schedule
       %span=link_to "Add Show Schedule Item", new_admin_tour_day_show_schedule_item_path(@tour_day), :class=>"btn btn-outline-primary btn-sm ml-4"
@@ -12,7 +12,7 @@
           %th.col-1 end time
           %th.col-2 Comment
           %th.col-1
-      - @tour_day.show_schedule_items.each do |item|
+      - @tour_day.sorted_show_schedule_items.each do |item|
         = render :partial => "admin/show_schedule_items/show_show_schedule_item", :locals => {item: item}
   -else
     %h4.card-title Show Schedule

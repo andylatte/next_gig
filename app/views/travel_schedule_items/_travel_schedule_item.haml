@@ -16,11 +16,11 @@
       .col-3 duration:  
       .col= item.duration
     .row
-      .col-3 time:
+      .col-3 place:
       .col-4=item.origin 
       .col-5="to: #{item.destination}"
     .row 
-      .col-3 place:
+      .col-3 time:
       .col-4=l(item.departure_datetime, format: :long) unless item.departure_datetime.blank? 
       .col-5="to: #{l(item.arrival_datetime, format: :long) unless item.arrival_datetime.blank?}"
     - unless item.comment.blank?

@@ -12,11 +12,11 @@
   = render :partial => "tour_days/list_associated_item",:locals => {path: tour_day_venue_path(@tour_day, @tour_day.venue), title: "Venue / Event", icon_style: "glass 2x"} unless @tour_day.venue.blank?
   = render :partial => "tour_days/list_associated_item",:locals => {path: tour_day_travel_schedule_items_path(@tour_day), title: "Travel Schedule", icon_style: "plane 2x"} unless @tour_day.travel_schedule_items.blank?
 
-  = render :partial => "tour_days/list_associated_item",:locals => {path: tour_day_show_schedule_items_path(@tour_day), title: "Show Schedule", icon_style: "rocket 2x"} unless @tour_day.show_schedule_items.blank?
+  = render :partial => "tour_days/list_associated_item",:locals => {path: tour_day_show_schedule_items_path(@tour_day), title: "Show Schedule", icon_style: "rocket 2x"} unless @tour_day.sorted_show_schedule_items.blank?
   = render :partial => "tour_days/list_associated_item",:locals => {path: tour_day_promo_schedule_items_path(@tour_day), title: "Promo Schedule", icon_style: "television 2x"} unless @tour_day.promo_schedule_items.blank?
   = render :partial => "tour_days/list_associated_item",:locals => {path: tour_day_production_path(@tour_day, @tour_day.production), title: "Production", icon_style: "paperclip 2x"} unless @tour_day.production.blank?
   = render :partial => "tour_days/list_associated_item", :locals => {path: tour_day_hotels_path(@tour_day), title: "Hotels", icon_style: "hotel 2x"} unless @tour_day.hotels.blank?
   = render :partial => "tour_days/list_associated_item",:locals => {path: tour_day_cargo_path(@tour_day, @tour_day.cargo), title: "Cargo", icon_style: "truck 2x"} unless @tour_day.cargo.blank?
 
-  = render :partial => "shared/no_infos_yet", :locals => {msg: t("crew.tours.no_tour_day_info_msg")} if @tour_day.venue.blank? && @tour_day.travel_schedule_items.blank? && @tour_day.show_schedule_items.blank? && @tour_day.promo_schedule_items.blank? && @tour_day.production.blank? && @tour_day.hotels.blank? && @tour_day.cargo.blank?
+  = render :partial => "shared/no_infos_yet", :locals => {msg: t("crew.tours.no_tour_day_info_msg")} if @tour_day.venue.blank? && @tour_day.travel_schedule_items.blank? && @tour_day.sorted_show_schedule_items.blank? && @tour_day.promo_schedule_items.blank? && @tour_day.production.blank? && @tour_day.hotels.blank? && @tour_day.cargo.blank?
   = render :partial => "tour_days/next_day_infos" unless @tour_day.next_tour_day.blank?

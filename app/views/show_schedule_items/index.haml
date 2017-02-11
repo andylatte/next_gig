@@ -5,5 +5,5 @@
       %h3.card-title.pt-2.mb-2
         =fa_icon("rocket")
         Show Schedule
-  - @show_schedule_items.each do |item|
+  - @sorted_show_schedule_items.each do |item|
     = render :partial => "show_schedule_items/show_schedule_item", :locals => {item: item}

@@ -26,12 +26,10 @@
 #
 
 class PromoScheduleItem < ScheduleItem
-  
-  # scopes
 
   # validations
   validates :start_time, presence: true
-  validates_datetime :start_time, :allow_blank => true
+  validates_datetime :start_time
   validates_datetime :end_time, :allow_blank => true
    
   # callbacks

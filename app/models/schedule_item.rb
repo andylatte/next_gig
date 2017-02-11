@@ -26,7 +26,6 @@
 #
 
 class ScheduleItem < ApplicationRecord
-  # scopes
 
   # associations
   belongs_to :tour_day
