@@ -14,13 +14,13 @@
           %tr.row
             %td.col-2 First Name
             %td.col-2 Last Name
-            %td.col-2 user.email
-            %td.col-2 # of Shows
+            %td.col-3 user.email
+            %td.col-2 
         - @crew_members_available.each do |user|
           %tr.row
             %td.col-2=user.first_name
             %td.col-2=user.last_name
-            %td.col-2=user.email
+            %td.col-3=user.email
             %td.col-2 
               %div{:class=>"btn-toolbar"}
                 %div{:class=>"btn-group mr-2"}
