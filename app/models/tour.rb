@@ -18,6 +18,7 @@
 class Tour < ApplicationRecord
 
   # scopes
+  scope :active, -> { joins(:tour_days).merge(TourDay.upcoming) }
   
   # associations
   belongs_to :manager, class_name: "User", foreign_key: "user_id"

@@ -2,7 +2,7 @@ class ToursController < ApplicationController
   layout "crew"
   
   def index
-    @tours = (current_user.tours_assigned + current_user.tours_managed).uniq
+    @active_tours = (current_user.tours_assigned.active + current_user.tours_managed.active).uniq
   end
   
   def show
