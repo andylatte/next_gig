@@ -26,7 +26,7 @@ class TourDay < ApplicationRecord
   
   
   # scopes
-  scope :upcoming, -> { where("date >= ?", Date.yesterday.midday) }
+  scope :active, -> { where("date::timestamp >= ?", Time.current - 36.hours) }
 
   # associations
   belongs_to :tour, counter_cache: true

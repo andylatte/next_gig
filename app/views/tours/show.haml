@@ -6,9 +6,9 @@
     .col.navbar-brand.text-center.text-muted.mt-2= @tour.tour_name
     .col-2
 #tour
-  - if @tour_days_upcoming.blank?
+  - if @tour_days_active.blank?
     = render :partial => "shared/no_infos_yet", :locals => {msg: t("crew.tours.no_tour_days_msg")}
   - else
     .list-group
-      - @tour_days_upcoming.each do |tour_day|
+      - @tour_days_active.each do |tour_day|
         = render :partial => "tour_days/list_item", :locals => {tour_day: tour_day}

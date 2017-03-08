@@ -1,10 +1,10 @@
 %nav.navbar.bg-faded
   .navbar-brand.text-center.text-muted Your Tours
 #tours
-  - if @active_tours.blank?
+  - if @tours_active.blank?
     = render :partial => "shared/no_infos_yet", :locals => {msg: t("crew.tours.no_tours_assigned_msg")}
   - else
     .list-group
-      - @active_tours.each do |tour|
+      - @tours_active.each do |tour|
         = render :partial => "tours/tour", :locals => {tour: tour}
 

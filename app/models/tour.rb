@@ -18,7 +18,7 @@
 class Tour < ApplicationRecord
 
   # scopes
-  scope :active, -> { joins(:tour_days).merge(TourDay.upcoming) }
+  scope :active, -> { joins(:tour_days).merge(TourDay.active) }
   
   # associations
   belongs_to :manager, class_name: "User", foreign_key: "user_id"
@@ -43,8 +43,4 @@ class Tour < ApplicationRecord
       tour_days.first.date.to_s(:le) + " - " + tour_days.last.date.to_s(:le)
     end
   end
-  
-  def upcoming_tour_days_count
-    tour_days.upcoming.count
-  end 
 end
