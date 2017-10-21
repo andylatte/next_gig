@@ -39,8 +39,8 @@ class User < ApplicationRecord
   # Tours & Tour Memberships
   has_many :tour_memberships, dependent: :destroy
   
-  has_many :tours_managed, -> { order 'created_at asc' }, class_name: "Tour", foreign_key: "user_id"
-  has_many :tours_assigned, -> { order 'created_at asc' }, through: :tour_memberships, class_name: "Tour", foreign_key: "tour_id", source: :tour
+  has_many :tours_managed, -> { order 'start_date' }, class_name: "Tour", foreign_key: "user_id"
+  has_many :tours_assigned, -> { order 'start_date' }, through: :tour_memberships, class_name: "Tour", foreign_key: "tour_id", source: :tour
   
   # plugins/config
   

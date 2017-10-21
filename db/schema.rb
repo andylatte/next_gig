@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170211222605) do
+ActiveRecord::Schema.define(version: 20171021190505) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -137,6 +137,7 @@ ActiveRecord::Schema.define(version: 20170211222605) do
     t.integer  "tour_days_count"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.date     "start_date",      null: false
     t.index ["user_id"], name: "index_tours_on_user_id", using: :btree
   end
 

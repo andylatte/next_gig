@@ -52,6 +52,9 @@ class TourDay < ApplicationRecord
   validates_date :date 
   # callbacks
 
+  after_commit do
+    self.tour.update_start_date
+  end
   # public instance methods
   
   def next_tour_day
@@ -61,4 +64,5 @@ class TourDay < ApplicationRecord
   def sorted_show_schedule_items
     show_schedule_items.evening + show_schedule_items.morning
   end  
+  
 end

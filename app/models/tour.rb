@@ -9,6 +9,7 @@
 #  tour_days_count :integer
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  start_date      :date             not null
 #
 # Indexes
 #
@@ -34,6 +35,9 @@ class Tour < ApplicationRecord
   validates :tour_name, :band_name, presence: true
 
   # callbacks
+  before_create do
+    self.start_date = Date.today unless self.start_date
+  end
     
   # public instance methods
   def from_to
@@ -42,5 +46,9 @@ class Tour < ApplicationRecord
     else
       tour_days.first.date.to_s(:le) + " - " + tour_days.last.date.to_s(:le)
     end
+  end
+  
+  def update_start_date
+    self.update(start_date: self.tour_days.first.date) unless self.tour_days.blank?
   end
 end
