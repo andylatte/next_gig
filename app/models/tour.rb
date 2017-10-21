@@ -35,7 +35,7 @@ class Tour < ApplicationRecord
   validates :tour_name, :band_name, presence: true
 
   # callbacks
-  before_create do
+  before_validation do
     self.start_date = Date.today unless self.start_date
   end
     
