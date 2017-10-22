@@ -33,6 +33,7 @@ class Tour < ApplicationRecord
   
   # validations
   validates :tour_name, :band_name, presence: true
+  validates_date :start_date 
 
   # callbacks
   before_validation do
