@@ -38,7 +38,7 @@ class Admin::TravelScheduleItemsController < AdminController
   end  
   
   def find_tour_day
-    @tour_day = @travel_schedule_item.nil? ? @tour_day = TourDay.find(params[:tour_day_id]) : @travel_schedule_item.tour_day
+    @tour_day = @travel_schedule_item.nil? ? @tour_day = current_user.tour_days_managed.find(params[:tour_day_id]) : @travel_schedule_item.tour_day
   end
 
   def travel_schedule_item_params

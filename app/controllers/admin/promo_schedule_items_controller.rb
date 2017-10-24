@@ -39,7 +39,7 @@ class Admin::PromoScheduleItemsController < AdminController
   end  
   
   def find_tour_day
-    @tour_day = @promo_schedule_item.nil? ? @tour_day = TourDay.find(params[:tour_day_id]) : @promo_schedule_item.tour_day
+    @tour_day = @promo_schedule_item.nil? ? @tour_day = current_user.tour_days_managed.find(params[:tour_day_id]) : @promo_schedule_item.tour_day
   end
 
   def promo_schedule_item_params

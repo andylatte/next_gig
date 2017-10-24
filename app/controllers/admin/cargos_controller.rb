@@ -37,7 +37,7 @@ class Admin::CargosController < AdminController
       @cargo = Cargo.find(params[:id])
     end  
     def find_tour_day
-      @tour_day = @cargo.nil? ? @tour_day = TourDay.find(params[:tour_day_id]) : @cargo.tour_day
+      @tour_day = @cargo.nil? ? @tour_day = current_user.tour_days_managed.find(params[:tour_day_id]) : @cargo.tour_day
     end
 
     def cargo_params

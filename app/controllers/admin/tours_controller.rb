@@ -52,7 +52,7 @@ class Admin::ToursController < AdminController
   protected
   
   def find_tour
-    @tour = Tour.find(params[:id])
+    @tour = current_user.tours_managed.find(params[:id])
   end
   
   def find_tour_days

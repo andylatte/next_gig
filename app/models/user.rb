@@ -42,6 +42,7 @@ class User < ApplicationRecord
   has_many :tours_managed, -> { order 'start_date' }, class_name: "Tour", foreign_key: "user_id"
   has_many :tours_assigned, -> { order 'start_date' }, through: :tour_memberships, class_name: "Tour", foreign_key: "tour_id", source: :tour
   
+  has_many :tour_days_managed, through: :tours_managed, class_name: "TourDay", source: :tour_days
   # plugins/config
   
   # Include default devise modules. Others available are:

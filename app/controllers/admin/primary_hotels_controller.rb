@@ -36,7 +36,7 @@ class Admin::PrimaryHotelsController < AdminController
     @primary_hotel = PrimaryHotel.find(params[:id])
   end  
   def find_tour_day
-    @tour_day = @primary_hotel.nil? ? @tour_day = TourDay.find(params[:tour_day_id]) : @primary_hotel.tour_day
+    @tour_day = @primary_hotel.nil? ? @tour_day = current_user.tour_days_managed.find(params[:tour_day_id]) : @primary_hotel.tour_day
   end
 
   def primary_hotel_params

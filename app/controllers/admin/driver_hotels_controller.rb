@@ -36,7 +36,7 @@ class Admin::DriverHotelsController < AdminController
     @driver_hotel = DriverHotel.find(params[:id])
   end  
   def find_tour_day
-    @tour_day = @driver_hotel.nil? ? @tour_day = TourDay.find(params[:tour_day_id]) : @driver_hotel.tour_day
+    @tour_day = @driver_hotel.nil? ? @tour_day = current_user.tour_days_managed.find(params[:tour_day_id]) : @driver_hotel.tour_day
   end
 
   def driver_hotel_params

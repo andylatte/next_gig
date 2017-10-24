@@ -38,7 +38,7 @@ class Admin::VenuesController < AdminController
     @venue = Venue.find(params[:id])
   end  
   def find_tour_day
-    @tour_day = @venue.nil? ? @tour_day = TourDay.find(params[:tour_day_id]) : @venue.tour_day
+    @tour_day = @venue.nil? ? @tour_day = current_user.tour_days_managed.find(params[:tour_day_id]) : @venue.tour_day
   end
 
   def venue_params

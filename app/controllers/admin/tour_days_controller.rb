@@ -1,7 +1,9 @@
 class Admin::TourDaysController < AdminController
+  layout :print, :only => [:print]
+ 
+  before_action :find_tour_day, :only => [:show, :edit, :update, :destroy, :print]
+  before_action :find_tour, :only => [:show, :new, :create, :edit, :update, :destroy, :print]
 
-  before_action :find_tour_day, :only => [:show, :edit, :update, :destroy]
-  before_action :find_tour, :only => [:show, :new, :create, :edit, :update, :destroy]
   
   def show
   end
@@ -34,14 +36,19 @@ class Admin::TourDaysController < AdminController
     redirect_to admin_tour_path(@tour, :anchor => "tour_days")
   end
   
+  #custom methods
+  
+  def print 
+  end
+  
   protected
 
   def find_tour
-    @tour = @tour_day.nil? ? @tour = Tour.find(params[:tour_id]) : @tour_day.tour
+    @tour = @tour_day.nil? ? @tour = current_user.tour_days_managed.find(params[:tour_id]) : @tour_day.tour
   end
   
   def find_tour_day
-    @tour_day = TourDay.find(params[:id])
+    @tour_day = current_user.tour_days_managed.find(params[:id])
   end
 
   def tour_day_params
