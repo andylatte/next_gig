@@ -2,11 +2,11 @@ class ToursController < ApplicationController
   layout "crew"
   
   def index
-    @tours_active = (current_user.tours_assigned.active + current_user.tours_managed.active).uniq
+    @tours_active = current_user.tours_assigned.active
   end
   
   def show
-    @tour = Tour.find(params[:id])
+    @tour = current_user.tours_assigned.find(params[:id])
     @tour_days_active = @tour.tour_days.active
   end
 end

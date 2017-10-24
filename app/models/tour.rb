@@ -19,7 +19,7 @@
 class Tour < ApplicationRecord
 
   # scopes
-  scope :active, -> { joins(:tour_days).merge(TourDay.active) }
+  scope :active, -> { joins(:tour_days).merge(TourDay.active).uniq }
   
   # associations
   belongs_to :manager, class_name: "User", foreign_key: "user_id"
@@ -38,6 +38,10 @@ class Tour < ApplicationRecord
   # callbacks
   before_validation do
     self.start_date = Date.today unless self.start_date
+  end
+  
+  after_create do
+    self.crew_members << self.manager
   end
     
   # public instance methods

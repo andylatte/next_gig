@@ -9,6 +9,6 @@ class ShowScheduleItemsController < ApplicationController
   end
   
   def find_tour_day
-    @tour_day = TourDay.find(params[:tour_day_id])
+    @tour_day = current_user.tour_days.find(params[:tour_day_id])
   end
 end

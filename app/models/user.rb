@@ -42,7 +42,9 @@ class User < ApplicationRecord
   has_many :tours_managed, -> { order 'start_date' }, class_name: "Tour", foreign_key: "user_id"
   has_many :tours_assigned, -> { order 'start_date' }, through: :tour_memberships, class_name: "Tour", foreign_key: "tour_id", source: :tour
   
+  # Tourdays
   has_many :tour_days_managed, through: :tours_managed, class_name: "TourDay", source: :tour_days
+  has_many :tour_days, through: :tours_assigned
   # plugins/config
   
   # Include default devise modules. Others available are:
@@ -64,7 +66,7 @@ class User < ApplicationRecord
   
   def name
     self.first_name + " " + self.last_name
-  end
+  end 
   
   private
 

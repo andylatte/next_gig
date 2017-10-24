@@ -1,0 +1,13 @@
+!!!
+%html
+  %head
+    %title Big Size BIG TOUR Big Nice - Print
+    = csrf_meta_tags
+    = render :partial => "layouts/meta_tags"
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = render :partial => "layouts/favicon"
+
+  %body
+    .container.print
+      = yield 

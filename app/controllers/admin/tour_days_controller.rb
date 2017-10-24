@@ -44,7 +44,7 @@ class Admin::TourDaysController < AdminController
   protected
 
   def find_tour
-    @tour = @tour_day.nil? ? @tour = current_user.tour_days_managed.find(params[:tour_id]) : @tour_day.tour
+    @tour = @tour_day.nil? ? @tour = current_user.tours_managed.find(params[:tour_id]) : @tour_day.tour
   end
   
   def find_tour_day
