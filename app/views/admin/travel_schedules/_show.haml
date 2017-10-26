@@ -4,24 +4,27 @@
       Travel Schedule
       %span=link_to "Add Travel Schedule Item", new_admin_tour_day_travel_schedule_item_path(@tour_day), :class=>"btn btn-outline-primary btn-sm ml-4"
     %table{:class=>"table table-striped col-10 mb-4"}
-      %thead    
+      %thead
         %tr.row
           %th.col-1 Name
           %th.col-2 for_whom
           %th.col-1 Number
           %th.col-1 Origin
           %th.col-1 Destination
-          %th.col-1 Call Time
+          - unless print
+            %th.col-1 Call Time
           %th.col-1 Departure
           %th.col-1 Arrival
-          %th.col-1 Duration
+          - unless print
+            %th.col-1 Duration
           %th.col-1 Comment
-          %th.col-1
+          - unless print
+            %th.col-1
       - @tour_day.travel_schedule_items.each do |item|
-        = render :partial => "admin/travel_schedule_items/show_travel_schedule_item", :locals => {item: item}
+        = render :partial => "#{'admin/travel_schedule_items/show_travel_schedule_item'+ (print ? '_print' : '')}", :locals => {item: item}
   -else
-    %h4.card-title Travel Schedule
-    .text-center
-      %p.card-textWith There has been no Travel Schedule created yet
-      = link_to "create travel schedule", new_admin_tour_day_travel_schedule_path(@tour_day), :class=>"btn btn-success"
-
+    -unless print
+      %h4.card-title Travel Schedule
+      .text-center
+        %p.card-textWith There has been no Travel Schedule created yet
+        = link_to "create travel schedule", new_admin_tour_day_travel_schedule_path(@tour_day), :class=>"btn btn-success"

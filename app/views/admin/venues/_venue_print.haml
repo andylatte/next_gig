@@ -1,0 +1,22 @@
+%table{:class=>"table table-striped col-8 mb-4"}
+  %tr.row
+    %td.col-2 Venue Name:
+    %td.col-8= venue.venue_name
+  %tr.row
+    %td.col-2 Address:
+    %td.col-8= venue.address_1 + ", " + venue.address_2
+  %tr.row
+    %td.col-2 City:
+    %td.col-8= venue.zip_code + ", " + venue.city + ", " + venue.country
+  %tr.row
+    %td.col-2 Venue type:
+    %td.col-8= venue.venue_type
+  %tr.row
+    %td.col-2 Stage:
+    %td.col-8= venue.stage
+  %tr.row
+    %td.col-2 Capacity:
+    %td.col-8= venue.capacity
+  %tr.row
+    %td.col-2 Comment:
+    %td.col-8= venue.comment

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
 
   root to: 'tours#index'
-  
+
   resources :tours, :only => [:index, :show]
   resources :tour_days, :only => [:show] do
     resources :venues, :only => [:show]
@@ -13,16 +13,17 @@ Rails.application.routes.draw do
     resources :hotels, :only => [:index]
     resources :cargos, :only => [:show]
   end
-  
+
   namespace :admin do
     get 'welcome/index'
     resources :users
+    get 'tour_days/:id/print' => 'tour_days#print'
     resources :tours do
       member do
         get 'assign_crew_members'
         post 'update_crew_members'
       end
-      
+
       resources :tour_days, shallow: true do
         resources :venues
         resources :cargos
@@ -46,7 +47,7 @@ Rails.application.routes.draw do
   devise_for :users, path_names: {
     sign_up: ''
   }
-  
+
   resources :users
-  
+
 end
