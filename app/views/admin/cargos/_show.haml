@@ -2,10 +2,11 @@
   -unless @tour_day.cargo.nil?
     %h4.card-title
       Cargo
-      %span=link_to "edit cargo", edit_admin_cargo_path(@tour_day.cargo), :class=>"btn btn-outline-primary btn-sm ml-4"
+      %span=link_to "edit cargo", edit_admin_cargo_path(@tour_day.cargo), :class=>"btn btn-outline-primary btn-sm ml-4" unless print
     = render :partial => "admin/cargos/cargo", :locals => {cargo: @tour_day.cargo}
   -else
-    %h4.card-title Cargo
-    .text-center
-      %p.card-textWith There has been no Cargo created yet
-      =link_to "Create Cargo", new_admin_tour_day_cargo_path(@tour_day), :class=>"btn btn-success"
+    - unless print
+      %h4.card-title Cargo
+      .text-center
+        %p.card-textWith There has been no Cargo created yet
+        =link_to "Create Cargo", new_admin_tour_day_cargo_path(@tour_day), :class=>"btn btn-success"

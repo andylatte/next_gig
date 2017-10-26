@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   namespace :admin do
     get 'welcome/index'
     resources :users
-    get 'tour_days/:id/print' => 'tour_days#print'
+    get 'tour_days/:id/print' => 'tour_days#print', :as => 'tour_day_print'
     resources :tours do
       member do
         get 'assign_crew_members'

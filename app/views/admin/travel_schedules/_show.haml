@@ -2,7 +2,7 @@
   -unless @tour_day.travel_schedule_items.empty?
     %h4.card-title
       Travel Schedule
-      %span=link_to "Add Travel Schedule Item", new_admin_tour_day_travel_schedule_item_path(@tour_day), :class=>"btn btn-outline-primary btn-sm ml-4"
+      %span=link_to "Add Travel Schedule Item", new_admin_tour_day_travel_schedule_item_path(@tour_day), :class=>"btn btn-outline-primary btn-sm ml-4" unless print
     %table{:class=>"table table-striped col-10 mb-4"}
       %thead
         %tr.row
@@ -21,7 +21,7 @@
           - unless print
             %th.col-1
       - @tour_day.travel_schedule_items.each do |item|
-        = render :partial => "#{'admin/travel_schedule_items/show_travel_schedule_item'+ (print ? '_print' : '')}", :locals => {item: item}
+        = render :partial => "admin/travel_schedule_items/show_travel_schedule_item", :locals => {item: item, print: print}
   -else
     -unless print
       %h4.card-title Travel Schedule
