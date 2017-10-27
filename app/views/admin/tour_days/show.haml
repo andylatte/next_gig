@@ -1,4 +1,5 @@
-%span= link_to "print day sheet", admin_tour_day_print_path(@tour_day) unless print
+.col.text-right
+  %span=link_to "Print Day Sheet", admin_tour_day_print_path(@tour_day), :class=>"btn btn-outline-secondary btn-sm mb-2"
 .card
   = render :partial => "admin/shared/tour_day_info"
 

@@ -1,9 +1,13 @@
 %h3.card-header
   .row
     .col
-      = @tour_day.show_name + " (#{@tour_day.city}, #{@tour_day.country})"
+      = @tour_day.show_name
     .col.text-right
-      %span.badge.badge-default=  print ? "day sheet" : @tour_day.type_of_day
+      %span.badge.badge-default= (defined? badge) ? badge : @tour_day.type_of_day
+  .row
+    .col
+      %small= @tour_day.city + "," + @tour_day.country
+
   .row
     .col
       %small= @tour_day.date.to_s(:le)

@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     get 'welcome/index'
     resources :users
     get 'tour_days/:id/print' => 'tour_days#print', :as => 'tour_day_print'
+    get 'tour_days/:id/show_schedule/print' => 'show_schedules#print', :as => 'show_schedule_print'
     resources :tours do
       member do
         get 'assign_crew_members'
