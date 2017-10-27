@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :travel_schedule_items, :only => [:index]
     resources :show_schedule_items, :only => [:index]
     resources :promo_schedule_items, :only => [:index]
+    resources :contacts, :only => [:show]
     resources :productions, :only => [:show]
     resources :hotels, :only => [:index]
     resources :cargos, :only => [:show]
@@ -28,6 +29,7 @@ Rails.application.routes.draw do
         resources :venues
         resources :cargos
         resources :productions
+        resources :contacts
         resources :primary_hotels
         resources :secondary_hotels
         resources :driver_hotels

@@ -1,38 +1,6 @@
 = form_for resource do |f|
   = render "shared/error_messages", :target => @production
   .form-group.row
-    =f.label :main_contact_name, :class=>"col-4 col-form-label"
-    =f.label :main_contact_phone, :class=>"col-4 col-form-label"
-    =f.label :main_contact_email, :class=>"col-4 col-form-label"
-  .form-group.row
-    .col-4=f.text_field :main_contact_name, :class=>"form-control"
-    .col-4=f.text_field :main_contact_phone, :class=>"form-control"
-    .col-4=f.text_field :main_contact_email,  :class=>"form-control"
-  .form-group.row
-    =f.label :prod_contact_name, :class=>"col-4 col-form-label"
-    =f.label :prod_contact_phone, :class=>"col-4 col-form-label"
-    =f.label :prod_contact_email, :class=>"col-4 col-form-label"
-  .form-group.row
-    .col-4=f.text_field :prod_contact_name, :class=>"form-control"
-    .col-4=f.text_field :prod_contact_phone, :class=>"form-control"
-    .col-4=f.text_field :prod_contact_email,  :class=>"form-control"
-  .form-group.row
-    =f.label :hosp_contact_name, :class=>"col-4 col-form-label"
-    =f.label :hosp_contact_phone, :class=>"col-4 col-form-label"
-    =f.label :hosp_contact_email, :class=>"col-4 col-form-label"
-  .form-group.row
-    .col-4=f.text_field :hosp_contact_name, :class=>"form-control"
-    .col-4=f.text_field :hosp_contact_phone, :class=>"form-control"
-    .col-4=f.text_field :hosp_contact_email,  :class=>"form-control"
-  .form-group.row
-    =f.label :stage_manager_name, :class=>"col-4 col-form-label"
-    =f.label :stage_manager_phone, :class=>"col-4 col-form-label"
-    =f.label :stage_manager_email, :class=>"col-4 col-form-label"
-  .form-group.row
-    .col-4=f.text_field :stage_manager_name, :class=>"form-control"
-    .col-4=f.text_field :stage_manager_phone, :class=>"form-control"
-    .col-4=f.text_field :stage_manager_email,  :class=>"form-control"
-  .form-group.row
     =f.label :stage_size, :class=>"col-2 col-form-label"
     .col-8
       =f.text_field :stage_size, :class=>"form-control"

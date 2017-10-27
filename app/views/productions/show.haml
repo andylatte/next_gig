@@ -8,43 +8,13 @@
   .card.rounded-0.border-0
     .row.bg-primary
       .col.text-white.mx-4.mt-2
-        %h5 Contacts
-    .card-block
-      .row
-        .col-4 Main:
-        .col-8
-          .span= @production.main_contact_name
-          .span= @production.main_contact_phone
-          .span= @production.main_contact_email
-      .row.mt-2
-        .col-4 Production:
-        .col-8
-          .span= @production.prod_contact_name
-          .span= @production.prod_contact_phone
-          .span= @production.prod_contact_email
-      .row.mt-2
-        .col-4 Hospidality:
-        .col-8
-          .span= @production.hosp_contact_name
-          .span= @production.hosp_contact_phone
-          .span= @production.hosp_contact_email
-      .row.mt-2
-        .col-4 Stage Manager:
-        .col-8
-          .span= @production.stage_manager_name
-          .span= @production.stage_manager_phone
-          .span= @production.stage_manager_email
-
-  .card.rounded-0.border-0
-    .row.bg-primary
-      .col.text-white.mx-4.mt-2
         %h5 Production Info
     .card-block
       .row
         .col-4 Stage Size:
         .col-8= @production.stage_size
       .row
-        .col-4 Local Backline: 
+        .col-4 Local Backline:
         .col-8= @production.local_backline
       .row
         .col-4 Access Notes:

@@ -1,0 +1,12 @@
+.card-block#contact
+  -unless @tour_day.contact.nil?
+    %h4.card-title
+      Contact
+      %span=link_to "edit contact", edit_admin_contact_path(@tour_day.contact), :class=>"btn btn-outline-primary btn-sm ml-4" unless print
+    = render :partial => "admin/contacts/contact", :locals => {contact: @tour_day.contact}
+  -else
+    - unless print
+      %h4.card-title Contact
+      .text-center
+        %p.card-textWith There has been no Contact created yet
+        =link_to "Create Contact", new_admin_tour_day_contact_path(@tour_day), :class=>"btn btn-success"
