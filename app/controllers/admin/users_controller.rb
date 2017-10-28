@@ -1,9 +1,9 @@
 class Admin::UsersController < AdminController
-  skip_before_filter :verify_authenticity_token, :only => :create
+  skip_before_action :verify_authenticity_token, :only => :create
   def index
     @crew_members_available = current_user.crew_members_available
   end
-  
+
   def new
     @user = User.new
   end
@@ -25,7 +25,7 @@ class Admin::UsersController < AdminController
   def edit
     @user = User.find(params[:id])
   end
-  
+
   def update
     @user = User.find(params[:id])
 
@@ -34,7 +34,7 @@ class Admin::UsersController < AdminController
     else
       render 'edit'
     end
-  end  
+  end
 
   def destroy
     @user = User.find(params[:id])
@@ -42,9 +42,9 @@ class Admin::UsersController < AdminController
 
     redirect_to admin_users_path
   end
-  
+
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
   end
-      
+
 end
