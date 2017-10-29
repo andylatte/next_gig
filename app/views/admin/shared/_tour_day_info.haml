@@ -16,10 +16,10 @@
       %small
         = @tour_day.tour.band_name + ", "
         = print ? @tour_day.tour.tour_name : (link_to @tour_day.tour.tour_name, admin_tour_path(@tour_day.tour))
-    - unless print
-      .col-1.text-right
-        = link_to admin_tour_path(@tour_day.tour) do
-          = fa_icon ("chevron-left")
-      .col-1.text-right
-        = link_to admin_tour_path(@tour_day.tour) do
-          = fa_icon ("chevron-right")
+    -# - unless print
+    -#   .col-1.text-right
+    -#     = link_to admin_tour_path(@tour_day.tour) do
+    -#       = fa_icon ("chevron-left")
+    -#   .col-1.text-right
+    -#     = link_to admin_tour_path(@tour_day.tour) do
+    -#       = fa_icon ("chevron-right")
