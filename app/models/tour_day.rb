@@ -54,7 +54,7 @@ class TourDay < ApplicationRecord
   # callbacks
 
   after_commit do
-    self.tour.update_start_date
+    self.tour.update_start_date unless self.tour.blank?
   end
   # public instance methods
 
