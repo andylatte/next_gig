@@ -1,5 +1,5 @@
 class Admin::ContactsController < AdminController
-  before_action :find_contacts, :only => [ :edit, :update, :destroy]
+  before_action :find_contact, :only => [ :edit, :update, :destroy]
   before_action :find_tour_day, :only => [ :new, :create, :edit, :update, :destroy]
 
   def new

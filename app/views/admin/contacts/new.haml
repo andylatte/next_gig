@@ -1,5 +1,5 @@
 .card
   = render :partial => "admin/shared/tour_day_info"
   .card-block
-    %h4.card-title New Contact
+    %h4.card-title New Contacts
     = render :partial => "admin/contacts/form", :locals => {contact: @contact, resource: [:admin, @tour_day, @contact]}
