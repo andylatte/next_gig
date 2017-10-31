@@ -5,17 +5,18 @@
       %span=link_to "Add Show Schedule Item", new_admin_tour_day_show_schedule_item_path(@tour_day), :class=>"btn btn-outline-primary btn-sm ml-4" unless print
       %span=link_to "Print Show Schedule", admin_show_schedule_print_path(@tour_day), :class=>"btn btn-outline-secondary btn-sm float-right" unless print
     %table{:class=>"table table-striped col-10 mb-4"}
-      %thead.col-10
-        %tr.row
-          %th.col-2 Name
-          %th.col-2 for_whom
-          %th.col-1 start time
-          %th.col-1 end time
-          %th.col-2 Comment
+      %thead
+        %tr
+          %th Name
+          %th for_whom
+          %th start time
+          %th end time
+          %th Comment
           - unless print
-            %th.col-1
-      - @tour_day.sorted_show_schedule_items.each do |item|
-        = render :partial => "admin/show_schedule_items/show_show_schedule_item", :locals => {item: item, print: print}
+            %th
+      %tbody
+        - @tour_day.sorted_show_schedule_items.each do |item|
+          = render :partial => "admin/show_schedule_items/show_show_schedule_item", :locals => {item: item, print: print}
   -else
     -unless print
       %h4.card-title Show Schedule

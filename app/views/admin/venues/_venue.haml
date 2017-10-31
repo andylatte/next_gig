@@ -1,40 +1,34 @@
-%table{:class=>"table table-striped col-8 mb-4"}
-  %tr.row
-    %td.col-2 Venue Name:
-    %td.col-8= venue.venue_name
-  %tr.row
-    %td.col-2 Address 1:
-    %td.col-8= venue.address_1
-  %tr.row
-    %td.col-2 Address 2:
-    %td.col-8= venue.address_2
-  %tr.row
-    %td.col-2 ZipCode:
-    %td.col-8= venue.zip_code
-  %tr.row
-    %td.col-2 City:
-    %td.col-8= venue.city
-  %tr.row
-    %td.col-2 Country:
-    %td.col-8= venue.country
-  %tr.row
-    %td.col-2 URL:
-    %td.col-8= venue.url
-  %tr.row
-    %td.col-2 Venue type:
-    %td.col-8= venue.venue_type
-  %tr.row
-    %td.col-2 Slot:
-    %td.col-8= venue.slot
-  %tr.row
-    %td.col-2 Stage:
-    %td.col-8= venue.stage
-  %tr.row
-    %td.col-2 Capacity:
-    %td.col-8= venue.capacity
-  %tr.row
-    %td.col-2 Sales:
-    %td.col-8= venue.sales
-  %tr.row
-    %td.col-2 Comment:
-    %td.col-8= venue.comment
+%table{:class=>"table table-striped mb-4"}
+  %tr
+    %th.w-25 Venue Name
+    %td= venue.venue_name
+  %tr
+    %th Address
+    %td= "#{venue.address_1}, #{venue.address_2}"
+  %tr
+    %th City / Country
+    %td= "#{venue.zip_code}, #{venue.city}, #{venue.country}"
+  - unless print
+    %tr
+      %th URL
+      %td= venue.url
+  %tr
+    %th Venue type
+    %td= venue.venue_type
+  - unless print
+    %tr
+      %th Slot
+      %td= venue.slot
+  %tr
+    %th Stage
+    %td= venue.stage
+  %tr
+    %th Capacity
+    %td= venue.capacity
+  - unless print
+    %tr
+      %th Sales
+      %td= venue.sales
+  %tr
+    %th Comment
+    %td= venue.comment

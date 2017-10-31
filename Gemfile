@@ -27,7 +27,7 @@ gem 'annotate',                   '~> 2.7', '>= 2.7.2'
 gem 'jquery-rails',               '~> 4.3', '>= 4.3.1'                                                    # Use jquery as the JavaScript library
 
 gem 'turbolinks',                 '~> 5'                                                                  # Turbolinks, faster navigation
-gem 'jbuilder',                   '~> 2.7'                                                                # Build JSON APIs with ease. 
+gem 'jbuilder',                   '~> 2.7'                                                                # Build JSON APIs with ease.
 
 
 gem 'bcrypt',                     '~> 3.1.11'                                                             #password encryption
@@ -39,6 +39,9 @@ gem 'devise',                     '~> 4.3'                                      
 gem 'font-awesome-rails',         '~> 4.7.0.2'                                                            #svg icons
 
 gem 'validates_timeliness',       '~> 4.0', '>= 4.0.2'                                                    #date_time validations
+
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
 
 
 # Use Capistrano for deployment

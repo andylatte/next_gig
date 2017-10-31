@@ -1,20 +1,20 @@
-%tr.row
-  %td.col-1
+%tr
+  %td
     = item.name
-  %td.col-2
+  %td
     = item.for_whom
-  %td.col-1
+  %td
     = item.destination
-  %td.col-1
+  %td
     = l(item.start_time, :format => :time) if item.start_time
-  %td.col-1
+  %td
     = l(item.end_time, :format => :time) if item.end_time
-  %td.col-2
+  %td
     = item.contact
-  %td.col-2
+  %td
     = item.comment
   - unless print
-    %td.col-1
+    %td
       %div{:class=>"btn-toolbar"}
         %div{:class=>"btn-group mr-2"}
           =link_to "edit", edit_admin_promo_schedule_item_path(item), :class=>"btn btn-info btn-sm"

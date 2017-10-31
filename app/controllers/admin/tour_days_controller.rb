@@ -39,6 +39,13 @@ class Admin::TourDaysController < AdminController
   #custom methods
 
   def print
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "#{@tour_day.date}_daysheet",   # Excluding ".pdf" extension.
+        show_as_html:   params[:debug].present?
+      end
+    end
   end
 
   protected
