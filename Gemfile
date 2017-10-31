@@ -44,6 +44,9 @@ gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 
 
+group :production, :staging do
+  gem 'wkhtmltopdf-heroku',         '~> 2.12', '>= 2.12.4.0'                                              #wkhtmltopdf binaries for heroku
+end
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
