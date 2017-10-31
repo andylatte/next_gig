@@ -3,7 +3,7 @@
     %h4.card-title
       Show Schedule
       %span=link_to "Add Show Schedule Item", new_admin_tour_day_show_schedule_item_path(@tour_day), :class=>"btn btn-outline-primary btn-sm ml-4" unless print
-      %span=link_to "Print Show Schedule", admin_show_schedule_print_path(@tour_day), :class=>"btn btn-outline-secondary btn-sm float-right" unless print
+      %span=link_to "Print Show Schedule", admin_show_schedule_print_path(@tour_day, :format => :pdf), :class=>"btn btn-outline-secondary btn-sm float-right" unless print
     %table{:class=>"table table-striped col-10 mb-4"}
       %thead
         %tr
