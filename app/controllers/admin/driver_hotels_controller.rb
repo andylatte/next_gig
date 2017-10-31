@@ -1,7 +1,7 @@
 class Admin::DriverHotelsController < AdminController
   before_action :find_driver_hotel, :only => [ :edit, :update, :destroy]
   before_action :find_tour_day, :only => [ :new, :create, :edit, :update, :destroy]
-  
+
   def new
     @driver_hotel = DriverHotel.new
   end
@@ -9,32 +9,32 @@ class Admin::DriverHotelsController < AdminController
   def create
     @driver_hotel = @tour_day.build_driver_hotel(driver_hotel_params)
     if @driver_hotel.save
-      redirect_to admin_tour_day_path(@tour_day, :anchor => "driver_hotel")
+      redirect_to admin_tour_day_path(@tour_day, :anchor => "hotels")
     else
       render "new"
     end
   end
-  
+
   def edit
   end
-  
+
   def update
     if @driver_hotel.update(driver_hotel_params)
-      redirect_to admin_tour_day_path(@tour_day, :anchor => "driver_hotel")
+      redirect_to admin_tour_day_path(@tour_day, :anchor => "hotels")
     else
       render 'edit'
     end
   end
   def destroy
     @driver_hotel.destroy
-    redirect_to admin_tour_day_path(@tour_day)
+    redirect_to admin_tour_day_path(@tour_day, :anchor => "hotels")
   end
-  
+
   protected
 
   def find_driver_hotel
     @driver_hotel = DriverHotel.find(params[:id])
-  end  
+  end
   def find_tour_day
     @tour_day = @driver_hotel.nil? ? @tour_day = current_user.tour_days_managed.find(params[:tour_day_id]) : @driver_hotel.tour_day
   end

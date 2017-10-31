@@ -5,15 +5,14 @@
       %span=link_to "Add Show Schedule Item", new_admin_tour_day_show_schedule_item_path(@tour_day), :class=>"btn btn-outline-primary btn-sm ml-4" unless print
       %span=link_to "Print Show Schedule", admin_show_schedule_print_path(@tour_day, :format => :pdf), :class=>"btn btn-outline-secondary btn-sm float-right" unless print
     %table{:class=>"table table-striped col-10 mb-4"}
-      %thead
-        %tr
-          %th Name
-          %th for_whom
-          %th start time
-          %th end time
-          %th Comment
-          - unless print
-            %th
+      %tr
+        %th What
+        %th Whom
+        %th Start Time
+        %th End Time
+        %th Comment
+        - unless print
+          %th
       %tbody
         - @tour_day.sorted_show_schedule_items.each do |item|
           = render :partial => "admin/show_schedule_items/show_show_schedule_item", :locals => {item: item, print: print}
