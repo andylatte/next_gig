@@ -4,34 +4,29 @@
   %table{:class=>"table table-striped mb-4"}
     %tbody
       %tr
-        %th #
-        %th
-          Primary Hotel
-          - unless print
-            %br
-            %br
-            - if @primary_hotel.nil?
-              =link_to "Create", new_admin_tour_day_primary_hotel_path(@tour_day), :class=>"btn btn-success btn-sm ml-4"
-            - else
-              %span=link_to "Edit", edit_admin_primary_hotel_path(@tour_day.primary_hotel), :class=>"btn btn-outline-primary btn-sm ml-4"
-        %th
-          Secondary Hotel
-          - unless print
-            %br
-            %br
-            - if @secondary_hotel.nil?
-              =link_to "Create", new_admin_tour_day_secondary_hotel_path(@tour_day), :class=>"btn btn-success btn-sm ml-4"
-            - else
-              %span=link_to "Edit", edit_admin_secondary_hotel_path(@secondary_hotel), :class=>"btn btn-outline-primary btn-sm ml-4"
-        %th
-          Driver Hotel
-          - unless print
-            %br
-            %br
-            - if @driver_hotel.nil?
-              =link_to "Create", new_admin_tour_day_driver_hotel_path(@tour_day), :class=>"btn btn-success btn-sm ml-4"
-            - else
-              %span=link_to "Edit", edit_admin_driver_hotel_path(@driver_hotel), :class=>"btn btn-outline-primary btn-sm ml-4"
+        %thead
+          %th
+          %th.text-center
+            %h5 Primary Hotel
+            - unless print
+              - if @primary_hotel.nil?
+                =link_to "Create", new_admin_tour_day_primary_hotel_path(@tour_day), :class=>"btn btn-success btn-sm"
+              - else
+                %span=link_to "Edit", edit_admin_primary_hotel_path(@tour_day.primary_hotel), :class=>"btn btn-outline-primary btn-sm"
+          %th.text-center
+            %h5 Secondary Hotel
+            - unless print
+              - if @secondary_hotel.nil?
+                =link_to "Create", new_admin_tour_day_secondary_hotel_path(@tour_day), :class=>"btn btn-success btn-sm"
+              - else
+                %span=link_to "Edit", edit_admin_secondary_hotel_path(@secondary_hotel), :class=>"btn btn-outline-primary btn-sm"
+          %th.text-center
+            %h5 Driver Hotel
+            - unless print
+              - if @driver_hotel.nil?
+                =link_to "Create", new_admin_tour_day_driver_hotel_path(@tour_day), :class=>"btn btn-success btn-sm"
+              - else
+                %span=link_to "Edit", edit_admin_driver_hotel_path(@driver_hotel), :class=>"btn btn-outline-primary btn-sm"
       %tr
         %th Hotel Name
         %td= default_or(@primary_hotel, :hotel_name)

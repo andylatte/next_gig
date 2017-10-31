@@ -4,12 +4,10 @@
   %td= item.number
   %td= item.origin
   %td= item.destination
-  - unless print
-    %td= l(item.start_time, :format => :time) if item.start_time
+  %td= l(item.start_time, :format => :time) if item.start_time
   %td= l(item.departure_datetime, :format => :long) if item.departure_datetime
   %td= l(item.arrival_datetime, :format => :long) if item.arrival_datetime
-  - unless print
-    %td= item.duration
+  %td= item.duration
   %td= item.comment
   - unless print
     %td

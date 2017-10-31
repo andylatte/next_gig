@@ -8,27 +8,24 @@
   %tr
     %th City / Country
     %td= "#{venue.zip_code}, #{venue.city}, #{venue.country}"
-  - unless print
-    %tr
-      %th URL
-      %td= venue.url
+  %tr
+    %th URL
+    %td= venue.url
   %tr
     %th Venue type
     %td= venue.venue_type
-  - unless print
-    %tr
-      %th Slot
-      %td= venue.slot
+  %tr
+    %th Slot
+    %td= venue.slot
   %tr
     %th Stage
     %td= venue.stage
   %tr
     %th Capacity
     %td= venue.capacity
-  - unless print
-    %tr
-      %th Sales
-      %td= venue.sales
+  %tr
+    %th Sales
+    %td= venue.sales
   %tr
     %th Comment
     %td= venue.comment
