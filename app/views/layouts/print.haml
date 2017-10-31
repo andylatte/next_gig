@@ -5,10 +5,13 @@
     = csrf_meta_tags
     = render :partial => "layouts/meta_tags"
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = stylesheet_link_tag    'admin/print', media: 'print', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag    'admin/print', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    %meta{charset: 'utf8'}
+    = wicked_pdf_stylesheet_link_tag "application"
+    = wicked_pdf_stylesheet_link_tag "admin/print"
     = render :partial => "layouts/favicon"
 
-  %body
-    .container.print
+  %body.print
+    .container
       = yield

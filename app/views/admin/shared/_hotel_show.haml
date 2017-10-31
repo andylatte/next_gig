@@ -1,40 +1,29 @@
-%table{:class=>"table table-striped col-8 mb-4"}
-  %tr.row
-    %td.col-2 Hotel Name
-    %td.col-6= hotel.hotel_name
-  %tr.row
-    %td.col-2 Address 1
-    %td.col-6= hotel.address_1
-  %tr.row
-    %td.col-2 Address 2
-    %td.col-6= hotel.address_2
-  %tr.row
-    %td.col-2 ZipCode
-    %td.col-6= hotel.zip_code
-  %tr.row
-    %td.col-2 City
-    %td.col-6= hotel.city
-  %tr.row
-    %td.col-2 Country
-    %td.col-6= hotel.country
-  %tr.row
-    %td.col-2 CheckIn Date
-    %td.col-6= l(hotel.check_in_date, :format => :date) if hotel.check_in_date
-  %tr.row
-    %td.col-2 CheckOut Date
-    %td.col-6= l(hotel.check_out_date, :format => :date) if hotel.check_out_date
-  %tr.row
-    %td.col-2 Number of Nights
-    %td.col-6= hotel.number_of_nights
-  %tr.row
-    %td.col-2 Single Room
-    %td.col-6= hotel.single_rooms
-  %tr.row
-    %td.col-2 Twin Room
-    %td.col-6= hotel.twin_rooms
-  %tr.row
-    %td.col-2 Breakfast
-    %td.col-6= hotel.breakfast
-  %tr.row
-    %td.col-2 Comment
-    %td.col-6= hotel.comment
+%table{:class=>"table table-striped mb-4"}
+  %tbody
+    %tr
+      %th.w-25 Hotel Name
+      %td= hotel.hotel_name
+    %tr
+      %th Address
+      %td= "#{hotel.address_1}, #{hotel.address_2}"
+    %tr
+      %th City / Country
+      %td= "#{hotel.zip_code}, #{hotel.city}, #{hotel.country}"
+    %tr
+      %th Check-In Date
+      %td= l(hotel.check_in_date, :format => :date) if hotel.check_in_date
+    %tr
+      %th Check-Out Date
+      %td= l(hotel.check_out_date, :format => :date) if hotel.check_out_date
+    %tr
+      %th Number of Nights
+      %td= hotel.number_of_nights
+    %tr
+      %th Rooms (Single / Twin)
+      %td= "#{hotel.single_rooms} / #{hotel.twin_rooms}"
+    %tr
+      %th Breakfast
+      %td= hotel.breakfast
+    %tr
+      %th Comment
+      %td= hotel.comment

@@ -22,6 +22,13 @@ class Admin::ShowSchedulesController < AdminController
   end
 
   def print
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "#{@tour_day.date}_show_schedule",   # Excluding ".pdf" extension.
+        show_as_html:   params[:debug].present?
+      end
+    end
   end
 
   def show_schedule_params

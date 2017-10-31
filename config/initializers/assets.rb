@@ -10,8 +10,9 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 
 # Precompile additional assets.
 
-# include print styles
+# precompile for pdf 
 Rails.application.config.assets.precompile += %w( admin/print.sass )
+Rails.application.config.assets.precompile += ['application.css']
 
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.

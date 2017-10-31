@@ -3,25 +3,26 @@
     %h4.card-title
       Travel Schedule
       %span=link_to "Add Travel Schedule Item", new_admin_tour_day_travel_schedule_item_path(@tour_day), :class=>"btn btn-outline-primary btn-sm ml-4" unless print
-    %table{:class=>"table table-striped col-10 mb-4"}
+    %table{:class=>"table table-striped mb-4"}
       %thead
-        %tr.row
-          %th.col-1 Name
-          %th.col-2 for_whom
-          %th.col-1 Number
-          %th.col-1 Origin
-          %th.col-1 Destination
+        %tr
+          %th Name
+          %th for_whom
+          %th Number
+          %th Origin
+          %th Destination
           - unless print
-            %th.col-1 Call Time
-          %th.col-1 Departure
-          %th.col-1 Arrival
+            %th Call Time
+          %th Departure
+          %th Arrival
           - unless print
-            %th.col-1 Duration
-          %th.col-1 Comment
+            %th Duration
+          %th Comment
           - unless print
-            %th.col-1
-      - @tour_day.travel_schedule_items.each do |item|
-        = render :partial => "admin/travel_schedule_items/show_travel_schedule_item", :locals => {item: item, print: print}
+            %th
+      %tbody
+        - @tour_day.travel_schedule_items.each do |item|
+          = render :partial => "admin/travel_schedule_items/show_travel_schedule_item", :locals => {item: item, print: print}
   -else
     -unless print
       %h4.card-title Travel Schedule

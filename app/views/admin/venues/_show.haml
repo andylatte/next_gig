@@ -3,7 +3,7 @@
     %h4.card-title
       Venue
       %span=link_to "Edit Venue", edit_admin_venue_path(@tour_day.venue), :class=>"btn btn-outline-primary btn-sm ml-4" unless print
-    = render :partial => "#{'admin/venues/venue' + (print ? '_print' : '')}", :locals => {venue: @tour_day.venue}
+    = render :partial => "admin/venues/venue", :locals => {venue: @tour_day.venue, print: true}
   -else
     %h4.card-title Venue
     - unless print
