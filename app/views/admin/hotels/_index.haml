@@ -1,0 +1,79 @@
+.card-block#driver_hotel
+  %h4.card-title
+    Hotels
+  %table{:class=>"table table-striped mb-4"}
+    %tbody
+      %tr
+        %th #
+        %th
+          Primary Hotel
+          - unless print
+            %br
+            %br
+            - if @primary_hotel.nil?
+              =link_to "Create", new_admin_tour_day_primary_hotel_path(@tour_day), :class=>"btn btn-success btn-sm ml-4"
+            - else
+              %span=link_to "Edit", edit_admin_primary_hotel_path(@tour_day.primary_hotel), :class=>"btn btn-outline-primary btn-sm ml-4"
+        %th
+          Secondary Hotel
+          - unless print
+            %br
+            %br
+            - if @secondary_hotel.nil?
+              =link_to "Create", new_admin_tour_day_secondary_hotel_path(@tour_day), :class=>"btn btn-success btn-sm ml-4"
+            - else
+              %span=link_to "Edit", edit_admin_secondary_hotel_path(@secondary_hotel), :class=>"btn btn-outline-primary btn-sm ml-4"
+        %th
+          Driver Hotel
+          - unless print
+            %br
+            %br
+            - if @driver_hotel.nil?
+              =link_to "Create", new_admin_tour_day_driver_hotel_path(@tour_day), :class=>"btn btn-success btn-sm ml-4"
+            - else
+              %span=link_to "Edit", edit_admin_driver_hotel_path(@driver_hotel), :class=>"btn btn-outline-primary btn-sm ml-4"
+      %tr
+        %th Hotel Name
+        %td= default_or(@primary_hotel, :hotel_name)
+        %td= default_or(@secondary_hotel, :hotel_name)
+        %td= default_or(@driver_hotel, :hotel_name)
+      %tr
+        %th Adress
+        %td= "#{default_or(@primary_hotel, :address_1)}, #{default_or(@primary_hotel, :address_2)}"
+        %td= "#{default_or(@secondary_hotel, :address_1)}, #{default_or(@secondary_hotel, :address_2)}"
+        %td= "#{default_or(@driver_hotel, :address_1)}, #{default_or(@driver_hotel, :address_2)}"
+      %tr
+        %th City / Country
+        %td= "#{default_or(@primary_hotel, :zip_code)}, #{default_or(@primary_hotel, :city)}, #{default_or(@primary_hotel, :country)}"
+        %td= "#{default_or(@secondary_hotel, :zip_code)}, #{default_or(@secondary_hotel, :city)}, #{default_or(@secondary_hotel, :country)}"
+        %td= "#{default_or(@driver_hotel, :zip_code)}, #{default_or(@driver_hotel, :city)}, #{default_or(@driver_hotel, :country)}"
+      %tr
+        %th Check-In Date
+        %td= "#{default_or_date_format(@primary_hotel, :check_in_date, :format => :date)}"
+        %td= "#{default_or_date_format(@secondary_hotel, :check_in_date, :format => :date)}"
+        %td= "#{default_or_date_format(@driver_hotel, :check_in_date, :format => :date)}"
+      %tr
+        %th Check-Out Date
+        %td= "#{default_or_date_format(@primary_hotel, :check_out_date, :format => :date)}"
+        %td= "#{default_or_date_format(@secondary_hotel, :check_out_date, :format => :date)}"
+        %td= "#{default_or_date_format(@driver_hotel, :check_out_date, :format => :date)}"
+      %tr
+        %th Number of Nights
+        %td= default_or(@primary_hotel, :number_of_nights)
+        %td= default_or(@secondary_hotel, :number_of_nights)
+        %td= default_or(@driver_hotel, :number_of_nights)
+      %tr
+        %th Rooms (Single / Twin)
+        %td= "#{default_or(@primary_hotel, :single_rooms)} / #{default_or(@primary_hotel, :twin_rooms)}"
+        %td= "#{default_or(@secondary_hotel, :single_rooms)} / #{default_or(@secondary_hotel, :twin_rooms)}"
+        %td= "#{default_or(@driver_hotel, :single_rooms)} / #{default_or(@driver_hotel, :twin_rooms)}"
+      %tr
+        %th Breakfast
+        %td= default_or(@primary_hotel, :breakfast)
+        %td= default_or(@secondary_hotel, :breakfast)
+        %td= default_or(@driver_hotel, :breakfast)
+      %tr
+        %th Comment
+        %td= default_or(@primary_hotel, :comment)
+        %td= default_or(@secondary_hotel, :comment)
+        %td= default_or(@driver_hotel, :comment)
