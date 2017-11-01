@@ -5,8 +5,8 @@
       %span=link_to "Edit Venue", edit_admin_venue_path(@tour_day.venue), :class=>"btn btn-outline-primary btn-sm ml-4" unless print
     = render :partial => "admin/venues/venue", :locals => {venue: @tour_day.venue, print: true}
   -else
-    %h4.card-title Venue
     - unless print
+      %h4.card-title Venue
       .text-center
-        %p.card-textWith There have been no Venue created yet
+        %p.card-textWith There has been no Venue created yet!
         =link_to "Create Venue", new_admin_tour_day_venue_path(@tour_day), :class=>"btn btn-success"

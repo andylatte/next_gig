@@ -1,73 +1,82 @@
 .card-block#hotels
-  %h4.card-title
-    Hotels
-  %table{:class=>"table table-striped mb-4"}
-    %tbody
-      %tr  
-        %th
-        %th.text-center
-          %h5 Primary Hotel
-          - unless print
-            - if @primary_hotel.nil?
-              =link_to "Create", new_admin_tour_day_primary_hotel_path(@tour_day), :class=>"btn btn-success btn-sm"
-            - else
-              %span=link_to "Edit", edit_admin_primary_hotel_path(@tour_day.primary_hotel), :class=>"btn btn-outline-primary btn-sm"
-        %th.text-center
-          %h5 Secondary Hotel
-          - unless print
-            - if @secondary_hotel.nil?
-              =link_to "Create", new_admin_tour_day_secondary_hotel_path(@tour_day), :class=>"btn btn-success btn-sm"
-            - else
-              %span=link_to "Edit", edit_admin_secondary_hotel_path(@secondary_hotel), :class=>"btn btn-outline-primary btn-sm"
-        %th.text-center
-          %h5 Driver Hotel
-          - unless print
-            - if @driver_hotel.nil?
-              =link_to "Create", new_admin_tour_day_driver_hotel_path(@tour_day), :class=>"btn btn-success btn-sm"
-            - else
-              %span=link_to "Edit", edit_admin_driver_hotel_path(@driver_hotel), :class=>"btn btn-outline-primary btn-sm"
-      %tr
-        %th Hotel Name
-        %td= default_or(@primary_hotel, :hotel_name)
-        %td= default_or(@secondary_hotel, :hotel_name)
-        %td= default_or(@driver_hotel, :hotel_name)
-      %tr
-        %th Adress
-        %td= "#{default_or(@primary_hotel, :address_1)}, #{default_or(@primary_hotel, :address_2)}"
-        %td= "#{default_or(@secondary_hotel, :address_1)}, #{default_or(@secondary_hotel, :address_2)}"
-        %td= "#{default_or(@driver_hotel, :address_1)}, #{default_or(@driver_hotel, :address_2)}"
-      %tr
-        %th City / Country
-        %td= "#{default_or(@primary_hotel, :zip_code)}, #{default_or(@primary_hotel, :city)}, #{default_or(@primary_hotel, :country)}"
-        %td= "#{default_or(@secondary_hotel, :zip_code)}, #{default_or(@secondary_hotel, :city)}, #{default_or(@secondary_hotel, :country)}"
-        %td= "#{default_or(@driver_hotel, :zip_code)}, #{default_or(@driver_hotel, :city)}, #{default_or(@driver_hotel, :country)}"
-      %tr
-        %th Check-In Date
-        %td= "#{default_or_date_format(@primary_hotel, :check_in_date, :format => :date)}"
-        %td= "#{default_or_date_format(@secondary_hotel, :check_in_date, :format => :date)}"
-        %td= "#{default_or_date_format(@driver_hotel, :check_in_date, :format => :date)}"
-      %tr
-        %th Check-Out Date
-        %td= "#{default_or_date_format(@primary_hotel, :check_out_date, :format => :date)}"
-        %td= "#{default_or_date_format(@secondary_hotel, :check_out_date, :format => :date)}"
-        %td= "#{default_or_date_format(@driver_hotel, :check_out_date, :format => :date)}"
-      %tr
-        %th Number of Nights
-        %td= default_or(@primary_hotel, :number_of_nights)
-        %td= default_or(@secondary_hotel, :number_of_nights)
-        %td= default_or(@driver_hotel, :number_of_nights)
-      %tr
-        %th Rooms (Single / Twin)
-        %td= "#{default_or(@primary_hotel, :single_rooms)} / #{default_or(@primary_hotel, :twin_rooms)}"
-        %td= "#{default_or(@secondary_hotel, :single_rooms)} / #{default_or(@secondary_hotel, :twin_rooms)}"
-        %td= "#{default_or(@driver_hotel, :single_rooms)} / #{default_or(@driver_hotel, :twin_rooms)}"
-      %tr
-        %th Breakfast
-        %td= default_or(@primary_hotel, :breakfast)
-        %td= default_or(@secondary_hotel, :breakfast)
-        %td= default_or(@driver_hotel, :breakfast)
-      %tr
-        %th Comment
-        %td= default_or(@primary_hotel, :comment)
-        %td= default_or(@secondary_hotel, :comment)
-        %td= default_or(@driver_hotel, :comment)
+  - unless @primary_hotel.nil? && @secondary_hotel.nil? && @driver_hotel.nil?
+    %h4.card-title
+      Hotels
+    %table{:class=>"table table-striped mb-4"}
+      %tbody
+        %tr
+          %th
+          %th.text-center
+            %h5 Primary Hotel
+            - unless print
+              - if @primary_hotel.nil?
+                =link_to "Create", new_admin_tour_day_primary_hotel_path(@tour_day), :class=>"btn btn-success btn-sm"
+              - else
+                %span=link_to "Edit", edit_admin_primary_hotel_path(@tour_day.primary_hotel), :class=>"btn btn-outline-primary btn-sm"
+          %th.text-center
+            %h5 Secondary Hotel
+            - unless print
+              - if @secondary_hotel.nil?
+                =link_to "Create", new_admin_tour_day_secondary_hotel_path(@tour_day), :class=>"btn btn-success btn-sm"
+              - else
+                %span=link_to "Edit", edit_admin_secondary_hotel_path(@secondary_hotel), :class=>"btn btn-outline-primary btn-sm"
+          %th.text-center
+            %h5 Driver Hotel
+            - unless print
+              - if @driver_hotel.nil?
+                =link_to "Create", new_admin_tour_day_driver_hotel_path(@tour_day), :class=>"btn btn-success btn-sm"
+              - else
+                %span=link_to "Edit", edit_admin_driver_hotel_path(@driver_hotel), :class=>"btn btn-outline-primary btn-sm"
+        %tr
+          %th Hotel Name
+          %td= @primary_hotel.hotel_name unless @primary_hotel.nil?
+          %td= @secondary_hotel.hotel_name unless @secondary_hotel.nil?
+          %td= @driver_hotel.hotel_name unless @driver_hotel.nil?
+        %tr
+          %th Address
+          %td= [@primary_hotel.address_1, @primary_hotel.address_2].reject(&:blank?).join(", ") unless @primary_hotel.nil?
+          %td= [@secondary_hotel.address_1, @secondary_hotel.address_2].reject(&:blank?).join(", ") unless @secondary_hotel.nil?
+          %td= [@driver_hotel.address_1, @driver_hotel.address_2].reject(&:blank?).join(", ") unless @driver_hotel.nil?
+        %tr
+          %th Zip, City, Country
+          %td= [@primary_hotel.zip_code, @primary_hotel.city, @primary_hotel.country].reject(&:blank?).join(", ") unless @primary_hotel.nil?
+          %td= [@secondary_hotel.zip_code, @secondary_hotel.city, @secondary_hotel.country].reject(&:blank?).join(", ") unless @secondary_hotel.nil?
+          %td= [@driver_hotel.zip_code, @driver_hotel.city, @driver_hotel.country].reject(&:blank?).join(", ") unless @driver_hotel.nil?
+        %tr
+          %th Check-In Date
+          %td= l(@primary_hotel.check_in_date, :format => :date) unless @primary_hotel.nil? || @primary_hotel.check_in_date.blank?
+          %td= l(@secondary_hotel.check_in_date, :format => :date) unless @secondary_hotel.nil? || @secondary_hotel.check_in_date.blank?
+          %td= l(@driver_hotel.check_in_date,:format => :date) unless @driver_hotel.nil? || @driver_hotel.check_in_date.blank?
+        %tr
+          %th Check-Out Date
+          %td= l(@primary_hotel.check_out_date, :format => :date) unless @primary_hotel.nil? || @primary_hotel.check_out_date.blank?
+          %td= l(@secondary_hotel.check_out_date, :format => :date) unless @secondary_hotel.nil? || @secondary_hotel.check_out_date.blank?
+          %td= l(@driver_hotel.check_out_date,:format => :date) unless @driver_hotel.nil? || @driver_hotel.check_out_date.blank?
+        %tr
+          %th Number of Nights
+          %td= @primary_hotel.number_of_nights unless @primary_hotel.nil?
+          %td= @secondary_hotel.number_of_nights unless @secondary_hotel.nil?
+          %td= @driver_hotel.number_of_nights unless @driver_hotel.nil?
+        %tr
+          %th Rooms (Single / Twin)
+          %td= [@primary_hotel.single_rooms, @primary_hotel.twin_rooms].reject(&:blank?).join("/ ") unless @primary_hotel.nil?
+          %td= [@secondary_hotel.single_rooms, @secondary_hotel.twin_rooms].reject(&:blank?).join("/ ") unless @secondary_hotel.nil?
+          %td= [@driver_hotel.single_rooms, @driver_hotel.twin_rooms].reject(&:blank?).join("/ ") unless @driver_hotel.nil?
+        %tr
+          %th Breakfast
+          %td= @primary_hotel.breakfast unless @primary_hotel.nil?
+          %td= @secondary_hotel.breakfast unless @secondary_hotel.nil?
+          %td= @driver_hotel.breakfast unless @driver_hotel.nil?
+        %tr
+          %th Comment
+          %td= @primary_hotel.comment unless @primary_hotel.nil?
+          %td= @secondary_hotel.comment unless @secondary_hotel.nil?
+          %td= @driver_hotel.comment unless @driver_hotel.nil?
+  - else
+    - unless print
+      %h4.card-title Hotels
+      .text-center
+        %p.card-textWith There have been no Hotels created yet!
+        =link_to "Create Primary Hotel", new_admin_tour_day_primary_hotel_path(@tour_day), :class=>"btn btn-success btn-sm mr-4"
+        =link_to "Create Secondary Hotel", new_admin_tour_day_secondary_hotel_path(@tour_day), :class=>"btn btn-success btn-sm mr-4"
+        =link_to "Create Driver Hotel", new_admin_tour_day_driver_hotel_path(@tour_day), :class=>"btn btn-success btn-sm"
