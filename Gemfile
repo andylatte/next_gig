@@ -27,7 +27,7 @@ gem 'annotate',                   '~> 2.7', '>= 2.7.2'
 gem 'jquery-rails',               '~> 4.3', '>= 4.3.1'                                                    # Use jquery as the JavaScript library
 
 gem 'turbolinks',                 '~> 5'                                                                  # Turbolinks, faster navigation
-gem 'jbuilder',                   '~> 2.7'                                                                # Build JSON APIs with ease. 
+gem 'jbuilder',                   '~> 2.7'                                                                # Build JSON APIs with ease.
 
 
 gem 'bcrypt',                     '~> 3.1.11'                                                             #password encryption
@@ -40,7 +40,13 @@ gem 'font-awesome-rails',         '~> 4.7.0.2'                                  
 
 gem 'validates_timeliness',       '~> 4.0', '>= 4.0.2'                                                    #date_time validations
 
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
 
+
+group :production, :staging do
+  gem 'wkhtmltopdf-heroku',         '~> 2.12', '>= 2.12.4.0'                                              #wkhtmltopdf binaries for heroku
+end
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

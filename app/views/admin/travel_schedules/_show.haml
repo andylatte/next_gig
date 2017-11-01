@@ -3,28 +3,27 @@
     %h4.card-title
       Travel Schedule
       %span=link_to "Add Travel Schedule Item", new_admin_tour_day_travel_schedule_item_path(@tour_day), :class=>"btn btn-outline-primary btn-sm ml-4" unless print
-    %table{:class=>"table table-striped col-10 mb-4"}
-      %thead
-        %tr.row
-          %th.col-1 Name
-          %th.col-2 for_whom
-          %th.col-1 Number
-          %th.col-1 Origin
-          %th.col-1 Destination
+    %table{:class=>"table table-striped mb-4"}
+      %tbody
+        %tr
+          %th Name
+          %th Who
+          %th Number
+          %th Origin
+          %th Destination
+          %th Call Time
+          %th Departure
+          %th Arrival
+          %th Duration
+          %th Comment
           - unless print
-            %th.col-1 Call Time
-          %th.col-1 Departure
-          %th.col-1 Arrival
-          - unless print
-            %th.col-1 Duration
-          %th.col-1 Comment
-          - unless print
-            %th.col-1
-      - @tour_day.travel_schedule_items.each do |item|
-        = render :partial => "admin/travel_schedule_items/show_travel_schedule_item", :locals => {item: item, print: print}
+            %th
+
+        - @tour_day.travel_schedule_items.each do |item|
+          = render :partial => "admin/travel_schedule_items/show_travel_schedule_item", :locals => {item: item, print: print}
   -else
     -unless print
       %h4.card-title Travel Schedule
       .text-center
-        %p.card-textWith There has been no Travel Schedule created yet
-        = link_to "create travel schedule", new_admin_tour_day_travel_schedule_path(@tour_day), :class=>"btn btn-success"
+        %p.card-textWith There has been no Travel Schedule created yet!
+        = link_to "Create Travel Schedule", new_admin_tour_day_travel_schedule_path(@tour_day), :class=>"btn btn-success"

@@ -1,2 +1,51 @@
-@page
-  margin: 2cm
+body.print
+  line-height: 0.8rem
+  font-size: 0.7rem
+.print
+  h3
+    font-size: 1.5rem
+  h4
+    font-size: 1.2rem
+  h5
+    font-size: 0.9rem
+
+  .card-header
+    background-color: #444
+    color: #fff
+
+  .badge
+    border: solid 2px
+    background-color: transparent
+
+  .card-block
+    padding: 1.25rem 1.25rem 0rem 1.25rem
+
+  .table th, .table td
+    padding: 0.5rem
+
+  div.card-block, tr, td, th, tbody, thead
+    page-break-inside: avoid !important
+    page-break-after: auto
+    page-break-before: auto
+
+  #show_schedule, #hotels
+    page-break-inside: avoid !important
+    page-break-after: auto
+    page-break-before: auto
+
+
+  #show_schedule
+    line-height: 0.9rem
+    font-size: 0.9rem
+
+    .table th, .table td
+      padding: 1rem
+      vertical-align: middle
+      
+  .tour_day #show_schedule
+    line-height: 0.8rem
+    font-size: 0.7rem
+
+    .table th, .table td
+      padding: 0.5rem
+      vertical-align: middle

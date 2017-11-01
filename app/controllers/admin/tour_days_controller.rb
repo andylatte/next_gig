@@ -6,6 +6,9 @@ class Admin::TourDaysController < AdminController
 
 
   def show
+    @primary_hotel = @tour_day.primary_hotel
+    @secondary_hotel = @tour_day.secondary_hotel
+    @driver_hotel = @tour_day.driver_hotel
   end
 
   def new
@@ -39,6 +42,16 @@ class Admin::TourDaysController < AdminController
   #custom methods
 
   def print
+    @primary_hotel = @tour_day.primary_hotel
+    @secondary_hotel = @tour_day.secondary_hotel
+    @driver_hotel = @tour_day.driver_hotel
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "#{@tour_day.date}_daysheet",   # Excluding ".pdf" extension.
+        show_as_html:   params[:debug].present?
+      end
+    end
   end
 
   protected

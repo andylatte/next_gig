@@ -1,19 +1,19 @@
-%table{:class=>"table table-striped col-8 mb-4"}
-  %tr.row
-    %td.col-2 Stage Size
-    %td.col-6= production.stage_size
-  %tr.row
-    %td.col-2 Local Backline
-    %td.col-6= production.local_backline
-  %tr.row
-    %td.col-2 Access Notes
-    %td.col-6= production.access_notes
-  %tr.row
-    %td.col-2 Loading Notes
-    %td.col-6= production.loading_notes
-  %tr.row
-    %td.col-2 Credential Notes
-    %td.col-6= production.credential_notes
-  %tr.row
-    %td.col-2 Comment
-    %td.col-6= production.comment
+%table{:class=>"table table-striped mb-4"}
+  %tr
+    %th.w-25 Stage Size
+    %td= production.stage_size
+  %tr
+    %th Local Backline
+    %td= production.local_backline
+  %tr
+    %th Access Notes
+    %td= production.access_notes
+  %tr
+    %th Loading Notes
+    %td= production.loading_notes
+  %tr
+    %th Credential Notes
+    %td= production.credential_notes
+  %tr
+    %th Comment
+    %td= production.comment

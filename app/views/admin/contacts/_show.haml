@@ -6,7 +6,7 @@
     = render :partial => "admin/contacts/contact", :locals => {contact: @tour_day.contact}
   -else
     - unless print
-      %h4.card-title Contact
+      %h4.card-title Contacts
       .text-center
-        %p.card-textWith There has been no Contact created yet
+        %p.card-textWith There have been no Contacts created yet!
         =link_to "Create Contact", new_admin_tour_day_contact_path(@tour_day), :class=>"btn btn-success"

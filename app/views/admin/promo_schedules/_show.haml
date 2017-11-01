@@ -4,22 +4,22 @@
       Promo Schedule
       %span=link_to "Add Show Promo Item", new_admin_tour_day_promo_schedule_item_path(@tour_day), :class=>"btn btn-outline-primary btn-sm ml-4" unless print
     %table{:class=>"table table-striped col-10 mb-4"}
-      %thead
-        %tr.row
-          %th.col-1 Name
-          %th.col-2 for_whom
-          %th.col-1 destination
-          %th.col-1 start time
-          %th.col-1 end time
-          %th.col-2 contact
-          %th.col-2 Comment
+      %tbody
+        %tr
+          %th What
+          %th Who
+          %th Where
+          %th Start Time
+          %th End Time
+          %th Contact
+          %th Comment
           - unless print
-            %th.col-1
-      - @tour_day.promo_schedule_items.each do |item|
-        = render :partial => "admin/promo_schedule_items/show_promo_schedule_item", :locals => {item: item, print: print}
+            %th
+        - @tour_day.promo_schedule_items.each do |item|
+          = render :partial => "admin/promo_schedule_items/show_promo_schedule_item", :locals => {item: item, print: print}
   -else
     -unless print
       %h4.card-title Promo Schedule
       .text-center
-        %p.card-textWith There has been No Promo Schedule created yet
-        =link_to "create promo schedule", new_admin_tour_day_promo_schedule_item_path(@tour_day), :class=>"btn btn-success"
+        %p.card-textWith There has been no Promo Schedule created yet!
+        =link_to "Create Promo Schedule", new_admin_tour_day_promo_schedule_item_path(@tour_day), :class=>"btn btn-success"

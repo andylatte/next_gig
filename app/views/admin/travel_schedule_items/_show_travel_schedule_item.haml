@@ -1,28 +1,16 @@
-%tr.row
-  %td.col-1
-    = item.name
-  %td.col-2
-    = item.for_whom
-  %td.col-1
-    = item.number
-  %td.col-1
-    = item.origin
-  %td.col-1
-    = item.destination
+%tr
+  %th= item.name
+  %td= item.for_whom
+  %td= item.number
+  %td= item.origin
+  %td= item.destination
+  %td= l(item.start_time, :format => :time) if item.start_time
+  %td= l(item.departure_datetime, :format => :long) if item.departure_datetime
+  %td= l(item.arrival_datetime, :format => :long) if item.arrival_datetime
+  %td= item.duration
+  %td= item.comment
   - unless print
-    %td.col-1
-      = l(item.start_time, :format => :time) if item.start_time
-  %td.col-1
-    = l(item.departure_datetime, :format => :long) if item.departure_datetime
-  %td.col-1
-    = l(item.arrival_datetime, :format => :long) if item.arrival_datetime
-  - unless print
-    %td.col-1
-      = item.duration
-  %td.col-1
-    = item.comment
-  - unless print
-    %td.col-1
+    %td
       %div{:class=>"btn-toolbar"}
         %div{:class=>"btn-group mr-2"}
           =link_to "edit", edit_admin_travel_schedule_item_path(item), :class=>"btn btn-info btn-sm"
