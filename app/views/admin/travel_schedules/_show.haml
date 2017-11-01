@@ -4,7 +4,7 @@
       Travel Schedule
       %span=link_to "Add Travel Schedule Item", new_admin_tour_day_travel_schedule_item_path(@tour_day), :class=>"btn btn-outline-primary btn-sm ml-4" unless print
     %table{:class=>"table table-striped mb-4"}
-      %thead
+      %tbody
         %tr
           %th Name
           %th Who
@@ -18,7 +18,7 @@
           %th Comment
           - unless print
             %th
-      %tbody
+
         - @tour_day.travel_schedule_items.each do |item|
           = render :partial => "admin/travel_schedule_items/show_travel_schedule_item", :locals => {item: item, print: print}
   -else

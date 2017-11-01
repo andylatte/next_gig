@@ -1,5 +1,5 @@
 .col.text-right
-  %span=link_to "Print Day Sheet", admin_tour_day_print_path(@tour_day, :format => :pdf), :class=>"btn btn-outline-secondary btn-sm mb-2"
+  %span=link_to "Print Day Sheet", admin_tour_day_print_path(@tour_day, :format => :pdf), :target => :blank, :class=>"btn btn-outline-secondary btn-sm mb-2"
 .card
   = render :partial => "admin/shared/tour_day_info"
 

@@ -4,7 +4,7 @@
       Promo Schedule
       %span=link_to "Add Show Promo Item", new_admin_tour_day_promo_schedule_item_path(@tour_day), :class=>"btn btn-outline-primary btn-sm ml-4" unless print
     %table{:class=>"table table-striped col-10 mb-4"}
-      %thead
+      %tbody
         %tr
           %th What
           %th Who
@@ -15,7 +15,6 @@
           %th Comment
           - unless print
             %th
-      %tbody
         - @tour_day.promo_schedule_items.each do |item|
           = render :partial => "admin/promo_schedule_items/show_promo_schedule_item", :locals => {item: item, print: print}
   -else
