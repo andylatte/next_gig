@@ -26,7 +26,7 @@
 #
 
 class ShowScheduleItem < ScheduleItem
-  
+
   # scopes
   scope :evening, -> { where("start_time::time >= ?", Time.new(2012, 1, 1, 04, 00, 0)) }
   scope :morning, -> { where("start_time::time < ?", Time.new(2012, 1, 1, 04, 00, 0)) }
@@ -35,10 +35,8 @@ class ShowScheduleItem < ScheduleItem
   validates :start_time, presence: true
   validates_datetime :start_time
   validates_datetime :end_time, :allow_blank => true
-   
+
   # callbacks
 
   # public instance methods
 end
-
-Time.new(2012, 1, 1, 03, 00, 0)
